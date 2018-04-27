@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+page-registe {
+}
+.registe-body{
+    background-image: url(../assets/imgs/login.png);
+    background-size: 100% 100%;
+}
+
+// 手机注册
+.registe-header{
+    text-align: center;
+    color:#fff;
+    width: 100%;
+    font-size: 20px;
+    margin-top:20px;
+}
+.registe-header .icon{
+    position: absolute;
+    left: 11px;
+    top: 5px;
+}
+// content
+.registe-content{
+    padding-top: 50px;
+    width:325px;
+    margin: 0 auto;
+}
+
+// input
+.registe-items{
+    color:#fff;
+    margin-top: 10px;
+    background:none;
+}
+.registe-items-input{
+    text-align: left!important;
+}
+.registe-checkcode{
+    width:228px;
+    float: left;
+}
+.item-ios.item-block .item-inner{
+    border:none;
+}
+input{
+    text-align: left;
+}
+// check code 
+.registe-check-button{
+    width:86px;
+    height:30px;
+    margin-top:28px;
+    float: right;
+    padding: 0 10px;
+    font-size: 12px;
+}
+// registe button
+.registe-button{
+    width:310px;
+    font-size: 16px;
+    height: 51px;
+    float: right;
+    margin-top: 43px;
+    margin-bottom: 35px;
+}
+// registe-checkbox
+.registe-checkbox{
+    // margin-left:50px;
+    margin: 0 auto;
+    width:240px;
+    background: none;
+    color:#fff;
+}
+.registe-checkbox-text{
+    border:none;
+    outline: none;
+}
+p{
+    color:white;
+    margin-left:180px;
+}
