@@ -1,0 +1,29 @@
+<!-- <ion-header class="registe-header">
+  <ion-icon class="icon" name="ios-arrow-back-outline"></ion-icon>手机注册
+</ion-header> -->
+<ion-content class="body"> 
+
+  <!-- content -->
+  <div class="content">
+      <ion-header class="login-header">
+        <ion-icon class="icon" name="ios-arrow-back-outline"></ion-icon>登录</ion-header>
+       
+    <!-- inputs -->
+      <ion-item class="items">
+        <ion-label color="white"><ion-icon class="icon" name="md-phone-portrait"></ion-icon></ion-label>
+        <ion-input class="items-input" placeholder="手机号/用户名" clearInput></ion-input>
+      </ion-item>
+      
+      <ion-item class="items">
+        <ion-label color="white"><ion-icon class="icon" name="ios-lock"></ion-icon></ion-label>
+        <ion-input type="password" class="items-input" placeholder="密码" clearInput></ion-input>
+      </ion-item>
+      
+      <!-- login button -->
+      <button (click)="login()" class="login-button" ion-button round>登录</button>
+      
+      <p (click)="goRegiste()"><a class="bottom">还没有账号?快去注册</a></p>
+    </div>
+  
+
+</ion-content>
