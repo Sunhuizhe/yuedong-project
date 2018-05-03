@@ -5,7 +5,6 @@
     </ion-title>
   </ion-navbar>
   
-  <ion-searchbar color="primary" placeholder="场地搜索"></ion-searchbar>
 </ion-header>
 
 <ion-content class="content">
@@ -26,6 +25,7 @@
 
     <!-- 场地预约 -->    
     <ion-grid class="grid" *ngSwitchCase="'order'">
+      <ion-searchbar color="primary" placeholder="场地搜索"></ion-searchbar>
       <ion-list *ngFor="let item of addressitems">
         <ion-item class="items">
           <img class="item-imgs" src="{{item.imgs}}" alt="场地图片">
@@ -46,12 +46,14 @@
     </ion-grid>
 
     <!-- 发起活动 -->
-    <ion-grid *ngSwitchCase="'launch'">
+    <ion-grid class="grid" *ngSwitchCase="'launch'">
+      <ion-searchbar color="primary" placeholder="活动搜索"></ion-searchbar>
       <ion-list *ngFor="let item of myactitems">
         <ion-item class="items">
           <img class="item-imgs" src="{{item.imgs}}" alt="场地图片">
           <div class="right">
             <p class="title">{{item.name}}</p>
+            <ion-icon class="delete" name="ios-trash"></ion-icon>
             <p class="detail">
               <span class="left-span">{{item.payway}}</span> | 
               <span class="right-span">人数:{{item.number}}</span>
@@ -64,10 +66,14 @@
           </div>
         </ion-item>
       </ion-list>
+      <button class="button" ion-button icon-start>
+        <ion-icon name="ios-add-circle-outline"></ion-icon>发起活动
+      </button>
     </ion-grid>
 
     <!-- 参加活动 -->
-    <ion-grid *ngSwitchCase="'join'">
+    <ion-grid class="grid" *ngSwitchCase="'join'">
+      <ion-searchbar color="primary" placeholder="活动搜索"></ion-searchbar>
       <ion-list *ngFor="let item of myactitems">
         <ion-item class="items">
           <img class="item-imgs" src="{{item.imgs}}" alt="场地图片">
@@ -85,6 +91,7 @@
           </div>
         </ion-item>
       </ion-list>
+      
     </ion-grid>
     
   </div>

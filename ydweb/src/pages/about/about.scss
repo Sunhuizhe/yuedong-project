@@ -6,6 +6,14 @@ page-about {
     .content{
         width:100%;
         height:100%;
+        .grid{
+            padding:5px 0;
+            // text-align: center;
+            .button{
+                width:90%;
+                margin:8px auto;
+            }
+        }
         .items{
             border-bottom:1px solid #eee;
             .item-imgs{
@@ -16,6 +24,14 @@ page-about {
                 width:70%;
                 float: right;
                 font-size: 12px;
+                .delete{
+                    color:#666;
+                    font-size: 18px;
+                    // float: right;
+                    position: absolute;
+                    top:15px;
+                    right:10px;
+                }
                 .title{
                     font-size:16px;
                     font-weight: bold;
@@ -54,7 +70,8 @@ page-about {
         } // items
     }
     .searchbar-md{
-        padding:0;
+        padding:0 0 8px 0;
+        width:100%;
     }
     .searchbar-md .searchbar-input{
         padding:6px 40px;
@@ -63,8 +80,5 @@ page-about {
     .searchbar-md .searchbar-search-icon{
         left:10px;
     }
-    // .item-md p{
-    //     // color:#000;
-    // }
     
 }
