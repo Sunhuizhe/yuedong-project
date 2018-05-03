@@ -7,12 +7,76 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>info</ion-title>
+    <ion-title>消息</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+   <div padding class="top">
+        <ion-segment [(ngModel)]="info">
+          <ion-segment-button value="群组">
+            群组
+          </ion-segment-button>
+          <ion-segment-button value="好友">
+            好友
+          </ion-segment-button>
+          <ion-segment-button value="附近">
+              附近
+            </ion-segment-button>
+        </ion-segment>
+      </div>
+      
+      <div [ngSwitch]="info">
+          <ion-list *ngSwitchCase="'群组'">
+              <ion-item>
+                <ion-thumbnail item-start>
+                  <img src="../assets/imgs/football.jpg" style="border-radius: 50%">
+                </ion-thumbnail>
+                <p style="font-size:20px">师大足球群</p>
+                <p>hfdisojfaksmvckdsjfcsd</p>
+              </ion-item>
+              
+              <ion-item>
+                  <ion-thumbnail item-start>
+                    <img src="../assets/imgs/sport1.jpg" style="border-radius: 50%"> 
+                  </ion-thumbnail>
+                  <p style="font-size:20px">石家庄运动群</p>
+                  <p>hfdisojfaksmvckdsjfcsd</p>
+                </ion-item>
+            </ion-list>
+        <ion-list *ngSwitchCase="'好友'">
+            <ion-item>
+                <ion-thumbnail item-start>
+                  <img src="../assets/imgs/sport1.jpg" style="border-radius: 50%"> 
+                </ion-thumbnail>
+                <p style="font-size:20px">张三</p>
+                <p>hfdisojfaksmvckdsjfcsd</p>
+              </ion-item>
+            <ion-item>
+              <ion-thumbnail item-start>
+                <img src="../assets/imgs/sport1.jpg" style="border-radius: 50%"> 
+              </ion-thumbnail>
+              <p style="font-size:20px">李四</p>
+              <p>hfdisojfaksmvckdsjfcsd</p>
+            </ion-item>
+        </ion-list>
+        <ion-list *ngSwitchCase="'附近'">
+            <ion-item>
+                <ion-thumbnail item-start>
+                  <img src="../assets/imgs/sport2.jpg" style="border-radius: 50%"> 
+                </ion-thumbnail>
+                <p style="font-size:20px">张三</p>
+                <p>hfdisojfaksmvckdsjfcsd</p>
+              </ion-item>
+            <ion-item>
+              <ion-thumbnail item-start>
+                <img src="../assets/imgs/sport2.jpg" style="border-radius: 50%"> 
+              </ion-thumbnail>
+              <p style="font-size:20px">李四</p>
+              <p>hfdisojfaksmvckdsjfcsd</p>
+            </ion-item>
+          </ion-list>
+        </div>
 </ion-content>
