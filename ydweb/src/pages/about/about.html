@@ -1,11 +1,99 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
+  <ion-navbar color="primary" style="text-align: center;">
+    <ion-title color="primary">
+      预约
     </ion-title>
   </ion-navbar>
+  
 </ion-header>
 
-<ion-content padding>
+<ion-content class="content">
+
+  <ion-segment [(ngModel)]="actype" color="primary">
+    <ion-segment-button value="order">
+      场地预约
+    </ion-segment-button>
+    <ion-segment-button value="launch">
+      发起活动
+    </ion-segment-button>
+    <ion-segment-button value="join">
+      参加活动
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [(ngSwitch)]="actype">
+
+    <!-- 场地预约 -->    
+    <ion-grid class="grid" *ngSwitchCase="'order'">
+      <ion-searchbar color="primary" placeholder="场地搜索"></ion-searchbar>
+      <ion-list *ngFor="let item of addressitems">
+        <ion-item class="items">
+          <img class="item-imgs" src="{{item.imgs}}" alt="场地图片">
+          <div class="right">
+            <p class="title">{{item.name}}</p>
+            <p class="detail">
+              <span class="left-span">{{item.grade}}分</span>|
+              <span class="right-span">成交{{item.orders}}笔</span>
+            </p>
+            <p class="position"> 
+              <ion-icon name="md-pin"></ion-icon> 
+              {{item.position.slice(0,12)+'...'}}
+            </p>
+            <p class="price">￥<span>{{item.price}}</span></p>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-grid>
+
+    <!-- 发起活动 -->
+    <ion-grid class="grid" *ngSwitchCase="'launch'">
+      <ion-searchbar color="primary" placeholder="活动搜索"></ion-searchbar>
+      <ion-list *ngFor="let item of myactitems">
+        <ion-item class="items">
+          <img class="item-imgs" src="{{item.imgs}}" alt="场地图片">
+          <div class="right">
+            <p class="title">{{item.name}}</p>
+            <ion-icon class="delete" name="ios-trash"></ion-icon>
+            <p class="detail">
+              <span class="left-span">{{item.payway}}</span> | 
+              <span class="right-span">人数:{{item.number}}</span>
+            </p>
+            <p class="position"> 
+              <ion-icon name="md-pin"></ion-icon> 
+              {{item.position.slice(0,12)}}
+            </p>
+            <p class="time">{{item.stime}}-{{item.etime}}</p>
+          </div>
+        </ion-item>
+      </ion-list>
+      <button class="button" ion-button icon-start>
+        <ion-icon name="ios-add-circle-outline"></ion-icon>发起活动
+      </button>
+    </ion-grid>
+
+    <!-- 参加活动 -->
+    <ion-grid class="grid" *ngSwitchCase="'join'">
+      <ion-searchbar color="primary" placeholder="活动搜索"></ion-searchbar>
+      <ion-list *ngFor="let item of myactitems">
+        <ion-item class="items">
+          <img class="item-imgs" src="{{item.imgs}}" alt="场地图片">
+          <div class="right">
+            <p class="title">{{item.name}}</p>
+            <p class="detail">
+              <span class="left-span">{{item.payway}}</span> | 
+              <span class="right-span">人数:{{item.number}}</span>
+            </p>
+            <p class="position"> 
+              <ion-icon name="md-pin"></ion-icon> 
+              {{item.position.slice(0,12)}}
+            </p>
+            <p class="time">{{item.stime}}-{{item.etime}}</p>
+          </div>
+        </ion-item>
+      </ion-list>
+      
+    </ion-grid>
+    
+  </div>
 
 </ion-content>
