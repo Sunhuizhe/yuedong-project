@@ -9,6 +9,7 @@
 
 <ion-content class="content">
 
+  <!-- segment 组件 -->
   <ion-segment [(ngModel)]="actype" color="primary">
     <ion-segment-button value="order">
       场地预约
@@ -21,6 +22,7 @@
     </ion-segment-button>
   </ion-segment>
 
+  <!-- segment 选项 -->
   <div [(ngSwitch)]="actype">
 
     <!-- 场地预约 -->    
