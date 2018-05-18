@@ -18,8 +18,8 @@ import { AlertController } from 'ionic-angular';
 })
 export class LoginPage {
 
-  telNumber:string;
-  password:string;
+  telNumber:string='';
+  password:string='';
 
   constructor(private alertCtrl: AlertController,private http: HTTP,public navCtrl: NavController, public navParams: NavParams) {
   
@@ -65,37 +65,35 @@ export class LoginPage {
     }else{
       if(this.password == ''){
         this.presentAlert('密码不能为空！');
-      }
-    }
-
-    // console.log('tel:',this.telNumber,'pwd:',this.password);
-
-    this.http.post('http://39.107.66.152:8080/login',{
-      userName:this.telNumber,
-      password:this.password
-    },{})
-    .then(data=>{
-
-      var num = data['data'];
-
-      console.log(typeof num,num);
-      if(num == '0'){
-        this.presentAlert('用户名不存在！');
-      }else if(num == '2') {
-        this.presentAlert('密码不正确！');
-      }else if(num == '5') {
-        this.presentAlert('数据库错误');
       }else{
-        // console.log(TabsPage);
-        this.navCtrl.push(TabsPage);
-        window.localStorage.setItem('userID',num);
-        window.localStorage.setItem('login','true');
-      }
-    }).catch(error => {
-      console.log('error status:',error.status);
-      this.presentAlert(error.error);
-    });
-    
-  }
+        
+        this.http.post('http://39.107.66.152:8080/login',{
+          userName:this.telNumber,
+          password:this.password
+        },{})
+        .then(data=>{
+
+          var num = data['data'];
+
+          console.log(typeof num,num);
+          if(num == '0'){
+            this.presentAlert('用户名不存在！');
+          }else if(num == '2') {
+            this.presentAlert('密码不正确！');
+          }else if(num == '5') {
+            this.presentAlert('数据库错误');
+          }else{
+            // console.log(TabsPage);
+            this.navCtrl.push(TabsPage);
+            window.localStorage.setItem('userID',num);
+            window.localStorage.setItem('login','true');
+          }
+        }).catch(error => {
+          console.log('error status:',error.status);
+          this.presentAlert(error.error);
+        }); // post
+      } // else-password
+    } // else-username
+  } // login()
 
 }

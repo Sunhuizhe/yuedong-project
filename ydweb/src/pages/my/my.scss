@@ -25,13 +25,13 @@ page-my{
         .image{
             width:25%;
             border-radius:50%;
-            margin-left:7%;
+            margin: 0 7%;
         }
         .right-span{
-            max-width:62%; 
+            width:55%; 
             float: right;
             margin-right:5%;
-            margin-top:5%;
+            margin-top:3%;
             p{
                 margin: 0;
             }
@@ -39,7 +39,7 @@ page-my{
                 font-size: 18px;
             }
             .bottom{
-                font-size: 10px;
+                font-size: 14px;
                 color:#999;
                 margin-top:3%;
             }

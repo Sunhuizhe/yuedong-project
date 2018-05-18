@@ -1,0 +1,25 @@
+page-changepwd {
+    .navbar{
+        text-align: center;
+        .title{
+            padding-right:20%;
+        }
+    }
+    .content{
+        padding:10% 5% 0 2%;
+        .items{
+            margin-bottom:3%;
+        }
+        .button{
+            // float: right;
+            margin-top:5%;
+            width:99%;
+            margin-left:2%;
+            height:50px;
+        }
+        .bottom{
+            float: right;
+        }
+    }
+    
+}
