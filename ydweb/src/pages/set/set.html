@@ -21,7 +21,7 @@
     <ion-list class="list-first">
       <ion-item>
         <ion-label color="primary">昵称</ion-label>
-        <ion-input class="myinput" placeholder="" value="{{userinfo.name}}"></ion-input>
+        <ion-input id="name" class="myinput" placeholder="" value="{{userinfo.name}}"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label color="primary">手机</ion-label>
@@ -29,7 +29,7 @@
       </ion-item>
       <ion-item>
         <ion-label color="primary">个性签名</ion-label>
-        <ion-input class="input-intro" placeholder="" value="{{userinfo.intro}}"></ion-input>
+        <ion-input id="intro" class="input-intro" placeholder="" value="{{userinfo.intro}}"></ion-input>
       </ion-item>
     </ion-list>
     <ion-list class="list-second">
@@ -39,7 +39,7 @@
         <ion-icon item-end class="icon" name="ios-arrow-forward"></ion-icon>
       </ion-item>
     </ion-list>
-    <button ion-button class="button">退出当前账号</button>
+    <button ion-button class="button" (click)="backToLogin()">退出当前账号</button>
   </div>
 
 </ion-content>

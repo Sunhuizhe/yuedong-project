@@ -66,13 +66,29 @@ export class MyPage {
   // }
 
   items=[
-    {iconname:'md-pulse',title:'我的运动'},
-    {iconname:'md-star',title:'我的收藏'},
+    {iconname:'md-pulse',title:'我的运动',page:'MyActPage'},
+    {iconname:'md-star',title:'我的收藏',page:'MyStarPage'},
     {iconname:'ios-call',title:'我要合作'},
-    {iconname:'md-information-circle',title:'关于悦动'}
+    {iconname:'md-information-circle',title:'关于悦动',page:'MyAboutPage'}
   ]
 
   goSet(){
     this.navCtrl.push('SetPage');
   }
+
+  goPage(e){
+    var page = e.target.getAttribute('id'); 
+    console.log(page);
+    if(page == 'MyActPage'){
+      console.log(page);
+      this.navCtrl.push('MyActPage');
+    }else if(page == 'MyAboutPage'){
+      console.log(page);
+      this.navCtrl.push('MyAboutPage');
+    }else if(page == 'MyStarPage'){
+      console.log(page);
+      this.navCtrl.push('MyStarPage');
+    }
+  }
+
 }

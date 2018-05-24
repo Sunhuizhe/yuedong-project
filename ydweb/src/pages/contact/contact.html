@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-navbar>
+<ion-header class="header">
+  <ion-navbar color="primary">
     <ion-title>
       发现
     </ion-title>
@@ -7,44 +7,31 @@
 </ion-header>
 
 <ion-content>
- 
-    <ion-list >
-        <ion-item>
-           <ion-avatar item-start> 
-              <ion-label color="white"><ion-icon class="icon" name="ios-aperture"  ></ion-icon></ion-label>
-              <p style="margin-left:50px;margin-top:-25px;">运动圈</p>
-        
-          </ion-avatar> 
-          
-        </ion-item> 
-    </ion-list>
-    <ion-list >
-          <ion-item>
-            <ion-avatar item-start>
-                <ion-label color="white"><ion-icon class="icon" name="ios-chatboxes"></ion-icon></ion-label>
-                <p style="margin-left:50px;margin-top:-25px;">话题</p>
-            </ion-avatar>
-         
-          </ion-item>
-    </ion-list>
-    <ion-list >   
-            <ion-item>
-              <ion-avatar item-start>
-                  <ion-label color="white"><ion-icon class="icon" name="ios-body"></ion-icon></ion-label>
-                  <p style="margin-left:50px;margin-top:-25px;">附近的人</p>
-              </ion-avatar>
-            
-            </ion-item>
-    </ion-list>
-    <ion-list >   
-        <ion-item>
-          <ion-avatar item-start>
-              <ion-label color="white"><ion-icon class="icon" name="ios-call"></ion-icon></ion-label>
-              <p style="margin-left:50px;margin-top:-25px;">摇一摇</p>
-          </ion-avatar>
-         
-        </ion-item>
-    </ion-list>
-   
-    
+
+  <ion-list>
+    <ion-item>
+      <ion-icon item-start class="icon" name="ios-aperture"></ion-icon>
+      <ion-label>运动圈</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="list">
+    <ion-item>
+      <ion-icon item-start class="icon" name="ios-chatboxes"></ion-icon>
+      <ion-label>话题</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="list">
+    <ion-item>
+      <ion-icon item-start class="icon" name="ios-body"></ion-icon>
+      <ion-label>附近的人</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon item-start class="icon" name="ios-call"></ion-icon>
+      <ion-label>摇一摇</ion-label>
+    </ion-item>
+  </ion-list>
+
+
 </ion-content>

@@ -60,6 +60,11 @@ export class SetPage {
     this.navCtrl.push('ChangepwdPage');
   }
 
+  // 退出登录
+  backToLogin(){
+    this.navCtrl.setRoot('LoginPage');
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad SetPage');
   }
