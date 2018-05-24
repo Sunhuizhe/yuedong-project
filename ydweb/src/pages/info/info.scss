@@ -1,7 +1,25 @@
 page-info {
+    .header{
+        text-align: center;
+    }
     .top{
-        width:375px;
-        height:60px;
-        margin:-16px 0 0 -16px;
+        width:100%;
+        padding:0!important;
+        // height:60px;
+        // margin:-16px 0 0 -16px;
+    }
+    .bottom{
+        padding:1% 0;
+        .image{
+            width:80px;
+            border-radius:50%;
+        }
+        .thumbnail{
+            width:25%;
+        }
+    }
+    .item-md{
+        padding-left:0;
+        margin-left:16px;
     }
 }

@@ -8,6 +8,14 @@ import { NavController } from 'ionic-angular';
 export class AboutPage {
 
   actype:string='order';
+  name:string="";
+  time:string='';
+  place:string='';
+  number:string='';
+  endTime:string='';
+  money:string='';
+  way:string='';
+  actintro:string='';
 
   constructor(public navCtrl: NavController) {
 
@@ -39,4 +47,20 @@ export class AboutPage {
     {imgs:'assets/imgs/launch1.jpg',name:'荧光夜跑',position:'河北师范大学风雨操场',stime:'5月3日19:00',payway:'AA',number:'不限',etime:'6月3日21:00'},
     {imgs:'assets/imgs/launch1.jpg',name:'荧光夜跑',position:'河北师范大学风雨操场',stime:'5月3日19:00',payway:'AA',number:'不限',etime:'6月3日21:00'}
   ]
+
+  setValue(e){
+    var tag = e.target.getAttribute('tag') || e.target.innerHTML;
+    if(tag == 'AA' || tag == '其他'){
+      this.way = e.target.innerHTML;
+      console.log(tag);
+      console.log(this.way);
+    }else{
+      this[tag] = e.target.value;
+      console.log(tag,this[tag]);
+    }
+  }
+
+  request(){
+    console.log(this.name,this.time,this.place,this.number,this.endTime,this.money,this.way,this.actintro);
+  }
 }
