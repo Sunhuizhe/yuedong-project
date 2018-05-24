@@ -1,31 +1,40 @@
 page-home{
-    #silde{
-    height:auto;
-
-}
-.title{
-text-align:center;
-}
-.it{
-    width: 27%;
-    float: left;
-    margin-left: 6.65%;     
-    height: 50%; 
-}
-.it img{
-     width: 100px;
-    height: 100px;   
-  
-    margin-left: 10%;   
-    border-radius: 50%;
-}
-.it p{
-    margin-bottom: 8%;
-    margin-top: 25%;
-    margin-left: 40%;
-}
-.images{
     width:100%;
-    height:80px;
-}
+    height:100%;
+    text-align: center;
+    ion-slides{
+        height:auto;
+        .images{
+            height:240px;
+        }
+    }
+    .header{
+        text-align: center;
+    }
+    .it{
+        width: 80px;
+        float: left;  
+        height: 50%; 
+        margin-left:5%;
+        img{
+            width: 80px;
+            height: 80px;    
+            border-radius: 50%;
+        }
+        p{
+            text-align: center;
+            margin-top: 25%;
+        }
+        
+    }
+    .img{
+        margin-left:8%; 
+    }
+    .images{
+        width:100%;
+        height:200px;
+    }
+    .item-md.item-block .item-inner{
+        border:none;
+    }
 }

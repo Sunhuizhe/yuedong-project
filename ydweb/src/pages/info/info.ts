@@ -15,6 +15,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class InfoPage {
 
+  info:string='群组';
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

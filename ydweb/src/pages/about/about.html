@@ -9,6 +9,7 @@
 
 <ion-content class="content">
 
+  <!-- segment 组件 -->
   <ion-segment [(ngModel)]="actype" color="primary">
     <ion-segment-button value="order">
       场地预约
@@ -21,6 +22,7 @@
     </ion-segment-button>
   </ion-segment>
 
+  <!-- segment 选项 -->
   <div [(ngSwitch)]="actype">
 
     <!-- 场地预约 -->    
@@ -47,28 +49,49 @@
 
     <!-- 发起活动 -->
     <ion-grid class="grid" *ngSwitchCase="'launch'">
-      <ion-searchbar color="primary" placeholder="活动搜索"></ion-searchbar>
-      <ion-list *ngFor="let item of myactitems">
-        <ion-item class="items">
-          <img class="item-imgs" src="{{item.imgs}}" alt="场地图片">
-          <div class="right">
-            <p class="title">{{item.name}}</p>
-            <ion-icon class="delete" name="ios-trash"></ion-icon>
-            <p class="detail">
-              <span class="left-span">{{item.payway}}</span> | 
-              <span class="right-span">人数:{{item.number}}</span>
-            </p>
-            <p class="position"> 
-              <ion-icon name="md-pin"></ion-icon> 
-              {{item.position.slice(0,12)}}
-            </p>
-            <p class="time">{{item.stime}}-{{item.etime}}</p>
-          </div>
+      <ion-list>
+        <ion-item>
+          <ion-label>活动名称：</ion-label>
+          <ion-input tag="name" (blur)="setValue($event)"></ion-input>
         </ion-item>
-      </ion-list>
-      <button class="button" ion-button icon-start>
+        <ion-item>
+          <ion-label>活动时间：</ion-label>
+          <ion-input tag="time" (blur)="setValue($event)" type="date"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>活动地点：</ion-label>
+          <ion-input tag="place" (blur)="setValue($event)"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>活动人数：</ion-label>
+          <ion-input tag="number" (blur)="setValue($event)" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>报名截止时间：</ion-label>
+          <ion-input tag="endTime" (blur)="setValue($event)" type="date"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>活动计费：</ion-label>
+          <ion-input tag="money" (blur)="setValue($event)"></ion-input>
+        </ion-item>
+      </ion-list>      
+
+      <div class="way-out">
+          <ion-label class="way">计费方式：</ion-label>
+          <input class="way-input" value="{{way}}" disabled type="text">
+          <button tag="AA" class="button" (click)="setValue($event)" outline ion-button>AA</button>
+          <button tag="其他" class="button" (click)="setValue($event)" outline ion-button>其他</button>
+      </div>
+
+      <div>
+        <ion-label class="intro">活动说明：</ion-label>
+        <textarea tag="actintro" (blur)="setValue($event)" class="textarea" rows="7" cols="44" placeholder="给小伙伴们介绍一下你的活动吧..."></textarea>
+      </div>
+
+      <button (click)="request()" class="button" ion-button icon-start>
         <ion-icon name="ios-add-circle-outline"></ion-icon>发起活动
       </button>
+
     </ion-grid>
 
     <!-- 参加活动 -->

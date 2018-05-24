@@ -1,38 +1,44 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title id="title">首页</ion-title>
+<ion-header class="header">
+  <ion-navbar color="primary">
+    <ion-title>首页</ion-title>
   </ion-navbar>
-
-
-  <ion-slides pager id="slide">
-    <ion-slide>
-     <img src="../assets/imgs/swiper2.jpg">
-    </ion-slide>
-
-    <ion-slide>
-        <img src="../assets/imgs/swiper3.jpg">
-    </ion-slide>
-
-    <ion-slide>
-          <img src="../assets/imgs/swiper4.jpg">
-     </ion-slide>
-
-  </ion-slides>
-
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
-    <h2 style="text-align:center">热门运动</h2>
+  <ion-slides loop="true" pager="true" autoplay="3000" class="slide">
+    <ion-slide>
+      <img class="images" src="../assets/imgs/swiper2.jpg">
+    </ion-slide>
+
+    <ion-slide>
+      <img class="images" src="../assets/imgs/swiper3.jpg">
+    </ion-slide>
+
+    <ion-slide>
+      <img class="images" src="../assets/imgs/swiper4.jpg">
+    </ion-slide>
+  </ion-slides>
+
+  <h2 style="text-align:center">热门运动</h2>
   <ion-item>
-      <div class="list">
-          <div style="margin-left:0%;"  class="it"><img src="../../assets/imgs/sport1.jpg"><br><p>跑步</p></div>
-          <div  class="it"><img src="../../assets/imgs/sport2.jpg"><p>骑行</p></div>
-          <div  class="it"><img src="../../assets/imgs/swiper5.jpg"><p>瑜伽</p></div>
-
+    <div class="list">
+      <div class="it">
+        <img src="../../assets/imgs/sport1.jpg">
+        <br>
+        <p>跑步</p>
       </div>
-    </ion-item>
-<h2 style="text-align:center">精彩话题</h2>
-<ion-img class="images" width="100%" height="80px" src="../assets/imgs/yoga.jpg"></ion-img>
-<p style="text-align:center">#你最想和谁一起运动#</p>
+      <div class="it img">
+        <img src="../../assets/imgs/sport2.jpg">
+        <p>骑行</p>
+      </div>
+      <div class="it img">
+        <img src="../../assets/imgs/swiper5.jpg">
+        <p>瑜伽</p>
+      </div>
+    </div>
+  </ion-item>
+  <h2>精彩话题</h2>
+  <ion-img class="images" src="../assets/imgs/swiper5.jpg"></ion-img>
+  <p>#你最想和谁一起运动#</p>
 </ion-content>

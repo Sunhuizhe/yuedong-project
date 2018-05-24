@@ -6,13 +6,13 @@
 -->
 <ion-header id="#ion-header">
   <ion-navbar color="primary" class="nav">
-    <ion-title class="title">我的信息<ion-icon class="icon" name="md-settings"></ion-icon></ion-title>
+    <ion-title class="title">我的信息<ion-icon (click)="goSet()" class="icon" name="md-settings"></ion-icon></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <!-- content top -->
-  <div  class="info">
+  <div (click)="goSet()"  class="info">
     <img class="image" src="assets/imgs/QQ.jpg" alt="头像">
     <div class="right-span">
       <p class="top">{{userinfo.name}}</p>
