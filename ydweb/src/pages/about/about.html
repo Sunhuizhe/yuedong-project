@@ -27,7 +27,7 @@
 
     <!-- 场地预约 -->    
     <ion-grid class="grid" *ngSwitchCase="'order'">
-      <ion-searchbar color="primary" placeholder="场地搜索"></ion-searchbar>
+      <ion-searchbar color="primary" placeholder="场地搜索" (click)="goSite()"></ion-searchbar>
       <ion-list *ngFor="let item of addressitems">
         <ion-item class="items">
           <img class="item-imgs" src="{{item.imgs}}" alt="场地图片">
