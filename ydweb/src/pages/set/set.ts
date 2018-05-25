@@ -22,6 +22,8 @@ export class SetPage {
     telnum:''
   };
 
+  flag:boolean=true;
+
   // 错误信息提示框
   presentAlert(mes){
     let alert = this.alertCtrl.create({
@@ -63,6 +65,20 @@ export class SetPage {
   // 退出登录
   backToLogin(){
     this.navCtrl.setRoot('LoginPage');
+  }
+
+  // 输入框输入控制
+  setFlag(e){
+    console.log(e.target.innerHTML);
+    var temp = e.target.innerHTML;
+
+    if(temp == '编辑'){
+      this.flag=false;
+      e.target.innerHTML = '完成';
+    }else{
+      this.flag=true;
+      e.target.innerHTML = '编辑';
+    }
   }
 
   ionViewDidLoad() {

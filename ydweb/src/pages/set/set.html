@@ -8,6 +8,7 @@
 
   <ion-navbar class="navbar" color="primary">
     <ion-title class="title">设置</ion-title>
+    <span class="right-span" (click)="setFlag($event)">编辑</span>
   </ion-navbar>
 
 </ion-header>
@@ -21,7 +22,7 @@
     <ion-list class="list-first">
       <ion-item>
         <ion-label color="primary">昵称</ion-label>
-        <ion-input id="name" class="myinput" placeholder="" value="{{userinfo.name}}"></ion-input>
+        <ion-input disabled="{{flag}}" id="name" class="myinput" placeholder="" value="{{userinfo.name}}"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label color="primary">手机</ion-label>
@@ -29,7 +30,7 @@
       </ion-item>
       <ion-item>
         <ion-label color="primary">个性签名</ion-label>
-        <ion-input id="intro" class="input-intro" placeholder="" value="{{userinfo.intro}}"></ion-input>
+        <ion-input disabled="{{flag}}" id="intro" class="input-intro" placeholder="" value="{{userinfo.intro}}"></ion-input>
       </ion-item>
     </ion-list>
     <ion-list class="list-second">
