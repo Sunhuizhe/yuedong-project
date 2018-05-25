@@ -63,4 +63,7 @@ export class AboutPage {
   request(){
     console.log(this.name,this.time,this.place,this.number,this.endTime,this.money,this.way,this.actintro);
   }
+  goSite(){
+    this.navCtrl.push('AboutSitePage');
+  }
 }
