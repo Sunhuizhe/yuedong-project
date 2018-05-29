@@ -11,6 +11,12 @@
 </ion-header>
 
 <ion-content>
+
+  <!-- 下拉刷新 -->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="下拉刷新" refreshingText="刷新中"></ion-refresher-content>
+  </ion-refresher>
+
   <!-- content top -->
   <div (click)="goSet()"  class="info">
     <img class="image" src="assets/imgs/QQ.jpg" alt="头像">
@@ -30,4 +36,5 @@
       </ion-item>
     </ion-list>
   </div>
+
 </ion-content>

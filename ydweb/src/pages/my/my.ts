@@ -21,6 +21,34 @@ export class MyPage {
     intro:''
   };
 
+  // 下拉刷新
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    var userId = localStorage.getItem('userID');
+    this.http.post('http://39.107.66.152:8080/mine',{
+      userID:userId
+    },{}).then(data=>{
+      var info = JSON.parse(data['data']);
+
+      if(info == '0'){
+        this.presentAlert('数据请求失败，试试重新打开页面！');
+      }else{
+        this.userinfo.name = info[0].userName;
+        this.userinfo.intro = info[0].signature;
+        console.log(this.userinfo.name,this.userinfo.intro);
+      }
+    }).catch(error => {
+      console.log('error status:',error.status);
+      this.presentAlert(error.error);
+    }); 
+    
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
   // 错误信息提示框
   presentAlert(mes){
     let alert = this.alertCtrl.create({

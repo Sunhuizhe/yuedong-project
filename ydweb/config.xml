@@ -84,6 +84,8 @@
     <plugin name="cordova-plugin-advanced-http" spec="^1.11.1" />
     <allow-navigation href="http://10.7.92.242:8100" />
     <allow-navigation href="http://192.168.155.1:8100" />
+    <allow-navigation href="http://10.7.92.118:8100" />
+    <plugin name="cordova-plugin-camera" spec="^4.0.3" />
     <engine name="browser" spec="5.0.3" />
-    <engine name="android" spec="7.0.0" />
+    <engine name="android" spec="~7.0.0" />
 </widget>
