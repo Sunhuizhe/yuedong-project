@@ -1,9 +1,71 @@
 page-about-site {  
+    *{
+        font-size: 14px;
+        padding:0;
+        margin:0;
+    }
+    
+    .header{
+        text-align: center;
+        .title{
+            padding-right:20%;
+        }
+    }
     ion-slides{
         height:auto;
         .images{
             height:240px;
             width:100%;
         }
+    }
+    .list{
+        padding:0 5% 0 8%;
+        .item{
+            padding:3% 0;
+        }
+        .myicon{
+            font-size: 24px;
+            display: inline-block;
+            position: absolute;
+            // top:3%;
+        }
+        .time,.place,.tel{
+            padding:0;
+            padding-left:30px;
+            margin:0;
+            display: inline-block;
+            min-height: 24px;
+            line-height: 24px;
+        }
+        
+        .name{
+            padding-bottom:3%;
+            font-size: 20px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .grade{
+            font-size:16px;
+            padding-left: 2%;
+            display: inline-block;
+        }
+        .tel{
+            a{
+                text-decoration: none;
+            }
+        }
+        .last-item{
+            margin-bottom:5%;
+        }
+        .button{
+            width:43%;
+        }
+        .mybutton{
+            margin-left:10%;
+        }
+    }// list
+    
+    .list-md .item-block .item-inner{
+        border:none;
     }
 }

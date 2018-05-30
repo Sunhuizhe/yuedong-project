@@ -4,40 +4,61 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header class="header">
 
-  <ion-navbar>
-    <ion-title>about-site</ion-title>
+  <ion-navbar color="primary">
+    <ion-title class="title">场地预约</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content>
+  <!-- 轮播图 -->
   <ion-slides loop="true" pager="true" autoplay="3000" class="slide">
     <ion-slide>
-      <img class="images" src="../assets/imgs/swiper2.jpg">
+      <img class="images" src="../assets/imgs/place.jpg">
     </ion-slide>
 
     <ion-slide>
-      <img class="images" src="../assets/imgs/swiper3.jpg">
+      <img class="images" src="../assets/imgs/place2.jpg">
     </ion-slide>
 
     <ion-slide>
-      <img class="images" src="../assets/imgs/swiper4.jpg">
+      <img class="images" src="../assets/imgs/place3.jpg">
     </ion-slide>
   </ion-slides>
-  <div class="tabs tabs-icon-top">
-    <a class="tab-item" href="#">
-      <i class="icon ion-home"></i>
-      联系商家
-    </a>
-    <a class="tab-item" href="#">
-      <i class="icon ion-star"></i>
-      评论
-    </a>
-    <a class="tab-item" href="#">
-      <i class="icon ion-gear-a"></i>
-      预约
-    </a>
+
+  <!-- 信息列表 -->
+  <div class="list">
+    <div class="item">
+      <p class="name">{{infoItems.name}}</p>
+      <span class="grade">{{infoItems.grade}}</span>
+    </div>
+    <div class="item">
+      <ion-icon class="myicon" name="ios-time"></ion-icon>
+      <p class="time">开放时间：{{infoItems.time}}</p>
+    </div>
+    <div class="item">
+      <ion-icon class="myicon" name="ios-compass"></ion-icon>
+      <p class="place">地址：{{infoItems.place}}</p>
+    </div>
+    <div class="item">
+      <ion-icon class="myicon" name="md-information-circle"></ion-icon>
+      <p class="place">介绍：{{infoItems.intro}}</p>
+    </div>
+    <div class="last-item">
+      <a ion-button icon-start href="tel:{{infoItems.tel}}">
+        <ion-icon name="logo-whatsapp"></ion-icon>
+        联系管理员
+      </a>
+      <button (click)="goOrder()" class="mybutton" ion-button icon-start>
+        <ion-icon name="md-add-circle"></ion-icon>
+        申请预约
+      </button>
+    </div>
+    
   </div>
 </ion-content>
+
+
+
