@@ -1,9 +1,61 @@
 
 page-contact{
+    .content{
+        background:#eee;
+        .item{
+            margin-bottom:5%;
+            // 头像、昵称、时间
+            .top{
+                // overflow: hidden;
+                // clear: both;
+                width:100%;
+                margin-bottom:3%;
+                .image{
+                    width:12%;
+                    border-radius: 50%;
+                    float: left;
+                }
+                .right{
+                    float: left;
+                    width:70%;
+                    margin-left:3%;
+                    height:100%;
+                    .name{
+                        font-weight: bold;
+                        color:#000;
+                    }
+                    .time{
+                        font-size:12px;
+
+                    }
+                }
+            }
+            
+            //
+            .bottom{
+                width:100%;
+                clear: both;
+                p{
+                    // overflow: none!important;
+                }
+                .images{
+                    .thums{
+                        float: left;
+                        // display: inline-block;
+                        margin:1%;
+                        img{
+                            width:100px;
+                            height:100px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ion-label{
+        white-space: normal;
+    }
     .header{
         text-align: center;
-    }
-    .list{
-        margin-top:5%;
     }
 }

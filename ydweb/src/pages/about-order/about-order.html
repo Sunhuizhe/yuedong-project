@@ -4,15 +4,48 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header class="header">
 
-  <ion-navbar>
-    <ion-title>about-order</ion-title>
+  <ion-navbar color="primary">
+    <ion-title class="title">预约申请</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+  <div class="mybody">
+
+    <ion-list class="list">
+
+      <ion-item class="item">
+        <ion-icon name="md-time" item-start></ion-icon>
+        <ion-input id="time" (blur)="getValue($event)" type="text" placeholder="*时间"></ion-input>
+      </ion-item>
+
+      <ion-item class="item">
+        <ion-icon name="ios-contacts" item-start></ion-icon>
+        <ion-input id="number" (blur)="getValue($event)" type="number" placeholder="*人数"></ion-input>
+      </ion-item>
+
+    </ion-list>
+    
+    <ion-list class="last-list">
+
+      <div class="item">
+        <ion-icon name="md-clipboard" item-start></ion-icon>备注
+      </div>
+      
+      <textarea id="others" (blur)="getValue($event)" class="textarea" rows="7" cols="44" placeholder="有什么额外要求要对管理员说的吗？"></textarea>
+
+    </ion-list>
+
+    <button (click)="upData()" class="button" icon-start ion-button>
+      <ion-icon name="md-add-circle"></ion-icon>
+      申请
+    </button>
+
+  </div>
 
 </ion-content>

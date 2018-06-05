@@ -74,7 +74,8 @@ export class LoginPage {
         .then(data=>{
 
           var num = data['data'];
-
+          console.log(num);
+          
           console.log(typeof num,num);
           if(num == '0'){
             this.presentAlert('用户名不存在！');
@@ -84,6 +85,7 @@ export class LoginPage {
             this.presentAlert('数据库错误');
           }else{
             // console.log(TabsPage);
+            num = parseInt(num.slice(10,-1));
             this.navCtrl.push(TabsPage);
             window.localStorage.setItem('userID',num);
             window.localStorage.setItem('login','true');

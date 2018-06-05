@@ -29,38 +29,23 @@
 
     <!-- 群组 -->
     <ion-list *ngSwitchCase="'群组'">
-      <ion-item>
+      <ion-item (click)="goDetail()" *ngFor="let item of groupitems">
         <ion-thumbnail  class="thumbnail"  item-start>
-          <img src="../assets/imgs/football.jpg" class="image">
+          <img src="{{item.imgUrl}}" class="image">
         </ion-thumbnail>
-        <p class="name">师大足球群</p>
-        <p>hfdisojfaksmvckdsjfcsd</p>
+        <p class="name">{{item.name}}</p>
+        <p>{{item.info}}</p>
       </ion-item>
-      
-      <ion-item>
-          <ion-thumbnail  class="thumbnail"  item-start>
-            <img src="../assets/imgs/sport1.jpg" class="image"> 
-          </ion-thumbnail>
-          <p class="name">石家庄运动群</p>
-          <p>hfdisojfaksmvckdsjfcsd</p>
-        </ion-item>
     </ion-list>
 
     <!-- 好友 -->
     <ion-list *ngSwitchCase="'好友'">
-      <ion-item>
+      <ion-item (click)="goDetail()" *ngFor="let item of personitems">
         <ion-thumbnail  class="thumbnail"  item-start>
-            <img src="../assets/imgs/sport1.jpg" class="image"> 
+            <img src="{{item.imgUrl}}" class="image"> 
         </ion-thumbnail>
-          <p class="name">张三</p>
-          <p>hfdisojfaksmvckdsjfcsd</p>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail  class="thumbnail"  item-start>
-          <img src="../assets/imgs/sport1.jpg" class="image"> 
-        </ion-thumbnail>
-        <p class="name">李四</p>
-        <p>hfdisojfaksmvckdsjfcsd</p>
+          <p class="name">{{item.name}}</p>
+          <p>{{item.info}}</p>
       </ion-item>
     </ion-list>
 

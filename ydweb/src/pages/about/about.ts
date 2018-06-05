@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { HTTP} from '@ionic-native/http';
+import { AlertController } from 'ionic-angular';
 @Component({
   selector: 'page-about',
   templateUrl: 'about.html'
@@ -17,8 +18,35 @@ export class AboutPage {
   way:string='';
   actintro:string='';
 
-  constructor(public navCtrl: NavController) {
+  // 错误信息提示框
+  presentAlert(mes){
+    let alert = this.alertCtrl.create({
+      // title: 'Low battery',
+      subTitle: mes,
+      buttons: ['知道了！']
+    });
+    alert.present();
+  }
 
+  constructor(private http: HTTP,
+    private alertCtrl: AlertController,
+    public navCtrl: NavController) {
+
+      this.http.get('http://39.107.66.152:8080/sport',{},{})
+      .then(data=>{
+        // console.log(data['data']);
+        // this.presentAlert(data);
+        for(var k in data){
+          console.log(data[k]);
+        }
+      }).catch(error=>{
+        // console.log(error);
+        this.presentAlert(error);
+        for(var k in error){
+          console.log(error[k]);
+        }
+      });
+      
   }
 
   // 场地预约
@@ -66,4 +94,9 @@ export class AboutPage {
   goSite(){
     this.navCtrl.push('AboutSitePage');
   }
+
+  goAct(){
+    this.navCtrl.push('AboutActPage');
+  }
+
 }

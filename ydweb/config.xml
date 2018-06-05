@@ -3,8 +3,9 @@
     <name>ydweb</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.155.1:8100" />
     <access origin="*" />
+    <access launch-external="yes" origin="tel:*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -86,6 +87,9 @@
     <allow-navigation href="http://192.168.155.1:8100" />
     <allow-navigation href="http://10.7.92.118:8100" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
+    </plugin>
     <engine name="browser" spec="5.0.3" />
-    <engine name="android" spec="~7.0.0" />
+    <engine name="android" spec="^7.1.0" />
 </widget>

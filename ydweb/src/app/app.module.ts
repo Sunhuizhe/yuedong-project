@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HTTP } from '@ionic-native/http';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
+import { Geolocation } from '@ionic-native/geolocation';
 import { ImagePicker } from '@ionic-native/image-picker';
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
     StatusBar,
     SplashScreen,
     Camera,
+    Geolocation,
     ImagePicker,
     HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
