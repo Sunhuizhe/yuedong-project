@@ -1,0 +1,101 @@
+page-info-detail {
+    .header{
+        text-align: center;
+    }
+    .infodetail-header .icon{
+        float: left;
+        margin:6px 5px;
+    }
+    .toolbar-background {
+        background-color: #488aff;
+      }
+    .infodetail-title{
+        padding-right:20%;   
+    }
+    // content
+    .content{
+        background:#eeeeee;
+        font-size: 14px;
+        line-height: 2em;
+    }
+    .infodetail-content{
+        padding-bottom: 20px;
+    }
+    .label-md{
+        margin: 5px 0;
+    }
+    .trangel{
+        width:5px;
+        height:5px;
+        border:5px solid red;
+        border-color:transparent;
+        margin-top:25px;
+    }
+    .infodetail-list-item-self .trangel{
+        float:right;
+        border-left:5px solid #488aff;
+    }
+    .infodetail-list-item-others .trangel{
+        float:left;
+        border-right:5px solid #ffffff;
+    }
+    .infodetail-list-item-self img{
+        float:right;
+    }
+    .infodetail-list-item-others img{
+        float: left;
+    }
+    .infodetail-imgs{
+        width:60px;
+        height:60px;
+        border-radius: 30px!important;
+    }
+    
+    ion-label{
+        text-align: left;
+        white-space: normal;
+    }
+    .infodetail-info{
+        text-align: left;
+        max-width: 70%;
+        padding:2px 8px;
+        margin-top:14px;
+        border-radius:0.8em;
+    }
+    .infodetail-list-item-self p{  
+        float: right;
+        background: #488aff;
+    }
+    .infodetail-list-item-others p{
+        float: left;
+        background:#ffffff;
+    }
+    // footer
+    .infodetail-footer{
+        background:#ffffff;
+        width:100%;
+        height:45px;
+        position: fixed;
+        bottom:0;
+        margin-left:-16px;
+    }
+    .color-icon{
+        font-size: 35px;
+        padding:5px;
+        color:#488aff;
+    }
+    .infodetail-input{
+        margin-left:5%;
+        border:none;
+        margin-top:10px;
+        font-size: 16px;
+        width:75%;
+    }
+    .footer-float {
+        float: left;
+    }
+    .button{
+        height:35px;
+        margin-left:2%;
+    }
+}
