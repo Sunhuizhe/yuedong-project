@@ -56,7 +56,7 @@
         </ion-item>
         <ion-item>
           <ion-label>活动时间：</ion-label>
-          <ion-input tag="time" (blur)="setValue($event)" type="date"></ion-input>
+          <ion-input tag="time" (blur)="setValue($event)" type="datetime-local"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>活动地点：</ion-label>
@@ -68,7 +68,7 @@
         </ion-item>
         <ion-item>
           <ion-label>报名截止时间：</ion-label>
-          <ion-input tag="endTime" (blur)="setValue($event)" type="date"></ion-input>
+          <ion-input tag="endTime" (blur)="setValue($event)" type="datetime-local"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>活动计费：</ion-label>
@@ -85,7 +85,7 @@
 
       <div>
         <ion-label class="intro">活动说明：</ion-label>
-        <textarea tag="actintro" (blur)="setValue($event)" class="textarea" rows="7" cols="44" placeholder="给小伙伴们介绍一下你的活动吧..."></textarea>
+        <textarea tag="actintro" (blur)="setValue($event)" class="textarea" rows="7" cols="40" placeholder="给小伙伴们介绍一下你的活动吧..."></textarea>
       </div>
 
       <button (click)="request()" class="button" ion-button icon-start>

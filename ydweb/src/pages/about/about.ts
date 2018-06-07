@@ -89,7 +89,31 @@ export class AboutPage {
   }
 
   request(){
-    console.log(this.name,this.time,this.place,this.number,this.endTime,this.money,this.way,this.actintro);
+    // console.log(this.name,this.time,this.place,this.number,this.endTime,this.money,this.way,this.actintro);
+    // if(this.time < this.endTime){
+    //   console.log(typeof this.time);
+    //   console.log(1);
+    // }else{
+    //   console.log(2);
+    // }
+    // var userId = localStorage.getItem('userID');
+    // this.http.post('http://39.107.66.152:8080/sport/actAct',{
+    //   userID:userId,
+    //   actName:this.name,
+    //   actTime:this.time,
+    //   actPlace:this.place,
+    //   actNum:this.number,
+    //   actCutOffTime:this.endTime,
+    //   actPrice:80,
+    //   billingMethods:this.way,
+    //   actExplain:this.actintro,
+    //   actClass:'football',
+    // },{}).then(res=>{
+    //   console.log('res:',res['data']);
+    // },err=>{
+    //   console.log('err:',err);
+    // });
+
   }
   goSite(){
     this.navCtrl.push('AboutSitePage');
