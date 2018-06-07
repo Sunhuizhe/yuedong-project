@@ -15,8 +15,8 @@
 
 <ion-content scrollDownOnLoad="{{flag}}" padding>
   <div id="content" class="infodetail-content">
-    <ion-list *ngFor="let item of info">
-      <ion-item class="infodetail-list-item item-text-wrap {{'infodetail-list-item-' + item.usertype}}">
+    <ion-list >
+      <ion-item *ngFor="let item of info" class="infodetail-list-item item-text-wrap {{'infodetail-list-item-' + item.usertype}}">
         <img class="infodetail-imgs" src="{{item.imgURL}}">
         <div class="trangel"></div>
         <p class="infodetail-info">{{item.information}}</p>

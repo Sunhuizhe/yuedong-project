@@ -45,24 +45,20 @@ export class InfoDetailPage {
 
     // 修改信息列表
     this.info[this.info.length] = {usertype:'self',
-    imgURL:'assets/imgs/QQ.jpg',
+    imgURL:'assets/imgs/QQ1.jpg',
     information:val};
 
     // 输入框置空
     e.value='';
 
     // 调节页面
-    // this.content.scrollToBottom(0);
-    // window.scrollTo(0,document.body.scrollHeight);
-    // console.log(window.scrollTo{});
-    var content = document.getElementById('content');
-    console.log(content.clientHeight);
-    console.log(content.offsetHeight,content.style.transform);
-    content.scrollTop = content.clientHeight;
-    content.style.transform = "translate(0," + content.clientHeight + ")";
-    console.log(content.style.transform);
-    // window.scrollTo(0,content.clientHeight+85);
-    // this.flag = true;
+    setTimeout(() => {
+      var content = document.getElementsByTagName('ion-item');
+      // console.log(content);
+      console.log(content[content.length-1]);
+      content[content.length-1].scrollIntoView();
+    }, 100);
+    
   }
 
   getE(e){
@@ -76,6 +72,7 @@ export class InfoDetailPage {
 
   upTo(){
     this.upLoad(this.node);
+    
   }
 
 }
