@@ -9,143 +9,32 @@
 <ion-content>
 
   <ion-list no-lines>
-    <ion-item class="item">
+
+    <ion-item class="item" *ngFor="let item of items">
       <div class="top">
-        <img class="image" src="assets/imgs/QQ.jpg" />
+        <img class="image" src="{{item.image}}" />
         <div class="right">
-          <p class="name">如魔似佛像我</p>
-          <p class="time">今天 09：08</p>
+          <p class="name">{{item.name}}</p>
+          <p class="time">{{item.time}}</p>
         </div>
       </div>
 
       <div class="bottom">
-        <p>
-          我想带你去游山玩水，看那落霞与孤鹜齐飞！
-          我想带你去游山玩水，看那落霞与孤鹜齐飞！
-          我想带你去游山玩水，看那落霞与孤鹜齐飞！
-          我想带你去游山玩水，看那落霞与孤鹜齐飞！
-          我想带你去游山玩水，看那落霞与孤鹜齐飞！
-        </p>
+        <p>{{item.content}}</p>
         <div class="images">
-          <ion-thumbnail class="thums">
-            <img src="assets/imgs/login.jpg">
+          <ion-thumbnail class="thums thum{{item.imgslength}}" *ngFor="let img of item.imgs">
+            <img src="{{img.url}}">
           </ion-thumbnail>
-          <ion-thumbnail class="thums">
-            <img src="assets/imgs/login.png">
-          </ion-thumbnail>
-          <ion-thumbnail class="thums">
-            <img src="assets/imgs/login.png">
-          </ion-thumbnail>
-          <ion-thumbnail class="thums">
-            <img src="assets/imgs/login.png">
-          </ion-thumbnail>
-          <ion-thumbnail class="thums">
-            <img src="assets/imgs/login.png">
-          </ion-thumbnail>
-          <ion-thumbnail class="thums">
-            <img src="assets/imgs/login.png">
-          </ion-thumbnail>
-          <ion-thumbnail class="thums">
-            <img src="assets/imgs/login.png">
-          </ion-thumbnail>
-          <ion-thumbnail class="thums">
-            <img src="assets/imgs/login.png">
-          </ion-thumbnail>
-          <ion-thumbnail class="thums">
-            <img src="assets/imgs/login.png">
-          </ion-thumbnail>
-          <!-- <img src="assets/imgs/" /> -->
-        </div>
-      </div>
-    </ion-item>
-
-    <ion-item class="item">
-      <div class="top">
-        <img class="image" src="assets/imgs/QQ.jpg" />
-        <div class="right">
-          <p class="name">如魔似佛像我</p>
-          <p class="time">今天 09：08</p>
         </div>
       </div>
 
-      <div class="bottom">
-          <p>我想带你去游山玩水，看那落霞与孤鹜齐飞！</p>
-          <div class="images">
-            <ion-thumbnail class="thums">
-              <img src="assets/imgs/login.jpg">
-            </ion-thumbnail>
-            <ion-thumbnail class="thums">
-              <img src="assets/imgs/login.png">
-            </ion-thumbnail>
-            <ion-thumbnail class="thums">
-              <img src="assets/imgs/login.png">
-            </ion-thumbnail>
-            <ion-thumbnail class="thums">
-              <img src="assets/imgs/login.png">
-            </ion-thumbnail>
-            <ion-thumbnail class="thums">
-              <img src="assets/imgs/login.png">
-            </ion-thumbnail>
-            <ion-thumbnail class="thums">
-              <img src="assets/imgs/login.png">
-            </ion-thumbnail>
-            <ion-thumbnail class="thums">
-              <img src="assets/imgs/login.png">
-            </ion-thumbnail>
-            <ion-thumbnail class="thums">
-              <img src="assets/imgs/login.png">
-            </ion-thumbnail>
-            <ion-thumbnail class="thums">
-              <img src="assets/imgs/login.png">
-            </ion-thumbnail>
-            <!-- <img src="assets/imgs/" /> -->
-          </div>
-        </div>
     </ion-item>
 
-    <ion-item class="item">
-        <div class="top">
-          <img class="image" src="assets/imgs/QQ.jpg" />
-          <div class="right">
-            <p class="name">如魔似佛像我</p>
-            <p class="time">今天 09：08</p>
-          </div>
-        </div>
-  
-        <div class="bottom">
-            <p>我想带你去游山玩水，看那落霞与孤鹜齐飞！</p>
-            <div class="images">
-              <ion-thumbnail class="thums">
-                <img src="assets/imgs/login.jpg">
-              </ion-thumbnail>
-              <ion-thumbnail class="thums">
-                <img src="assets/imgs/login.png">
-              </ion-thumbnail>
-              <ion-thumbnail class="thums">
-                <img src="assets/imgs/login.png">
-              </ion-thumbnail>
-              <ion-thumbnail class="thums">
-                <img src="assets/imgs/login.png">
-              </ion-thumbnail>
-              <ion-thumbnail class="thums">
-                <img src="assets/imgs/login.png">
-              </ion-thumbnail>
-              <ion-thumbnail class="thums">
-                <img src="assets/imgs/login.png">
-              </ion-thumbnail>
-              <ion-thumbnail class="thums">
-                <img src="assets/imgs/login.png">
-              </ion-thumbnail>
-              <ion-thumbnail class="thums">
-                <img src="assets/imgs/login.png">
-              </ion-thumbnail>
-              <ion-thumbnail class="thums">
-                <img src="assets/imgs/login.png">
-              </ion-thumbnail>
-              <!-- <img src="assets/imgs/" /> -->
-            </div>
-          </div>
-      </ion-item>
   </ion-list>
+
+  <button class="mybutton" (click)="goContactUP()" ion-button icon-only>
+    <ion-icon class="myicon" name="md-add-circle"></ion-icon>
+  </button>
+
 
 </ion-content>

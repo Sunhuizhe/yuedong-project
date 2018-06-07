@@ -6,8 +6,6 @@ page-contact{
             margin-bottom:5%;
             // 头像、昵称、时间
             .top{
-                // overflow: hidden;
-                // clear: both;
                 width:100%;
                 margin-bottom:3%;
                 .image{
@@ -35,13 +33,9 @@ page-contact{
             .bottom{
                 width:100%;
                 clear: both;
-                p{
-                    // overflow: none!important;
-                }
                 .images{
                     .thums{
                         float: left;
-                        // display: inline-block;
                         margin:1%;
                         img{
                             width:100px;
@@ -51,7 +45,13 @@ page-contact{
                 }
             }
         }
-    }
+        .mybutton{
+            position:fixed;
+            right:3%;
+            font-size:14px;
+            bottom:12%;
+        }
+    }// content
     ion-label{
         white-space: normal;
     }
