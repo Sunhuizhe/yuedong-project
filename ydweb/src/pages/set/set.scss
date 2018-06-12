@@ -20,7 +20,11 @@ page-set {
         text-align: center;
         padding-top:10%;
         .image{
-            width:25%;
+            width:100px;
+            height:100px;
+            background-size:100%!important;
+            background-repeat: no-repeat!important;
+            background-position: 50%!important;
             border-radius: 50%;
             margin:0 auto;
         }

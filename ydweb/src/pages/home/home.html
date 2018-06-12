@@ -8,37 +8,60 @@
 
   <ion-slides loop="true" pager="true" autoplay="3000" class="slide">
     <ion-slide>
-      <img class="images" src="../assets/imgs/swiper2.jpg">
+      <img class="swiper" class="images" src="../assets/imgs/swiper2.jpg">
     </ion-slide>
 
     <ion-slide>
-      <img class="images" src="../assets/imgs/swiper3.jpg">
+      <img class="swiper" class="images" src="../assets/imgs/swiper3.jpg">
     </ion-slide>
 
     <ion-slide>
-      <img class="images" src="../assets/imgs/swiper4.jpg">
+      <img class="swiper" class="images" src="../assets/imgs/swiper4.jpg">
     </ion-slide>
   </ion-slides>
 
   <h2 style="text-align:center">热门运动</h2>
   <ion-item>
     <div class="list">
-      <div class="it">
-        <img src="../../assets/imgs/sport1.jpg">
+      <div tag="跑步" (click)="goActClass($event)" class="it">
+        <img class="hotSport" tag="跑步" src="{{hotsport[0]}}">
         <br>
-        <p>跑步</p>
+        <p tag="跑步">跑步</p>
       </div>
-      <div class="it img">
-        <img src="../../assets/imgs/sport2.jpg">
-        <p>骑行</p>
+      <div tag="骑行" (click)="goActClass($event)" class="it img">
+        <img class="hotSport" tag="骑行" src="{{hotsport[1]}}">
+        <p tag="骑行">骑行</p>
       </div>
-      <div class="it img">
-        <img src="../../assets/imgs/swiper5.jpg">
-        <p>瑜伽</p>
+      <div tag="瑜伽" (click)="goActClass($event)" class="it img">
+        <img class="hotSport" tag="瑜伽" src="{{hotsport[2]}}">
+        <p tag="瑜伽">瑜伽</p>
       </div>
     </div>
   </ion-item>
-  <h2>精彩话题</h2>
-  <ion-img class="images" src="../assets/imgs/swiper5.jpg"></ion-img>
-  <p>#你最想和谁一起运动#</p>
+  <h2>话题</h2>
+  <!-- <ion-img class="images" src="../assets/imgs/swiper5.jpg"></ion-img>
+  <p>#你最想和谁一起运动#</p> -->
+
+  <ion-list class="topic">
+    <ion-item (click)="goTopic(item)" class="item topic" *ngFor="let item of topicItems">
+      <img class="img" src="http://39.107.66.152:8080/images/snow.jpg" alt="话题配图"/>
+      <div class="text">
+        <p class="title">{{item.topicName}}</p>
+        <p class="content">
+          评论数：{{item.topicNum}}
+        </p>
+      </div>
+    </ion-item>
+
+    <!-- <ion-item class="item">
+        <div class="img" style="background:url(assets/imgs/timg0.jpg)" alt="话题配图"></div>
+        <div class="text">
+          <p class="title">了不起的新时代：世界竞争的中国奇迹</p>
+          <p class="content">
+            叶工睦牙中
+          </p>
+        </div>
+      </ion-item> -->
+  </ion-list>
+
 </ion-content>

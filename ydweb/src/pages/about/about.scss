@@ -9,50 +9,11 @@ page-about {
         .grid{
             padding:5px 0;
             text-align: center;
-            .button{
-                width:90%;
-                margin:8px auto;
-            }
-            .way-out{
-                text-align: left;
-                border-bottom:1px solid #dedede;
-                padding-bottom:13px;
-                .way-input{
-                    padding-left:15px;
-                    width:50px;
-                    border:none;
-                    background:none;
-                }
-                .way{
-                    color:#999;
-                    display: inline;
-                    margin-left:16px;
-                    font-size: 16px;
-                    font-weight: 400;
-                    // height:32px;
-                    // line-height: 32px;
-                }
-                .button{
-                    position: relative;
-                    left:25%;
-                    width:40px;
-                    height:30px;
-                    margin:0 1%;
-                    margin-top:-8px;
-                    // float: right;
-                }
-            } // wqy-out
-            .intro{
-                text-align: left;
-                color:#999;
-                font-size: 16px;
-                font-weight: 400;
-                margin-left:16px;
-            }
-            .textarea{
-                margin:0 auto;
-                padding:1%;
-                border-color: #dedede;
+            .mybutton{
+                position:fixed;
+                right:3%;
+                font-size:14px;
+                bottom:12%;
             }
         }   // grid
         .items{
@@ -127,4 +88,5 @@ page-about {
     .segment-md-primary .segment-button{
         font-size:14px;
     }
+    
 }

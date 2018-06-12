@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ImagePicker } from '@ionic-native/image-picker';
+import { ImageResizer} from '@ionic-native/image-resizer';
 @NgModule({
   declarations: [
     MyApp,
@@ -40,6 +41,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
     Camera,
     Geolocation,
     ImagePicker,
+    ImageResizer,
     HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

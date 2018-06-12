@@ -16,45 +16,49 @@
   <!-- 轮播图 -->
   <ion-slides loop="true" pager="true" autoplay="3000" class="slide">
     <ion-slide>
-      <img class="images" src="../assets/imgs/place.jpg">
+      <img class="images" src="{{infoItems.imgURL}}">
     </ion-slide>
-
+<!-- 
     <ion-slide>
       <img class="images" src="../assets/imgs/place2.jpg">
     </ion-slide>
 
     <ion-slide>
       <img class="images" src="../assets/imgs/place3.jpg">
-    </ion-slide>
+    </ion-slide> -->
   </ion-slides>
 
   <!-- 信息列表 -->
   <div class="list">
     <div class="item">
-      <p class="name">{{infoItems.name}}</p>
-      <span class="grade">{{infoItems.grade}}</span>
+      <p class="name">{{infoItems.vanueName}}</p>
+      <span class="grade">评分：{{infoItems.vanueAssess}}</span>
     </div>
     <div class="item">
       <ion-icon class="myicon" name="ios-time"></ion-icon>
-      <p class="time">开放时间：{{infoItems.time}}</p>
+      <p class="time">价格：{{infoItems.vanuePrice}}</p>
+    </div>
+    <div class="item">
+      <ion-icon class="myicon" name="ios-time"></ion-icon>
+      <p class="time">月成交：{{infoItems.vanueOrder}}单</p>
     </div>
     <div class="item">
       <ion-icon class="myicon" name="ios-compass"></ion-icon>
-      <p class="place">地址：{{infoItems.place}}</p>
+      <p class="place">地址：{{infoItems.vanuePlace}}</p>
     </div>
     <div class="item">
       <ion-icon class="myicon" name="md-information-circle"></ion-icon>
-      <p class="place">介绍：{{infoItems.intro}}</p>
+      <p class="place">类别：{{infoItems.vanueClass}}</p>
     </div>
     <div class="last-item">
-      <a ion-button icon-start href="tel:{{infoItems.tel}}">
+      <a ion-button icon-start href="tel:15703286327">
         <ion-icon name="logo-whatsapp"></ion-icon>
         联系管理员
       </a>
-      <button (click)="goOrder()" class="mybutton" ion-button icon-start>
+      <!-- <button (click)="goOrder()" class="mybutton" ion-button icon-start>
         <ion-icon name="md-add-circle"></ion-icon>
         申请预约
-      </button>
+      </button> -->
     </div>
     
   </div>

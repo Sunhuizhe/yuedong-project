@@ -23,7 +23,8 @@ export class SetPage {
   userinfo = {
     name: '',
     intro: '',
-    telnum: ''
+    telnum: '',
+    url: ''
   };
 
   flag: boolean = true;
@@ -47,27 +48,44 @@ export class SetPage {
     private http: HTTP,
     public navCtrl: NavController,
     public navParams: NavParams) {
-    var userId = localStorage.getItem('userID');
+      this.request();
+  }
 
-    this.http.post('http://39.107.66.152:8080/mine', {
-      userID: userId
-    }, {}).then(data => {
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter SetPage');
+    this.request();
+  }
+ 
+  request(){
+    var userId = localStorage.getItem('userID');
+    var image = document.getElementById('image');
+
+    this.http.post('http://39.107.66.152:8080/mine',{
+      userID:userId
+    },{}).then(data=>{
       var info = JSON.parse(data['data']);
 
-      if (info == '0') {
+      if(info == '0'){
         this.presentAlert('数据请求失败，试试重新打开页面！');
-      } else {
+      }else{
         this.userinfo.name = info[0].userName;
         this.userinfo.intro = info[0].signature;
         this.userinfo.telnum = info[0].telNumber;
-        console.log(this.userinfo.name, this.userinfo.intro, this.userinfo.telnum);
+        this.userinfo.url = info[0].avatar;
+        
+        // console.log(this.userinfo.name,this.userinfo.intro);
+
+        console.log(this.userinfo.url);
+
+        image.style.background = 'url(' + this.userinfo.url + ')';
       }
     }).catch(error => {
-      console.log('error status:', error.status);
-      this.presentAlert(error.error);
-    });
-
+      console.log('error status:',error.status);
+      this.presentAlert(error);
+    }); 
   }
+  
+
 
   // 跳转修改密码页
   goChange() {
@@ -117,10 +135,10 @@ export class SetPage {
     var canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
-    var ctx = canvas.getContext("2d"); 
+    var ctx = canvas.getContext("2d");
 
-     // 利用img.onload是解决不了这个问题的，必须是在运行服务器的情况下，还有是本地的图片
-     // 注意浏览器上的地址栏是localhost:8080这一类的地址
+    // 利用img.onload是解决不了这个问题的，必须是在运行服务器的情况下，还有是本地的图片
+    // 注意浏览器上的地址栏是localhost:8080这一类的地址
     /*img.onload = function(){
       ctx.drawImage(img, 0, 0, img.width, img.height);
     }*/
@@ -135,72 +153,72 @@ export class SetPage {
   // 从相册上传
   changePicture(e) {
     console.log('1');
+    var userId = localStorage.getItem('userID');
+
     const options: CameraOptions = {
-      sourceType:2,
+      sourceType: 2,
       quality: 100,
       destinationType: 0,
       encodingType: 0,
       mediaType: 0,
-      allowEdit:true,
-      targetWidth:300,
-      targetHeight:300,
-      correctOrientation:true
+      allowEdit: true,
+      targetWidth: 300,
+      targetHeight: 300,
+      correctOrientation: true
     }
 
-    let base64Image,base64;
+    let base64Image;
     this.camera.getPicture(options).then((imageData) => {
       base64Image = 'data:image/jpeg;base64,' + imageData;
-      e.target.setAttribute('src', base64Image);      
+
+      this.http.post('http://39.107.66.152:8080/mine/chAvatar', {
+        imgData: base64Image,
+        userID: userId
+      }, {}).then(res => {
+        var data = JSON.parse(res['data']);
+        var url = data.avatar;
+        e.target.style.background = "url(" + url + ")";
+        // console.log(data.avatar);
+      }).catch(err => {
+        console.log(err);
+      });   
     }, (err) => {
       // Handle error
-      console.log('err1:',err);
+      console.log('err1:', err);
     });
-
-
-  }
-
-
-
-
-
-  // base64 转化 blob
-  convertBase64UrlToBlob(urlData) {
-    var bytes = window.atob(urlData.split(',')[1]);
-    var ab = new ArrayBuffer(bytes.length);
-    var ia = new Uint8Array(ab);
-    for (var i = 0; i < bytes.length; i++) { ia[i] = bytes.charCodeAt(i); }
-    return new Blob([ab], { type: 'image/png' });
   }
 
   // 从相机上传
   changeCamera(e) {
-    console.log(e.target.getAttribute('src'));
+    // console.log(e.target.getAttribute('src'));
+    var userId = localStorage.getItem('userID');
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      allowEdit:true,
-      targetWidth:300,
-      targetHeight:300,
+      allowEdit: true,
+      targetWidth: 300,
+      targetHeight: 300,
     }
 
     let base64Image;
 
     this.camera.getPicture(options).then((imageData) => {
       base64Image = 'data:image/jpeg;base64,' + imageData;
-      e.target.setAttribute('src', base64Image);
+      // e.target.setAttribute('src', base64Image);
 
-      // this.http.post('http://39.107.66.152:8080/mine/avatar',{},{
-      //   'Content-Type':'application/x-www-form-urlencoded'
-      // }).then(res=>{
-      //   console.log('res:',res);
-      // },err=>{
-      //   console.log('err:',err);
-      //   for(var k in err){
-      //     console.log(k,err[k]);
-      //   }
-      // });
+      this.http.post('http://39.107.66.152:8080/mine/chAvatar', {
+        imgData: base64Image,
+        userID: userId
+      }, {}).then(res => {
+        var data = JSON.parse(res['data']);
+        var url = data.avatar;
+        e.target.style.background = "url(" + url + ")";
+        console.log(data.avatar);
+      }).catch(err => {
+        console.log(err);
+      });
 
       // console.log(base64Image);
     }, (err) => {
@@ -208,7 +226,7 @@ export class SetPage {
       console.log(err);
     });
 
-    
+
   }
 
   // 修改信息的获取
@@ -227,7 +245,7 @@ export class SetPage {
   setFlag(e) {
     console.log(e.target.innerHTML);
     var temp = e.target.innerHTML;
-
+    // this.request();
     if (temp == '编辑') {
       this.flag = false;
       e.target.innerHTML = '完成';
@@ -268,10 +286,6 @@ export class SetPage {
       }
       this.presentAlert(error);
     })
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SetPage');
   }
 
 }

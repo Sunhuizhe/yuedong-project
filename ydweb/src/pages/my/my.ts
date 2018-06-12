@@ -18,30 +18,15 @@ export class MyPage {
   
   userinfo={
     name:'',
-    intro:''
+    intro:'',
+    url:''
   };
 
   // 下拉刷新
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);
 
-    var userId = localStorage.getItem('userID');
-    this.http.post('http://39.107.66.152:8080/mine',{
-      userID:userId
-    },{}).then(data=>{
-      var info = JSON.parse(data['data']);
-
-      if(info == '0'){
-        this.presentAlert('数据请求失败，试试重新打开页面！');
-      }else{
-        this.userinfo.name = info[0].userName;
-        this.userinfo.intro = info[0].signature;
-        console.log(this.userinfo.name,this.userinfo.intro);
-      }
-    }).catch(error => {
-      console.log('error status:',error.status);
-      this.presentAlert(error.error);
-    }); 
+    this.request();
     
     setTimeout(() => {
       console.log('Async operation has ended');
@@ -60,32 +45,17 @@ export class MyPage {
   }
 
   constructor(private alertCtrl: AlertController,private http: HTTP,public navCtrl: NavController, public navParams: NavParams) {
-
-    var userId = localStorage.getItem('userID');
-
-    this.http.post('http://39.107.66.152:8080/mine',{
-      userID:userId
-    },{}).then(data=>{
-      var info = JSON.parse(data['data']);
-
-      if(info == '0'){
-        this.presentAlert('数据请求失败，试试重新打开页面！');
-      }else{
-        this.userinfo.name = info[0].userName;
-        this.userinfo.intro = info[0].signature;
-        console.log(this.userinfo.name,this.userinfo.intro);
-      }
-    }).catch(error => {
-      console.log('error status:',error.status);
-      this.presentAlert(error.error);
-    }); 
-
+    // this.request();
   }
 
   ionViewDidLoad() {
-
     console.log('ionViewDidLoad MyPage');
+    this.request();
+  }
 
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter MyPage');
+    this.request();
   }
 
   // userinfo={
@@ -117,6 +87,34 @@ export class MyPage {
       console.log(page);
       this.navCtrl.push('MyStarPage');
     }
+  }
+
+  request(){
+    var userId = localStorage.getItem('userID');
+    var image = document.getElementById('image');
+
+    this.http.post('http://39.107.66.152:8080/mine',{
+      userID:userId
+    },{}).then(data=>{
+      var info = JSON.parse(data['data']);
+
+      if(info == '0'){
+        this.presentAlert('数据请求失败，试试重新打开页面！');
+      }else{
+        this.userinfo.name = info[0].userName;
+        this.userinfo.intro = info[0].signature;
+        this.userinfo.url = info[0].avatar;
+        
+        // console.log(this.userinfo.name,this.userinfo.intro);
+
+        console.log(this.userinfo.url);
+
+        image.style.background = 'url(' + this.userinfo.url + ')';
+      }
+    }).catch(error => {
+      console.log('error status:',error.status);
+      this.presentAlert(error);
+    }); 
   }
 
 }

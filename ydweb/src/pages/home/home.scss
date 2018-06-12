@@ -37,4 +37,42 @@ page-home{
     .item-md.item-block .item-inner{
         border:none;
     }
+    .topic{
+        .item{
+            .img{
+                padding:0;
+                margin:0;
+                width:35%;
+                height:70px;
+                display: inline-block;
+                background-size: 100%,100%!important;
+                background-position: 0px !important;
+                border-radius:5%;
+                // background-repeat: no-repeat!important;           
+            }
+            .text{
+                display: inline-block;
+                padding-left:2%;
+                width:60%;
+                // height:70px;
+                .title{
+                   font-size: 16px; 
+                   font-weight: bold;
+                   color:#000;
+                   position: absolute;
+                   top:10px;
+                }
+                .content{
+                    // position: absolute;
+                    // top:30px;
+                    max-height:48px;
+                    overflow: hidden;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    ion-label{
+        white-space: normal;
+    }
 }

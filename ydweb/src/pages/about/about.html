@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar color="primary" style="text-align: center;">
     <ion-title color="primary">
-      预约
+      约运动
     </ion-title>
   </ion-navbar>
   
@@ -17,9 +17,6 @@
     <ion-segment-button value="join">
       参加活动
     </ion-segment-button>
-    <ion-segment-button value="launch">
-      发起活动
-    </ion-segment-button>
   </ion-segment>
 
   <!-- segment 选项 -->
@@ -28,95 +25,56 @@
     <!-- 场地预约 -->    
     <ion-grid class="grid" *ngSwitchCase="'order'">
       <ion-searchbar color="primary" placeholder="场地搜索"></ion-searchbar>
-      <ion-list *ngFor="let item of addressitems">
-        <ion-item (click)="goSite()" class="items">
-          <img class="item-imgs" src="{{item.imgs}}" alt="场地图片">
+      <ion-list>
+        <ion-item no-lines *ngFor="let item of addressitems" (click)="goSite(item)" class="items">
+          <img class="item-imgs" src="{{item.imgURL}}" alt="场地图片">
           <div class="right">
-            <p class="title">{{item.name}}</p>
+            <p class="title">{{item.vanueName}}</p>
             <p class="detail">
-              <span class="left-span">{{item.grade}}分</span>|
-              <span class="right-span">成交{{item.orders}}笔</span>
+              <span class="left-span">{{item.vanueAssess}}分</span>|
+              <span class="right-span">成交{{item.vanueOrder}}笔</span>
             </p>
             <p class="position"> 
               <ion-icon name="md-pin"></ion-icon> 
-              {{item.position.slice(0,12)+'...'}}
+              {{item.vanuePlace}}
             </p>
-            <p class="price">￥<span>{{item.price}}</span></p>
+            <p class="price">￥<span>{{item.vanuePrice}}</span>/小时</p>
           </div>
         </ion-item>
       </ion-list>
     </ion-grid>
 
-    <!-- 发起活动 -->
-    <ion-grid class="grid" *ngSwitchCase="'launch'">
-      <ion-list>
-        <ion-item>
-          <ion-label>活动名称：</ion-label>
-          <ion-input tag="name" (blur)="setValue($event)"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>活动时间：</ion-label>
-          <ion-input tag="time" (blur)="setValue($event)" type="datetime-local"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>活动地点：</ion-label>
-          <ion-input tag="place" (blur)="setValue($event)"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>活动人数：</ion-label>
-          <ion-input tag="number" (blur)="setValue($event)" type="number"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>报名截止时间：</ion-label>
-          <ion-input tag="endTime" (blur)="setValue($event)" type="datetime-local"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>活动计费：</ion-label>
-          <ion-input tag="money" (blur)="setValue($event)"></ion-input>
-        </ion-item>
-      </ion-list>      
 
-      <div class="way-out">
-          <ion-label class="way">计费方式：</ion-label>
-          <input class="way-input" value="{{way}}" disabled type="text">
-          <button tag="AA" class="button" (click)="setValue($event)" outline ion-button>AA</button>
-          <button tag="其他" class="button" (click)="setValue($event)" outline ion-button>其他</button>
-      </div>
-
-      <div>
-        <ion-label class="intro">活动说明：</ion-label>
-        <textarea tag="actintro" (blur)="setValue($event)" class="textarea" rows="7" cols="40" placeholder="给小伙伴们介绍一下你的活动吧..."></textarea>
-      </div>
-
-      <button (click)="request()" class="button" ion-button icon-start>
-        <ion-icon name="ios-add-circle-outline"></ion-icon>发起活动
-      </button>
-
-    </ion-grid>
 
     <!-- 参加活动 -->
     <ion-grid class="grid" *ngSwitchCase="'join'">
       <ion-searchbar color="primary" placeholder="活动搜索"></ion-searchbar>
-      <ion-list *ngFor="let item of myactitems">
-        <ion-item (click)="goAct()" class="items">
-          <img class="item-imgs" src="{{item.imgs}}" alt="场地图片">
+      <ion-list>
+        <ion-item no-lines *ngFor="let item of myactitems" (click)="goAct(item)" class="items">
+          <img class="item-imgs" src="{{item.imgURL}}" alt="场地图片">
           <div class="right">
-            <p class="title">{{item.name}}</p>
+            <p class="title">{{item.actName}}</p>
             <p class="detail">
-              <span class="left-span">{{item.payway}}</span> | 
-              <span class="right-span">人数:{{item.number}}</span>
+              <span class="left-span">{{item.billingMethods}}</span> | 
+              <span class="right-span">人数:{{item.actNum}}</span>
             </p>
             <p class="position"> 
               <ion-icon name="md-pin"></ion-icon> 
-              {{item.position.slice(0,12)}}
+              {{item.actPlace}}
             </p>
-            <p class="time">{{item.stime}}-{{item.etime}}</p>
+            <p class="time">{{item.actTime}}</p>
           </div>
         </ion-item>
       </ion-list>
       
+      <button class="mybutton" (click)="goaboutUp()" ion-button icon-only>
+          <ion-icon class="myicon" name="md-add-circle"></ion-icon>
+        </button>
+
     </ion-grid>
     
   </div>
+
+  
 
 </ion-content>

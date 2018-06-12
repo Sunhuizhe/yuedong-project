@@ -15,11 +15,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AboutActPage {
 
+  act;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.act = navParams.data;
+    console.log(this.act);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutActPage');
+  }
+
+  goOrder(){
+    this.navCtrl.push('AboutOrderPage');
   }
 
 }

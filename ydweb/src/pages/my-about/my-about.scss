@@ -5,4 +5,27 @@ page-my-about {
     .title{
         padding-right:20%;
     }
+    .content{
+        text-align: center;
+        img{
+            width:80px;
+            margin: 15% 0 5% 0;
+        }
+        p{
+            margin:0 auto;
+        }
+        ion-item{
+            background:#fafafa;
+            margin-top:15%;
+            .item-content{
+                font-size: 14px;
+                color:#aaa;
+                padding-right:2%;
+            }
+            .icon{
+                padding-top:1%;
+                color:#999;
+            }
+        }
+    }
 }
