@@ -1,0 +1,103 @@
+page-about-up {
+    *{
+        padding:0;
+        margin:0;
+    }
+    .header{
+        text-align: center;
+        .title{
+            padding-right:20%;
+        }
+    }
+    .content{
+        width:100%;
+        height:100%;
+        .grid{
+            padding:5px 0;
+            text-align: center;
+            .button{
+                width:90%;
+                margin:8px auto;
+            }
+            .way-out{
+                text-align: left;
+                border-bottom:1px solid #dedede;
+                padding-bottom:13px;
+                .way-input{
+                    padding-left:15px;
+                    width:50px;
+                    border:none;
+                    background:none;
+                }
+                .way{
+                    color:#999;
+                    display: inline;
+                    margin-left:16px;
+                    font-size: 16px;
+                    font-weight: 400;
+                    // height:32px;
+                    // line-height: 32px;
+                }
+                .button{
+                    position: relative;
+                    left:25%;
+                    width:40px;
+                    height:30px;
+                    margin:0 1%;
+                    margin-top:-8px;
+                }
+                .actClass{
+                    border:none;
+                    background:none;
+                }
+            } // way-out
+            .intro{
+                text-align: left;
+                color:#999;
+                font-size: 16px;
+                font-weight: 400;
+                margin-left:16px;
+            }
+            .intro-out{
+                width:90%;
+                margin:0 auto;
+                border:1px solid #dedede;
+                clear: both;
+                .textarea{
+                    margin:0 auto;
+                    padding:1%;
+                    // border-color: #dedede;
+                    border:none;
+                }
+                .addimg{
+                    margin:2%;
+                    background:#f5f5f5;
+                    width:100px;
+                    height:100px;
+                    padding:7%;
+                    p{
+                        padding:0;
+                        margin:0;
+                        font-size: 12px;
+                    }
+                    .icon{
+                        color:#aaa;
+                        font-size: 36px;
+                    }
+                }// addimg
+                #image{
+                    width:100px;
+                    height:100px;
+                    margin:2%;
+                    background-size: 100%,100%!important;
+                    background-repeat: no-repeat!important;
+                    background-position: 50%!important;
+                    display: none;
+                }
+            }
+            
+        }   // grid
+        
+    }
+       
+}
