@@ -1,0 +1,36 @@
+<!--
+  Generated template for the HomeActClassPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{actClass}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <!-- 参加活动 -->
+  <ion-searchbar color="primary" placeholder="活动搜索"></ion-searchbar>
+  <ion-list>
+    <ion-item no-lines *ngFor="let item of myactitems" (click)="goAct()" class="items">
+      <img class="item-imgs" src="{{item.imgURL}}" alt="场地图片">
+      <div class="right">
+        <p class="title">{{item.actName}}</p>
+        <p class="detail">
+          <span class="left-span">{{item.billingMethods}}</span> |
+          <span class="right-span">人数:{{item.actNum}}</span>
+        </p>
+        <p class="position">
+          <ion-icon name="md-pin"></ion-icon>
+          {{item.actPlace}}
+        </p>
+        <p class="time">{{item.actTime}}</p>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
