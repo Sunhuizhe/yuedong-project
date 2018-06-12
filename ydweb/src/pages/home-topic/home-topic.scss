@@ -1,0 +1,122 @@
+page-home-topic {
+    background:#eee;
+    .header{
+        text-align: center;
+        .title{
+            padding-right: 20%;
+        }
+    }
+
+    ion-slides{
+        height:auto;
+        .images{
+            height:240px;
+            width:100%;
+        }
+    }
+    .mylist{
+        padding:0 5% 0 8%;
+        .item{
+            padding:3% 0;
+        }
+        .myicon{
+            font-size: 24px;
+            display: inline-block;
+            position: absolute;
+            // top:3%;
+        }
+        .time,.place,.tel{
+            padding:0;
+            padding-left:30px;
+            margin:0;
+            display: inline-block;
+            min-height: 24px;
+            line-height: 24px;
+        }
+        
+        .name{
+            padding-bottom:3%;
+            font-size: 20px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .grade{
+            font-size:16px;
+            padding-left: 2%;
+            display: inline-block;
+        }
+        .tel{
+            a{
+                text-decoration: none;
+            }
+        }
+        .last-item{
+            margin-bottom:5%;
+        }
+        .button{
+            width:43%;
+        }
+        .mybutton{
+            margin-left:10%;
+        }
+    }// list
+
+    .content-list{
+        background:#eee;
+        width:100%;
+        margin:0;
+        padding:0;
+        .item{
+            margin-bottom:5%;
+            background:#fff;
+            // 头像、昵称、时间
+            .top{
+                width:100%;
+                margin-bottom:3%;
+                .image{
+                    width:12%;
+                    border-radius: 50%;
+                    float: left;
+                }
+                .right{
+                    float: left;
+                    width:70%;
+                    margin-left:3%;
+                    height:100%;
+                    .name{
+                        font-weight: bold;
+                        font-size: 14px;
+                        color:#000;
+                        display: inline-block;
+                    }
+                    .time{
+                        font-size:12px;
+                        display: inline-block;
+                    }
+                }
+            }
+            
+            //
+            .bottom{
+                width:100%;
+                clear: both;
+                .images{
+                    .thums{
+                        float: left;
+                        margin:1%;
+                        img{
+                            width:100px;
+                            height:100px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ion-label{
+        white-space: normal;
+    }
+    .list-md .item-block .item-inner{
+        border:none;
+    }
+}
