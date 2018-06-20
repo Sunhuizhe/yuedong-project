@@ -15,6 +15,11 @@
 
 <ion-content>
 
+  <!-- 下拉刷新 -->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="下拉刷新" refreshingText="刷新中"></ion-refresher-content>
+  </ion-refresher>
+
   <div class="mybody">
 
     <ion-list class="list">

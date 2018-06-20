@@ -15,7 +15,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 })
 export class AboutSitePage {
 
-// 信息列表
+  // 信息列表
   infoItems;
   // {
   //   name:'河北师范大学-白馆',
@@ -27,20 +27,32 @@ export class AboutSitePage {
   // };
 
   constructor(private geolocation: Geolocation,
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams) {
-     this.infoItems = navParams.data;
+    this.infoItems = navParams.data;
+  }
+
+  // 下拉刷新
+  doRefresh(refresher) {
+    console.log('下拉刷新-场地详情-begin', refresher);
+
+    // this.request();
+
+    setTimeout(() => {
+      console.log('下拉刷新-场地详情-ended');
+      refresher.complete();
+    }, 2000);
   }
 
   // 跳转申请页
-  goOrder(){
+  goOrder() {
     this.navCtrl.push('AboutOrderPage');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutSitePage');
   }
-  
+
 
 
 }

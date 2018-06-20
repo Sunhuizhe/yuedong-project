@@ -13,7 +13,7 @@ export class ContactPage {
       time: '今天 09：08',
       content: '我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！',
       image: 'assets/imgs/QQ1.jpg',
-      imgslength:9,
+      imgslength: 9,
       imgs: [
         { url: 'assets/imgs/login.jpg' },
         { url: 'assets/imgs/login.png' },
@@ -31,7 +31,7 @@ export class ContactPage {
       time: '今天 09：08',
       content: '我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！',
       image: 'assets/imgs/QQ.jpg',
-      imgslength:1,
+      imgslength: 1,
       imgs: [
         { url: 'assets/imgs/login.jpg' },
       ]
@@ -41,7 +41,7 @@ export class ContactPage {
       time: '今天 09：08',
       content: '我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！',
       image: 'assets/imgs/QQ.jpg',
-      imgslength:4,
+      imgslength: 4,
       imgs: [
         { url: 'assets/imgs/login.jpg' },
         { url: 'assets/imgs/login.png' },
@@ -54,7 +54,7 @@ export class ContactPage {
       time: '今天 09：08',
       content: '我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！',
       image: 'assets/imgs/QQ1.jpg',
-      imgslength:6,
+      imgslength: 6,
       imgs: [
         { url: 'assets/imgs/login.jpg' },
         { url: 'assets/imgs/login.png' },
@@ -69,7 +69,7 @@ export class ContactPage {
       time: '今天 09：08',
       content: '我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！',
       image: 'assets/imgs/QQ1.jpg',
-      imgslength:2,
+      imgslength: 2,
       imgs: [
         { url: 'assets/imgs/login.jpg' },
         { url: 'assets/imgs/login.png' },
@@ -81,12 +81,23 @@ export class ContactPage {
 
   }
 
-  goContactUP(){
+  goContactUP() {
     this.navCtrl.push('ContactUpPage');
   }
 
+  // 下拉刷新
+  doRefresh(refresher) {
+    console.log('下拉刷新-圈子-begin', refresher);
 
-  
+    // this.request();
+
+    setTimeout(() => {
+      console.log('下拉刷新-圈子-ended');
+      refresher.complete();
+    }, 2000);
+  }
+
+
 
 
 

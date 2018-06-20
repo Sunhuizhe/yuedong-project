@@ -29,6 +29,18 @@ export class SetPage {
 
   flag: boolean = true;
 
+  // 下拉刷新
+  doRefresh(refresher) {
+    console.log('下拉刷新-设置', refresher);
+
+    this.request();
+
+    setTimeout(() => {
+      console.log('下拉刷新-设置-ended');
+      refresher.complete();
+    }, 2000);
+  }
+
   // 错误信息提示框
   presentAlert(mes) {
     let alert = this.alertCtrl.create({
@@ -48,43 +60,49 @@ export class SetPage {
     private http: HTTP,
     public navCtrl: NavController,
     public navParams: NavParams) {
-      this.request();
+    // this.request();
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad SetPage');
+    this.request();
   }
 
   ionViewWillEnter() {
     console.log('ionViewWillEnter SetPage');
     this.request();
   }
- 
-  request(){
+
+  // 请求
+  request() {
     var userId = localStorage.getItem('userID');
     var image = document.getElementById('image');
 
-    this.http.post('http://39.107.66.152:8080/mine',{
-      userID:userId
-    },{}).then(data=>{
+    this.http.post('http://39.107.66.152:8080/mine', {
+      userID: userId
+    }, {}).then(data => {
       var info = JSON.parse(data['data']);
 
-      if(info == '0'){
+      if (info == '0') {
         this.presentAlert('数据请求失败，试试重新打开页面！');
-      }else{
+      } else {
         this.userinfo.name = info[0].userName;
         this.userinfo.intro = info[0].signature;
         this.userinfo.telnum = info[0].telNumber;
         this.userinfo.url = info[0].avatar;
-        
-        // console.log(this.userinfo.name,this.userinfo.intro);
 
         console.log(this.userinfo.url);
 
-        image.style.background = 'url(' + this.userinfo.url + ')';
+        image.style.background = "url(" + this.userinfo.url + ")";
+        console.log('设置-头像背景：', image.style.backgroundImage);
       }
     }).catch(error => {
-      console.log('error status:',error.status);
-      this.presentAlert(error);
-    }); 
+      console.log('设置-error status:', error.status);
+      // this.presentAlert(error);
+      console.log('设置-请求报错：',error);
+    });
   }
-  
+
 
 
   // 跳转修改密码页
@@ -98,7 +116,6 @@ export class SetPage {
   }
 
   // 修改头像
-
   presentActionSheet(e) {
     let actionSheet = this.actionSheetCtrl.create({
       title: '选择图片',
@@ -107,14 +124,14 @@ export class SetPage {
           text: '从相册',
           role: 'destructive',
           handler: () => {
-            console.log('从相册');
+            console.log('SetPage-头像上传-从相册');
             this.changePicture(e);
           }
         },
         {
           text: '拍照',
           handler: () => {
-            console.log('拍照');
+            console.log('SetPage-头像上传-拍照');
             this.changeCamera(e);
           }
         },
@@ -122,7 +139,7 @@ export class SetPage {
           text: '取消',
           role: 'cancel',
           handler: () => {
-            console.log('取消上传');
+            console.log('SetPage-头像上传-取消上传');
           }
         }
       ]
@@ -131,28 +148,8 @@ export class SetPage {
     actionSheet.present();
   }
 
-  getBase64Image(img) {
-    var canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    var ctx = canvas.getContext("2d");
-
-    // 利用img.onload是解决不了这个问题的，必须是在运行服务器的情况下，还有是本地的图片
-    // 注意浏览器上的地址栏是localhost:8080这一类的地址
-    /*img.onload = function(){
-      ctx.drawImage(img, 0, 0, img.width, img.height);
-    }*/
-
-    ctx.drawImage(img, 0, 0, img.width, img.height);
-    var dataURL = canvas.toDataURL("image/png");
-    // console.log('getBase64Image:',dataURL);
-    return dataURL;
-    // return dataURL.replace("data:image/png;base64,", "");
-  }
-
   // 从相册上传
   changePicture(e) {
-    console.log('1');
     var userId = localStorage.getItem('userID');
 
     const options: CameraOptions = {
@@ -178,19 +175,18 @@ export class SetPage {
         var data = JSON.parse(res['data']);
         var url = data.avatar;
         e.target.style.background = "url(" + url + ")";
-        // console.log(data.avatar);
       }).catch(err => {
-        console.log(err);
-      });   
+        console.log('SetPage-头像上传-从相册-相册调用报错', err);
+      });
     }, (err) => {
       // Handle error
-      console.log('err1:', err);
+      console.log('SetPage-头像上传-从相册-报错:', err);
     });
   }
 
   // 从相机上传
   changeCamera(e) {
-    // console.log(e.target.getAttribute('src'));
+
     var userId = localStorage.getItem('userID');
     const options: CameraOptions = {
       quality: 100,
@@ -206,7 +202,6 @@ export class SetPage {
 
     this.camera.getPicture(options).then((imageData) => {
       base64Image = 'data:image/jpeg;base64,' + imageData;
-      // e.target.setAttribute('src', base64Image);
 
       this.http.post('http://39.107.66.152:8080/mine/chAvatar', {
         imgData: base64Image,
@@ -215,15 +210,14 @@ export class SetPage {
         var data = JSON.parse(res['data']);
         var url = data.avatar;
         e.target.style.background = "url(" + url + ")";
-        console.log(data.avatar);
       }).catch(err => {
-        console.log(err);
+        console.log('SetPage-头像上传-从相机-相机调用报错:', err);
       });
 
       // console.log(base64Image);
     }, (err) => {
       // Handle error
-      console.log(err);
+      console.log('SetPage-头像上传-从相机-报错:', err);
     });
 
 
@@ -231,7 +225,6 @@ export class SetPage {
 
   // 修改信息的获取
   getValue(e) {
-    console.log(e.target.parentNode.id, e.target.value);
     var id = e.target.parentNode.id,
       value = e.target.value;
     if (id == 'name') {
@@ -239,13 +232,15 @@ export class SetPage {
     } else {
       this.userinfo.intro = value;
     }
+
+    console.log('SetPage-上传信息获取完毕:',value);
+
   }
 
   // 输入框输入控制
   setFlag(e) {
-    console.log(e.target.innerHTML);
+    console.log('SetPage-模式:', e.target.innerHTML);
     var temp = e.target.innerHTML;
-    // this.request();
     if (temp == '编辑') {
       this.flag = false;
       e.target.innerHTML = '完成';
@@ -267,7 +262,6 @@ export class SetPage {
       userName: this.userinfo.name
     }, {}).then(data => {
       var num = data['data'];
-      console.log(data['data']);
 
       if (num == '1') {
         this.presentAlert('修改成功！');
@@ -275,17 +269,9 @@ export class SetPage {
         this.presentAlert('修改失败，请稍后再试！');
       }
     }).catch(error => {
-      console.log(error);
-      for (var k in error) {
-        console.log(error[k]);
-        if (error[k] instanceof Object) {
-          for (var i in error[k]) {
-            console.log(error[k][i]);
-          }
-        }
-      }
-      this.presentAlert(error);
-    })
+      console.log('SetPage-修改信息报错：', error);
+    });
   }
 
 }
+

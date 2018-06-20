@@ -9,6 +9,11 @@
 
 <ion-content class="content">
 
+  <!-- 下拉刷新 -->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="下拉刷新" refreshingText="刷新中"></ion-refresher-content>
+  </ion-refresher>
+
   <!-- segment 组件 -->
   <ion-segment [(ngModel)]="actype" color="primary">
     <ion-segment-button value="order">
@@ -24,7 +29,7 @@
 
     <!-- 场地预约 -->    
     <ion-grid class="grid" *ngSwitchCase="'order'">
-      <ion-searchbar color="primary" placeholder="场地搜索"></ion-searchbar>
+      <ion-searchbar class="search" color="primary" placeholder="场地搜索"></ion-searchbar>
       <ion-list>
         <ion-item no-lines *ngFor="let item of addressitems" (click)="goSite(item)" class="items">
           <img class="item-imgs" src="{{item.imgURL}}" alt="场地图片">
@@ -48,7 +53,7 @@
 
     <!-- 参加活动 -->
     <ion-grid class="grid" *ngSwitchCase="'join'">
-      <ion-searchbar color="primary" placeholder="活动搜索"></ion-searchbar>
+      <ion-searchbar class="search" color="primary" placeholder="活动搜索"></ion-searchbar>
       <ion-list>
         <ion-item no-lines *ngFor="let item of myactitems" (click)="goAct(item)" class="items">
           <img class="item-imgs" src="{{item.imgURL}}" alt="场地图片">

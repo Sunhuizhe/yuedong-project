@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HTTP} from '@ionic-native/http';
+import { HTTP } from '@ionic-native/http';
 import { AlertController } from 'ionic-angular';
 /**
  * Generated class for the MyPage page.
@@ -15,27 +15,27 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'my.html',
 })
 export class MyPage {
-  
-  userinfo={
-    name:'',
-    intro:'',
-    url:''
+
+  userinfo = {
+    name: '',
+    intro: '',
+    url: ''
   };
 
   // 下拉刷新
   doRefresh(refresher) {
-    console.log('Begin async operation', refresher);
+    console.log('下拉刷新-我的-begin', refresher);
 
     this.request();
-    
+
     setTimeout(() => {
-      console.log('Async operation has ended');
+      console.log('下拉刷新-我的-ended');
       refresher.complete();
     }, 2000);
   }
 
   // 错误信息提示框
-  presentAlert(mes){
+  presentAlert(mes) {
     let alert = this.alertCtrl.create({
       // title: 'Low battery',
       subTitle: mes,
@@ -44,7 +44,7 @@ export class MyPage {
     alert.present();
   }
 
-  constructor(private alertCtrl: AlertController,private http: HTTP,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private alertCtrl: AlertController, private http: HTTP, public navCtrl: NavController, public navParams: NavParams) {
     // this.request();
   }
 
@@ -58,63 +58,57 @@ export class MyPage {
     this.request();
   }
 
-  // userinfo={
-  //   name:'-留白。',
-  //   intro:'要有最朴素的生活和遥远的梦想，即使明天天寒地冻，路遥马亡。——海子'.slice(0,16)+'...'
-  // }
-
-  items=[
-    {iconname:'md-pulse',title:'我的运动',page:'MyActPage'},
-    {iconname:'md-star',title:'我的收藏',page:'MyStarPage'},
-    {iconname:'ios-call',title:'我要合作'},
-    {iconname:'md-information-circle',title:'关于悦动',page:'MyAboutPage'}
+  items = [
+    { iconname: 'md-pulse', title: '我的运动', page: 'MyActPage' },
+    { iconname: 'md-star', title: '我的收藏', page: 'MyStarPage' },
+    { iconname: 'ios-call', title: '我要合作' },
+    { iconname: 'md-information-circle', title: '关于悦动', page: 'MyAboutPage' }
   ]
 
-  goSet(){
+  goSet() {
     this.navCtrl.push('SetPage');
   }
 
-  goPage(e){
-    var page = e.target.getAttribute('id'); 
+  goPage(e) {
+    var page = e.target.getAttribute('id');
     console.log(page);
-    if(page == 'MyActPage'){
+    if (page == 'MyActPage') {
       console.log(page);
       this.navCtrl.push('MyActPage');
-    }else if(page == 'MyAboutPage'){
+    } else if (page == 'MyAboutPage') {
       console.log(page);
       this.navCtrl.push('MyAboutPage');
-    }else if(page == 'MyStarPage'){
+    } else if (page == 'MyStarPage') {
       console.log(page);
       this.navCtrl.push('MyStarPage');
     }
   }
 
-  request(){
+  request() {
     var userId = localStorage.getItem('userID');
     var image = document.getElementById('image');
 
-    this.http.post('http://39.107.66.152:8080/mine',{
-      userID:userId
-    },{}).then(data=>{
+    this.http.post('http://39.107.66.152:8080/mine', {
+      userID: userId
+    }, {}).then(data => {
       var info = JSON.parse(data['data']);
 
-      if(info == '0'){
+      if (info == '0') {
         this.presentAlert('数据请求失败，试试重新打开页面！');
-      }else{
+      } else {
         this.userinfo.name = info[0].userName;
         this.userinfo.intro = info[0].signature;
         this.userinfo.url = info[0].avatar;
-        
-        // console.log(this.userinfo.name,this.userinfo.intro);
 
         console.log(this.userinfo.url);
 
         image.style.background = 'url(' + this.userinfo.url + ')';
+        console.log(image.style.background);
       }
     }).catch(error => {
-      console.log('error status:',error.status);
+      console.log('error status:', error.status);
       this.presentAlert(error);
-    }); 
+    });
   }
 
 }

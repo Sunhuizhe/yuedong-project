@@ -14,6 +14,12 @@
 
 
 <ion-content>
+
+  <!-- 下拉刷新 -->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content pullingText="下拉刷新" refreshingText="刷新中"></ion-refresher-content>
+    </ion-refresher>
+
   <div padding class="top">
     <ion-segment color="primary" [(ngModel)]="info">
       <ion-segment-button value="好友">

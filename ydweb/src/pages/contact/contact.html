@@ -1,12 +1,17 @@
 <ion-header class="header">
   <ion-navbar color="primary">
     <ion-title>
-      发现
+      圈子
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+
+  <!-- 下拉刷新 -->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content pullingText="下拉刷新" refreshingText="刷新中"></ion-refresher-content>
+    </ion-refresher>
 
   <ion-list no-lines>
 

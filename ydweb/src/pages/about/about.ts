@@ -12,6 +12,18 @@ export class AboutPage {
   addressitems = [];
   myactitems = [];
 
+  // 下拉刷新
+  doRefresh(refresher) {
+    console.log('下拉刷新-约运动-begin', refresher);
+
+    this.request();
+    
+    setTimeout(() => {
+      console.log('下拉刷新-约运动-ended');
+      refresher.complete();
+    }, 2000);
+  }
+
   // 错误信息提示框
   presentAlert(mes) {
     let alert = this.alertCtrl.create({
