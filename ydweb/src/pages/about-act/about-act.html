@@ -14,19 +14,17 @@
 
 
 <ion-content>
+
+  <!-- 下拉刷新 -->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content pullingText="下拉刷新" refreshingText="刷新中"></ion-refresher-content>
+    </ion-refresher>
+
  <!-- 轮播图 -->
  <ion-slides loop="true" pager="true" autoplay="3000" class="slide">
   <ion-slide>
     <img class="images" src="{{act.imgURL}}">
   </ion-slide>
-<!-- 
-  <ion-slide>
-    <img class="images" src="../assets/imgs/place2.jpg">
-  </ion-slide>
-
-  <ion-slide>
-    <img class="images" src="../assets/imgs/place3.jpg">
-  </ion-slide> -->
 </ion-slides>
 
 <!-- 信息列表 -->
@@ -40,19 +38,19 @@
     <p class="time">活动时间：{{act.actTime}}</p>
   </div>
   <div class="item">
-    <ion-icon class="myicon" name="md-information-circle"></ion-icon>
+    <ion-icon class="myicon" name="ios-time"></ion-icon>
     <p class="place">报名截止：{{act.actCutOffTime}}</p>
   </div>
   <div class="item">
-    <ion-icon class="myicon" name="ios-time"></ion-icon>
+    <ion-icon class="myicon" name="md-pin"></ion-icon>
     <p class="time">地点：{{act.actPlace}}单</p>
   </div>
   <div class="item">
-    <ion-icon class="myicon" name="md-information-circle"></ion-icon>
+    <ion-icon class="myicon" name="logo-yen"></ion-icon>
     <p class="place">价格：{{act.actPrice}}</p>
   </div>
   <div class="item">
-    <ion-icon class="myicon" name="md-information-circle"></ion-icon>
+    <ion-icon class="myicon" name="ios-hand"></ion-icon>
     <p class="place">付费方式：{{act.billingMethods}}</p>
   </div>
   <div class="item">
@@ -60,14 +58,14 @@
     <p class="place">说明：{{act.actExplain}}</p>
   </div>
   <div class="item">
-    <ion-icon class="myicon" name="md-information-circle"></ion-icon>
+    <ion-icon class="myicon" name="md-checkmark-circle"></ion-icon>
     <p class="place">类别：{{act.actClass}}</p>
   </div>
   <div class="item">
-    <ion-icon class="myicon" name="md-information-circle"></ion-icon>
+    <ion-icon class="myicon" name="md-list-box"></ion-icon>
     <p class="place">{{act.actPeople}}等人已报名</p>
   </div>
-  <div class="last-item">
+  <div id="buttons" class="last-item">
     <a ion-button icon-start href="tel:15703286327">
       <ion-icon name="logo-whatsapp"></ion-icon>
       联系发起人
