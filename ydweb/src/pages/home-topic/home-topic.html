@@ -14,80 +14,53 @@
 
 
 <ion-content>
-   <!-- 轮播图 -->
- <ion-slides loop="true" pager="true" autoplay="3000" class="slide">
-  <ion-slide>
-    <img class="images" src="{{item.imgURL}}">
-  </ion-slide>
-<!-- 
-  <ion-slide>
-    <img class="images" src="../assets/imgs/place2.jpg">
-  </ion-slide>
 
-  <ion-slide>
-    <img class="images" src="../assets/imgs/place3.jpg">
-  </ion-slide> -->
-</ion-slides>
+  <!-- 下拉刷新 -->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="下拉刷新" refreshingText="刷新中"></ion-refresher-content>
+  </ion-refresher>
 
-<!-- 信息列表 -->
-<div class="mylist">
-  <div class="item">
-    <p class="name">{{item.topicName}}</p>
-    <span class="grade">赞：{{item.topicNum}}</span>
-  </div>
-  <div class="item">
-    <ion-icon class="myicon" name="ios-time"></ion-icon>
-    <p class="time">{{item.topicTime}}</p>
-  </div>
-  <div class="item">
-    <ion-icon class="myicon" name="md-information-circle"></ion-icon>
-    <p class="place">{{item.Content}}</p>
-  </div>
-  <!-- <div class="item">
-    <ion-icon class="myicon" name="ios-time"></ion-icon>
-    <p class="time">赞：{{item.topicNum}}</p>
-  </div> -->
-  <!-- <div class="last-item">
-    <a ion-button icon-start href="tel:15703286327">
-      <ion-icon name="logo-whatsapp"></ion-icon>
-      联系发起人
-    </a>
-    <button (click)="goOrder()" class="mybutton" ion-button icon-start>
-      <ion-icon name="md-add-circle"></ion-icon>
-      申请预约
-    </button>
-  </div> -->
+  <!-- 轮播图 -->
+  <ion-slides loop="true" pager="true" autoplay="3000" class="slide">
 
-  <!-- <div class="content-list">
+    <ion-slide>
+      <img class="images" src="{{item.imgURL}}">
+    </ion-slide>
+
+  </ion-slides>
+
+  <!-- 信息列表 -->
+  <div class="mylist">
     <div class="item">
-      <img src="assets/imgs/timg0.jpg" />
-
+      <p class="name">{{item.topicName}}</p>
+      <span class="grade">评论：{{item.topicNum}}</span>
     </div>
-  </div> -->
+    <div class="item">
+      <ion-icon class="myicon" name="ios-time"></ion-icon>
+      <p class="time">{{item.topicTime}}</p>
+    </div>
+    <div class="item">
+      <p class="place">{{item.topicContent}}</p>
+    </div>
 
-  <ion-list class="content-list" no-lines>
+    <!-- 评论列表 -->
+    <ion-list class="content-list" no-lines>
 
-    <ion-item class="item" *ngFor="let item of items">
-      <div class="top">
-        <img class="image" src="{{item.image}}" />
-        <div class="right">
-          <p class="name">{{item.name}}</p>
-          <p class="time">{{item.time}}</p>
+      <ion-item class="item" *ngFor="let item of items">
+        <div class="top">
+          <img class="image" src="{{item.image}}" />
+          <div class="right">
+            <p class="name">{{item.name}}</p>
+            <p class="time">{{item.time}}</p>
+          </div>
         </div>
-      </div>
 
-      <div class="bottom">
-        <p>{{item.content}}</p>
-        <!-- <div class="images">
-          <ion-thumbnail class="thums thum{{item.imgslength}}" *ngFor="let img of item.imgs">
-            <img src="{{img.url}}">
-          </ion-thumbnail>
-        </div> -->
-      </div>
+        <div class="bottom">
+          <p>{{item.content}}</p>
+        </div>
+      </ion-item>
 
-    </ion-item>
+    </ion-list>
 
-  </ion-list>
-  
-</div>
+  </div>
 </ion-content>

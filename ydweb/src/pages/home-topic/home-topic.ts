@@ -15,10 +15,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class HomeTopicPage {
 
-  item
+  item;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.item = navParams.data;
+  }
+
+  // 下拉刷新
+  doRefresh(refresher) {
+    console.log('下拉刷新-话题-begin', refresher);
+
+    // this.request();
+
+    setTimeout(() => {
+      console.log('下拉刷新-话题-ended');
+      refresher.complete();
+    }, 2000);
   }
 
   ionViewDidLoad() {
@@ -31,7 +43,7 @@ export class HomeTopicPage {
       time: '今天 09：08',
       content: '我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！',
       image: 'assets/imgs/QQ1.jpg',
-      imgslength:9,
+      imgslength: 9,
       imgs: [
         { url: 'assets/imgs/login.jpg' },
         { url: 'assets/imgs/login.png' },
@@ -49,7 +61,7 @@ export class HomeTopicPage {
       time: '今天 09：08',
       content: '我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！',
       image: 'assets/imgs/QQ.jpg',
-      imgslength:1,
+      imgslength: 1,
       imgs: [
         { url: 'assets/imgs/login.jpg' },
       ]
@@ -59,7 +71,7 @@ export class HomeTopicPage {
       time: '今天 09：08',
       content: '我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！',
       image: 'assets/imgs/QQ.jpg',
-      imgslength:4,
+      imgslength: 4,
       imgs: [
         { url: 'assets/imgs/login.jpg' },
         { url: 'assets/imgs/login.png' },
@@ -72,7 +84,7 @@ export class HomeTopicPage {
       time: '今天 09：08',
       content: '我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！',
       image: 'assets/imgs/QQ1.jpg',
-      imgslength:6,
+      imgslength: 6,
       imgs: [
         { url: 'assets/imgs/login.jpg' },
         { url: 'assets/imgs/login.png' },
@@ -87,7 +99,7 @@ export class HomeTopicPage {
       time: '今天 09：08',
       content: '我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！',
       image: 'assets/imgs/QQ1.jpg',
-      imgslength:2,
+      imgslength: 2,
       imgs: [
         { url: 'assets/imgs/login.jpg' },
         { url: 'assets/imgs/login.png' },
