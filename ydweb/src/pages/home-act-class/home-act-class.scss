@@ -1,8 +1,77 @@
 page-home-act-class {
+    
     .header{
         text-align: center;
         .title{
             padding-right:20%;
         }
+    }
+    .content{
+        background:#eee;
+        .empty{
+            text-align: center;
+            line-height:50px;
+            font-size: 14px;
+            // display: block;
+            height:50px;
+            span{
+                font-size: 18px;
+                color:#488aff;
+            }
+        }
+        .items{
+            border-bottom:1px solid #eee;
+            .item-imgs{
+                width:25%;
+                // border-radius:50%;
+            }
+            .right{
+                width:70%;
+                float: right;
+                font-size: 12px;
+                .delete{
+                    color:#666;
+                    font-size: 18px;
+                    // float: right;
+                    position: absolute;
+                    top:15px;
+                    right:10px;
+                }
+                .title{
+                    font-size:16px;
+                    font-weight: bold;
+                    color:#000;
+                }
+                .detail{
+                    color:#ddd;
+                    font-size: 12px;
+                    .left-span{
+                        margin-right:10px;
+                        color:#666;
+                    }
+                    .right-span{
+                        margin-left:10px;
+                        color:#666;
+                    }
+                    span{
+                        color:#666;
+                    }
+                }   // detail
+                .position{
+                    font-size: 12px;
+                    color:#666;
+                    ion-icon{
+                        color:#488aff;
+                    }
+                }
+                .price{
+                    color:#f00;
+                    font-size: 12px;
+                    span{
+                        font-size:16px;
+                    }
+                }
+            } // right
+        } // items
     }
 }
