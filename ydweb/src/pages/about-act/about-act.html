@@ -21,7 +21,7 @@
     </ion-refresher>
 
  <!-- 轮播图 -->
- <ion-slides loop="true" pager="true" autoplay="3000" class="slide">
+ <ion-slides class="slide">
   <ion-slide>
     <img class="images" src="{{act.imgURL}}">
   </ion-slide>
@@ -70,7 +70,7 @@
       <ion-icon name="logo-whatsapp"></ion-icon>
       联系发起人
     </a>
-    <button (click)="goOrder()" class="mybutton" ion-button icon-start>
+    <button (click)="goOrder()" id="mybutton" class="mybutton" ion-button icon-start>
       <ion-icon name="md-add-circle"></ion-icon>
       参加活动
     </button>

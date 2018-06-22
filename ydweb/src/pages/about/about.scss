@@ -11,10 +11,11 @@ page-about {
             padding:5px 0;
             text-align: center;
             .mybutton{
+                // float: right;
                 position:fixed;
                 right:3%;
                 font-size:14px;
-                bottom:12%;
+                bottom:60px;
             }
             .search{
                 margin-top:-4px;
@@ -23,10 +24,18 @@ page-about {
         .items{
             border-bottom:1px solid #eee;
             .item-imgs{
-                width:25%;
+                display: inline-block;
+                // width:25%;
+                width:100px;
+                height:80px;
+                // clip:rect(0px 0px 20px 20px);
+                background-size: 100% !important;
+                background-repeat: no-repeat!important;
+                background-position: 50%!important;
+                border-radius:5%;
             }
             .right{
-                width:70%;
+                width:65%;
                 float: right;
                 font-size: 12px;
                 .delete{
@@ -72,6 +81,20 @@ page-about {
                 }
             } // right
         } // items
+    }
+    ion-footer{
+        width:10%;
+        font-size: 24px;
+        text-align: center;
+        background:#488aff;
+        color:#fff;
+        padding-top:1%;
+        border-radius:3px;
+        // padding:3px;
+        // position:fixed;
+        // bottom:20px;
+        // right:10px;
+        float: right!important;
     }
     .searchbar-md{
         padding:0 0 8px 0;

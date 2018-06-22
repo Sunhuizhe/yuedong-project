@@ -18,6 +18,11 @@ export class InfoPage {
   info: string = '群组';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+   console.log('info');
+
+   console.log(window.localStorage.getItem('socket'));
+
   }
 
   // 下拉刷新

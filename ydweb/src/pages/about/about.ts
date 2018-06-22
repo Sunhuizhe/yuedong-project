@@ -42,8 +42,18 @@ export class AboutPage {
   ionViewWillEnter() {
     console.log('ionViewWillEnter AboutPage');
 
-    // 场地请求
-    this.http.get('http://39.107.66.152:8080/sport', {}, {})
+    this.request();
+
+  }
+
+  // 跳转
+  goaboutUp(){
+    this.navCtrl.push('AboutUpPage');
+  }
+
+  request() {
+      // 场地请求
+      this.http.get('http://39.107.66.152:8080/sport', {}, {})
       .then(data => {
 
         var info = JSON.parse(data['data']);
@@ -66,6 +76,7 @@ export class AboutPage {
         // console.log(res['data']);
         var data = JSON.parse(res['data']);
 
+        var images = document.getElementsByClassName('item-imgs');
         for(var i in data){
           this.myactitems[i] = data[i];
           console.log(data[i]['actTime']);
@@ -74,44 +85,15 @@ export class AboutPage {
           // console.log(date2);
           var actCutOffTime = new Date(data[i]['actCutOffTime']);
           this.myactitems[i]['actCutOffTime'] = actCutOffTime.toLocaleString();
+
+          // images[i].style.background = 'url(' + this.myactitems[i].imgURL + ')';
+          // console.log(images[i].style.background);
+
         }
         // console.log(this.myactitems);
       }).catch(err=>{
         console.log(err);
-      })
-
-  }
-
-  // 跳转
-  goaboutUp(){
-    this.navCtrl.push('AboutUpPage');
-  }
-
-  request() {
-    // console.log(this.name,this.time,this.place,this.number,this.endTime,this.money,this.way,this.actintro);
-    // if(this.time < this.endTime){
-    //   console.log(typeof this.time);
-    //   console.log(1);
-    // }else{
-    //   console.log(2);
-    // }
-    // var userId = localStorage.getItem('userID');
-    // this.http.post('http://39.107.66.152:8080/sport/actAct',{
-    //   userID:userId,
-    //   actName:this.name,
-    //   actTime:this.time,
-    //   actPlace:this.place,
-    //   actNum:this.number,
-    //   actCutOffTime:this.endTime,
-    //   actPrice:80,
-    //   billingMethods:this.way,
-    //   actExplain:this.actintro,
-    //   actClass:'football',
-    // },{}).then(res=>{
-    //   console.log('res:',res['data']);
-    // },err=>{
-    //   console.log('err:',err);
-    // });
+      });
 
   }
   goSite(item) {

@@ -4,8 +4,8 @@ import { HTTP } from '@ionic-native/http';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ActionSheetController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
-import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
-import { ImageResizer, ImageResizerOptions } from '@ionic-native/image-resizer';
+import { ImagePicker, } from '@ionic-native/image-picker';
+import { ImageResizer, } from '@ionic-native/image-resizer';
 /**
  * Generated class for the SetPage page.
  *
@@ -52,8 +52,7 @@ export class SetPage {
   }
 
   // 初始化
-  constructor(private imagePicker: ImagePicker,
-    private imageResizer: ImageResizer,
+  constructor(
     public actionSheetCtrl: ActionSheetController,
     private camera: Camera,
     private alertCtrl: AlertController,
@@ -113,6 +112,7 @@ export class SetPage {
   // 退出登录
   backToLogin() {
     this.navCtrl.setRoot('LoginPage');
+    window.localStorage.setItem('login','false');
   }
 
   // 修改头像
