@@ -62,6 +62,11 @@ export class HomeActClassPage {
 
   // 请求
   request() {
+
+    // 数据置空
+    this.otherAct = [];
+    this.myactitems = [];
+
     // 活动请求
     this.http.post('http://39.107.66.152:8080/goodActInfo', {
       className: this.actClass
