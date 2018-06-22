@@ -23,12 +23,10 @@
       </ion-item>
     </ion-list>
 
-    <footer class="infodetail-footer">
-      <!-- <ion-icon style="padding:5px 10px;padding-left:15px;" class="footer-float icon color-icon" name="ios-mic-outline"></ion-icon> -->
-      <input id="textInput" (keydown)="getE($event)" style="padding-left:5px;" class="footer-float infodetail-input" placeholder="请输入聊天内容..." type="text">
-      <!-- <ion-icon class="footer-float icon color-icon" name="ios-happy-outline"></ion-icon> -->
-      <!-- <ion-icon class="footer-float icon color-icon" name="ios-add-circle-outline"></ion-icon> -->
-      <button (click)="upTo()" class="button" ion-button>发送</button>
-    </footer>
   </div>
 </ion-content>
+
+<ion-footer class="infodetail-footer">
+  <input id="textInput" (keydown)="getE($event)" style="padding-left:5px;" class="footer-float infodetail-input" placeholder="请输入聊天内容..." type="text">
+  <button (click)="upTo()" class="button" ion-button>发送</button>
+</ion-footer>

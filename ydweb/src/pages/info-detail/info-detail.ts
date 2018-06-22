@@ -20,6 +20,7 @@ export class InfoDetailPage {
   node:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+   
   }
 
   info=[
