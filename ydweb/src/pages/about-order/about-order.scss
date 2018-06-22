@@ -6,25 +6,36 @@ page-about-order {
             padding-right:20%;
         }
     }
-    .last-list{
-        margin-top:10%;
+    .top{
         text-align: center;
-        .item{
-            text-align: left;
-            font-size: 16px;
-            color:#999;
-            .icon{
-                color:#000;
-                padding: 0 3px 0 20px;
-            }
+        padding:5%;
+        .image{
+            margin:0 auto;
+            width:100px;
+            height:100px;
+            background-size: 100% 100%!important;
+            background-repeat: no-repeat!important;
+            background-position: 50%!important;
+            border-radius: 50%;
+            margin-top:10%;
+            margin-bottom:5%;
+        }
+        .name{
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom:8%;
+        }
+        .intro{
+            font-size: 14px;
+            // text-align: left;
+            width:90%;
+            margin: 0 auto;
         }
     }
-    .textarea{
-        border:1px solid #dedede;
-        margin-top:2%;
-    }
     .button{
-        margin-top:3%;
+        margin-top:20%;
+        font-size: 16px;
+        height:40px;
         width:90%;
     }
 }

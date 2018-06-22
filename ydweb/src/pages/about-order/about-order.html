@@ -7,13 +7,21 @@
 <ion-header class="header">
 
   <ion-navbar color="primary">
-    <ion-title class="title">预约申请</ion-title>
+    <ion-title class="title">{{userinfo.username}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
+
+  <!-- 个人信息 -->
+
+  <div class="top">
+    <div id="image" class="image" style="background:url({{userinfo.imgURL}})" ></div>
+    <p class="name">{{userinfo.username}}</p>
+    <p class="intro">{{userinfo.intro}}</p>
+  </div>
 
   <!-- 下拉刷新 -->
   <ion-refresher (ionRefresh)="doRefresh($event)">
@@ -22,33 +30,10 @@
 
   <div class="mybody">
 
-    <ion-list class="list">
-
-      <ion-item class="item">
-        <ion-icon name="md-time" item-start></ion-icon>
-        <ion-input id="time" (blur)="getValue($event)" type="text" placeholder="*时间"></ion-input>
-      </ion-item>
-
-      <ion-item class="item">
-        <ion-icon name="ios-contacts" item-start></ion-icon>
-        <ion-input id="number" (blur)="getValue($event)" type="number" placeholder="*人数"></ion-input>
-      </ion-item>
-
-    </ion-list>
-    
-    <ion-list class="last-list">
-
-      <div class="item">
-        <ion-icon name="md-clipboard" item-start></ion-icon>备注
-      </div>
-      
-      <textarea id="others" (blur)="getValue($event)" class="textarea" rows="7" cols="44" placeholder="有什么额外要求要对管理员说的吗？"></textarea>
-
-    </ion-list>
 
     <button (click)="upData()" class="button" icon-start ion-button>
-      <ion-icon name="md-add-circle"></ion-icon>
-      申请
+      <!-- <ion-icon name="md-add-circle"></ion-icon> -->
+      加为好友
     </button>
 
   </div>

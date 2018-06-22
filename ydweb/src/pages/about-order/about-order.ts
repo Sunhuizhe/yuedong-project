@@ -21,13 +21,27 @@ export class AboutOrderPage {
     others: ''
   }
 
+  userinfo={
+    imgURL:'../../assets/imgs/QQ.jpg',
+    username:'如魔似佛像我',
+    intro:'我曾在意的你，想说声对不起，年少时的任性，有些话伤人不轻'
+
+  }
+
   constructor(private alertCtrl: AlertController,
     public navCtrl: NavController,
     public navParams: NavParams) {
+
+      
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutOrderPage');
+
+    var node = document.getElementById('image');
+      node.style.background = 'url(' + this.userinfo.imgURL + ')';
+
   }
 
   // 下拉刷新
@@ -53,33 +67,33 @@ export class AboutOrderPage {
   }
 
   // 获取值
-  getValue(e) {
-    // console.log(e.target.getAttribute('placeholder'));
-    var placeholder = e.target.getAttribute('placeholder');
-    var value = e.target.value;
-    console.log(placeholder, value);
-    if (placeholder == '*时间') {
-      this.obj.time = value;
-    } else if (placeholder == '*人数') {
-      this.obj.number = value;
-    } else {
-      this.obj.others = value;
-    }
-  }
+  // getValue(e) {
+  //   // console.log(e.target.getAttribute('placeholder'));
+  //   var placeholder = e.target.getAttribute('placeholder');
+  //   var value = e.target.value;
+  //   console.log(placeholder, value);
+  //   if (placeholder == '*时间') {
+  //     this.obj.time = value;
+  //   } else if (placeholder == '*人数') {
+  //     this.obj.number = value;
+  //   } else {
+  //     this.obj.others = value;
+  //   }
+  // }
 
   // 请求数据
   upData() {
-    if (this.obj.time == '') {
-      this.presentAlert('时间为不能为空！');
-      console.log(typeof this.obj.number);
-    } else {
-      if (this.obj.number == 0) {
-        this.presentAlert('人数不能为空！')
-      } else {
-        console.log(this.obj);
-      }
-    }
-    console.log(this.obj);
+  //   if (this.obj.time == '') {
+  //     this.presentAlert('时间为不能为空！');
+  //     console.log(typeof this.obj.number);
+  //   } else {
+  //     if (this.obj.number == 0) {
+  //       this.presentAlert('人数不能为空！')
+  //     } else {
+  //       console.log(this.obj);
+  //     }
+  //   }
+  //   console.log(this.obj);
   }
 
 }
