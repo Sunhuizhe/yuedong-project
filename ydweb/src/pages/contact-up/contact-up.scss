@@ -32,7 +32,7 @@ page-contact-up {
         .textarea{
             border:none;
         }
-        .addimg{
+        #addImage{
             margin:7%;
             background:#f5f5f5;
             width:100px;
@@ -49,5 +49,13 @@ page-contact-up {
             }
         }
     }
-
+    #image{
+        width:100px;
+        height:100px;
+        margin:7%;
+        background-size: 100%,100%!important;
+        background-repeat: no-repeat!important;
+        background-position: 50%!important;
+        display: none;
+    }
 }

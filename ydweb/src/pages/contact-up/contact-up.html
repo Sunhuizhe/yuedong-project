@@ -19,10 +19,11 @@
   <div class="div">
 
       <textarea tag="actintro" (blur)="setValue($event)" class="textarea" rows="8" cols="39" placeholder="说点什么吧..."></textarea>
-      <div class="addimg">
+      <div id="addImage" (click)="pictureLoad($event)" class="addimg">
         <ion-icon name="md-camera"></ion-icon>
         <p>照片</p>
       </div>
+      <div id="image" (click)="pictureLoad()" style="background:url(assets/imgs/timg5.jpg)" alt="上传的图片"></div>
   </div>
 
 </ion-content>
