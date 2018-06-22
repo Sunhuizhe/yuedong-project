@@ -54,13 +54,15 @@
     <div class="way-out">
       <ion-label class="way">分类：</ion-label>
       <select (click)="setSelectValue($event)" class="select" name="actClass" id="actClass">
-        <!-- <option value=""></option> -->
-        <option (click)="setSelectValue($event)" value="足球">足球</option>
         <option (click)="setSelectValue($event)" value="篮球">篮球</option>
-        <option (click)="setSelectValue($event)" value="轮滑">轮滑</option>
+        <option (click)="setSelectValue($event)" value="足球">足球</option>
+        <option (click)="setSelectValue($event)" value="游泳">游泳</option>
+        <option (click)="setSelectValue($event)" value="骑行">骑行</option>
         <option (click)="setSelectValue($event)" value="跑步">跑步</option>
         <option (click)="setSelectValue($event)" value="瑜伽">瑜伽</option>
-        <option (click)="setSelectValue($event)" value="骑行">骑行</option>
+        <option (click)="setSelectValue($event)" value="乒乓球">乒乓球</option>
+        <option (click)="setSelectValue($event)" value="羽毛球">羽毛球</option>
+        <option (click)="setSelectValue($event)" value="排球">排球</option>
         <option (click)="setSelectValue($event)" value="其他">其他</option>
       </select>
     </div>
@@ -73,7 +75,7 @@
           <ion-icon name="md-camera"></ion-icon>
           <p>照片</p>
         </div>
-        <div id="image" (click)="pictureLoad($event)" style="background:url(assets/imgs/timg5.jpg)" alt="上传的图片"></div>
+        <div id="image" (click)="pictureLoad()" style="background:url(assets/imgs/timg5.jpg)" alt="上传的图片"></div>
       </div>
     </div>
 

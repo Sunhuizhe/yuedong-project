@@ -23,6 +23,13 @@ page-about-up {
                 text-align: left;
                 border-bottom:1px solid #dedede;
                 padding-bottom:13px;
+                .select{
+                    margin-top:13px;
+                    border:none;
+                    background:none;
+                    color:#999;
+                    font-size: 16px;
+                }
                 .way-input{
                     padding-left:15px;
                     width:50px;
@@ -35,8 +42,6 @@ page-about-up {
                     margin-left:16px;
                     font-size: 16px;
                     font-weight: 400;
-                    // height:32px;
-                    // line-height: 32px;
                 }
                 .button{
                     position: relative;
@@ -66,7 +71,6 @@ page-about-up {
                 .textarea{
                     margin:0 auto;
                     padding:1%;
-                    // border-color: #dedede;
                     border:none;
                 }
                 .addimg{

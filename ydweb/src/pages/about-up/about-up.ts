@@ -72,9 +72,8 @@ export class AboutUpPage {
   }
 
   // 图片上传
-  pictureLoad(e) {
-    console.log(e.target);
-    var node = e.target;
+  pictureLoad() {
+
     let actionSheet = this.actionSheetCtrl.create({
       title: '选择图片',
       buttons: [
@@ -83,14 +82,14 @@ export class AboutUpPage {
           role: 'destructive',
           handler: () => {
             console.log('从相册');
-            this.changePicture(node);
+            this.changePicture();
           }
         },
         {
           text: '拍照',
           handler: () => {
             console.log('拍照');
-            this.changeCamera(node);
+            this.changeCamera();
           }
         },
         {
@@ -107,9 +106,7 @@ export class AboutUpPage {
   }
 
   // 从相册上传
-  changePicture(e) {
-    console.log('1');
-    var userId = localStorage.getItem('userID');
+  changePicture() {
 
     const options: CameraOptions = {
       sourceType: 2,
@@ -125,19 +122,6 @@ export class AboutUpPage {
 
     this.camera.getPicture(options).then((imageData) => {
       this.base64Image = 'data:image/jpeg;base64,' + imageData;
-
-      // this.http.post('http://39.107.66.152:8080/mine/chAvatar', {
-      //   imgData: base64Image,
-      //   userID: userId
-      // }, {}).then(res => {
-      //   var data = JSON.parse(res['data']);
-      //   var url = data.avatar;
-      //   e.target.style.background = "url(" + url + ")";
-      //   // console.log(data.avatar);
-      // }).catch(err => {
-      //   console.log(err);
-      // });   
-
       var node = document.getElementById('addImage');
       var node2 = document.getElementById('image');
       node.style.display = 'none';
@@ -151,9 +135,8 @@ export class AboutUpPage {
   }
 
   // 从相机上传
-  changeCamera(e) {
-    // console.log(e.target.getAttribute('src'));
-    var userId = localStorage.getItem('userID');
+  changeCamera() {
+
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -164,25 +147,13 @@ export class AboutUpPage {
       targetHeight: 300,
     }
 
-    let base64Image;
-
     this.camera.getPicture(options).then((imageData) => {
-      base64Image = 'data:image/jpeg;base64,' + imageData;
-      // e.target.setAttribute('src', base64Image);
-
-      this.http.post('http://39.107.66.152:8080/mine/chAvatar', {
-        imgData: base64Image,
-        userID: userId
-      }, {}).then(res => {
-        var data = JSON.parse(res['data']);
-        var url = data.avatar;
-        e.target.style.background = "url(" + url + ")";
-        console.log(data.avatar);
-      }).catch(err => {
-        console.log(err);
-      });
-
-      // console.log(base64Image);
+      this.base64Image = 'data:image/jpeg;base64,' + imageData;
+      var node = document.getElementById('addImage');
+      var node2 = document.getElementById('image');
+      node.style.display = 'none';
+      node2.style.display = 'block';
+      node2.style.background = 'url(' + this.base64Image + ')';
     }, (err) => {
       // Handle error
       console.log(err);
