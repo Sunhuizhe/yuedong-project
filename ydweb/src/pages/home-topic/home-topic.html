@@ -21,7 +21,7 @@
   </ion-refresher>
 
   <!-- 轮播图 -->
-  <ion-slides loop="true" pager="true" autoplay="3000" class="slide">
+  <ion-slides class="slide">
 
     <ion-slide>
       <img class="images" src="{{item.imgURL}}">
@@ -33,12 +33,11 @@
   <div class="mylist">
     <div class="item">
       <p class="name">{{item.topicName}}</p>
-      <span class="grade">评论：{{item.topicNum}}</span>
+      <!-- <span class="grade">评论：{{item.topicNum}}</span> -->
     </div>
-    <div class="item">
-      <ion-icon class="myicon" name="ios-time"></ion-icon>
+    <!-- <div class="item">
       <p class="time">{{item.topicTime}}</p>
-    </div>
+    </div> -->
     <div class="item">
       <p class="place">{{item.topicContent}}</p>
     </div>
@@ -48,10 +47,10 @@
 
       <ion-item class="item" *ngFor="let item of items">
         <div class="top">
-          <img class="image" src="{{item.image}}" />
+          <img class="image" src="{{item.avatar}}" />
           <div class="right">
-            <p class="name">{{item.name}}</p>
-            <p class="time">{{item.time}}</p>
+            <p class="name">{{item.userName}}</p>
+            <p class="time">{{item.commentTime}}</p>
           </div>
         </div>
 
@@ -63,4 +62,10 @@
     </ion-list>
 
   </div>
+
 </ion-content>
+
+<ion-footer class="infodetail-footer">
+  <input id="textInput" (keydown)="getE($event)" style="padding-left:5px;" class="footer-float infodetail-input" placeholder="说点什么吧..." type="text">
+  <button (click)="upTo()" class="button" ion-button>发送</button>
+</ion-footer>

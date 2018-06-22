@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { HTTP } from '@ionic-native/http';
 import { AlertController } from 'ionic-angular';
 
+declare var io;
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -21,6 +22,17 @@ export class HomePage {
   constructor(public navCtrl: NavController,
     private alertCtrl: AlertController,
     private http: HTTP) {
+
+    const socket = io.connect('http://39.107.66.152:3000');
+
+    window.localStorage.setItem('socket',socket);
+    console.log('socket',socket);
+
+    socket.on('connect', function () {
+      console.log('socket on');
+      socket.emit('join', window.localStorage.getItem('userID'));
+   });
+
 
     this.swipers = document.getElementsByClassName('swiper');
     this.hotSports = document.getElementsByClassName('hotSport');
@@ -42,7 +54,6 @@ export class HomePage {
   // 错误信息提示框
   presentAlert(mes) {
     let alert = this.alertCtrl.create({
-      // title: 'Low battery',
       subTitle: mes,
       buttons: ['知道了！']
     });
@@ -73,35 +84,39 @@ export class HomePage {
 
           var snode = this.swipers[i];
           this.swiper[i] = this.swiper[i].substring(1).slice(0, -1);
-          console.log(this.swiper[i]);
+          // console.log(this.swiper[i]);
         }
         for (var i in this.hotsport) {
           this.hotsport[i] = this.hotsport[i].substring(1).slice(0, -1);
           var hnode = this.hotSports[i];
-          console.log(this.hotSports[i]);
-          console.log(this.hotsport[i]);
+          // console.log(this.hotSports[i]);
+          // console.log(this.hotsport[i]);
         }
 
       }).catch(err => {
-        console.log('http err2:', err);
-        this.presentAlert(err);
+        console.log('HomePage-轮播图请求报错:', err);
       });
 
     // 话题请求
     this.http.get('http://39.107.66.152:8080/goodTopic', {}, {})
       .then(res => {
         this.topicItems = JSON.parse(res['data']);
-        console.log(res['data']);
+
+        for(var i in this.topicItems){
+          var temp = new Date(this.topicItems[i].topicTime);
+          var time = temp.toLocaleString();
+          this.topicItems[i].topicTime = time;
+        }
+
+        // console.log(res['data']);
       }).catch(err => {
-        console.log('http goodTopic err:', err);
+        console.log('HomePage-话题请求报错:', err);
       });
   }
 
   goActClass(e) {
 
     this.actClass = e.target.getAttribute('tag');
-    // console.log(this.actClass);
-
     this.navCtrl.push('HomeActClassPage', this.actClass);
   }
 

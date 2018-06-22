@@ -8,8 +8,8 @@
 
   <!-- 下拉刷新 -->
   <ion-refresher (ionRefresh)="doRefresh($event)">
-      <ion-refresher-content pullingText="下拉刷新" refreshingText="刷新中"></ion-refresher-content>
-    </ion-refresher>
+    <ion-refresher-content pullingText="下拉刷新" refreshingText="刷新中"></ion-refresher-content>
+  </ion-refresher>
 
   <ion-slides loop="true" pager="true" autoplay="3000" class="slide">
     <ion-slide>
@@ -43,30 +43,23 @@
       </div>
     </div>
   </ion-item>
+
   <h2>话题</h2>
-  <!-- <ion-img class="images" src="../assets/imgs/swiper5.jpg"></ion-img>
-  <p>#你最想和谁一起运动#</p> -->
 
   <ion-list class="topic">
     <ion-item (click)="goTopic(item)" class="item topic" *ngFor="let item of topicItems">
-      <img class="img" src="{{item.imgURL}}" alt="话题配图"/>
+      <img class="img" src="{{item.imgURL}}" alt="话题配图" />
       <div class="text">
         <p class="title">{{item.topicName}}</p>
         <p class="content">
+          {{item.topicContent}}
+        </p>
+        <p class="grade">
           评论数：{{item.topicNum}}
         </p>
       </div>
     </ion-item>
 
-    <!-- <ion-item class="item">
-        <div class="img" style="background:url(assets/imgs/timg0.jpg)" alt="话题配图"></div>
-        <div class="text">
-          <p class="title">了不起的新时代：世界竞争的中国奇迹</p>
-          <p class="content">
-            叶工睦牙中
-          </p>
-        </div>
-      </ion-item> -->
   </ion-list>
 
 </ion-content>

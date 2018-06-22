@@ -45,10 +45,7 @@ page-home{
                 width:35%;
                 height:70px;
                 display: inline-block;
-                background-size: 100%,100%!important;
-                background-position: 0px !important;
-                border-radius:5%;
-                // background-repeat: no-repeat!important;           
+                border-radius:5%;          
             }
             .text{
                 display: inline-block;
@@ -63,10 +60,11 @@ page-home{
                    top:10px;
                 }
                 .content{
-                    // position: absolute;
-                    // top:30px;
-                    max-height:48px;
+                    height:38px;
                     overflow: hidden;
+                    font-size: 12px;
+                }
+                .grade{
                     font-size: 12px;
                 }
             }
