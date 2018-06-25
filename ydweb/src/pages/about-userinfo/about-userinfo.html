@@ -1,0 +1,31 @@
+<!--
+  Generated template for the MyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header id="#ion-header">
+    <ion-navbar color="primary" class="nav">
+      <ion-title class="title">{{userinfo.name}}<ion-icon (click)="goSet()" class="icon" name="md-settings"></ion-icon></ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+  
+    <!-- 下拉刷新 -->
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content pullingText="下拉刷新" refreshingText="刷新中"></ion-refresher-content>
+    </ion-refresher>
+  
+    <!-- content top -->
+    <div class="info">
+      <img id="image" src="{{userinfo.url}}" class="image" alt="头像"/>
+      <div class="right-span">
+        <p class="top">{{userinfo.name}}</p>
+        <p id="intro" class="bottom">{{userinfo.intro}}</p>
+        <p class="tel">{{userinfo.telNumber}}</p>
+      </div>
+    </div>
+  
+  </ion-content>
+  

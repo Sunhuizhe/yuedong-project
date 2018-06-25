@@ -17,18 +17,18 @@
 
     <ion-item class="item" *ngFor="let item of items">
       <div class="top">
-        <img class="image" src="{{item.image}}" />
+        <img class="image" src="{{item.avatar}}" />
         <div class="right">
-          <p class="name">{{item.name}}</p>
-          <p class="time">{{item.time}}</p>
+          <p class="name">{{item.userName}}</p>
+          <p class="time">{{item.circleTime}}</p>
         </div>
       </div>
 
-      <div class="bottom">
-        <p>{{item.content}}</p>
-        <div class="images">
-          <ion-thumbnail class="thums thum{{item.imgslength}}" *ngFor="let img of item.imgs">
-            <img src="{{img.url}}">
+      <div class="bottom" >
+        <p>{{item.circleContent}}</p>
+        <div [ngStyle]="{'display': item.imgURL == 'undefined' ? 'none' : 'block' }" class="images">
+          <ion-thumbnail class="thums thum{{item.imgslength}}">
+            <img id="avatar" src="{{item.imgURL}}">
           </ion-thumbnail>
         </div>
       </div>

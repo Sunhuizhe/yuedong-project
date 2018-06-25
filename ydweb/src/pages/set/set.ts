@@ -4,8 +4,7 @@ import { HTTP } from '@ionic-native/http';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ActionSheetController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
-import { ImagePicker, } from '@ionic-native/image-picker';
-import { ImageResizer, } from '@ionic-native/image-resizer';
+
 /**
  * Generated class for the SetPage page.
  *
@@ -93,6 +92,7 @@ export class SetPage {
         console.log(this.userinfo.url);
 
         image.style.background = "url(" + this.userinfo.url + ")";
+        window.localStorage.setItem('avatar',this.userinfo.url);
         console.log('设置-头像背景：', image.style.backgroundImage);
       }
     }).catch(error => {
@@ -175,6 +175,7 @@ export class SetPage {
         var data = JSON.parse(res['data']);
         var url = data.avatar;
         e.target.style.background = "url(" + url + ")";
+        window.localStorage.setItem('avatar',this.userinfo.url);
       }).catch(err => {
         console.log('SetPage-头像上传-从相册-相册调用报错', err);
       });
@@ -210,6 +211,7 @@ export class SetPage {
         var data = JSON.parse(res['data']);
         var url = data.avatar;
         e.target.style.background = "url(" + url + ")";
+        window.localStorage.setItem('avatar',this.userinfo.url);
       }).catch(err => {
         console.log('SetPage-头像上传-从相机-相机调用报错:', err);
       });
@@ -265,6 +267,7 @@ export class SetPage {
 
       if (num == '1') {
         this.presentAlert('修改成功！');
+        window.localStorage.setItem('userName',this.userinfo.name);
       } else {
         this.presentAlert('修改失败，请稍后再试！');
       }

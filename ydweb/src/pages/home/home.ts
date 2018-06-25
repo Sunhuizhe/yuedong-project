@@ -23,17 +23,6 @@ export class HomePage {
     private alertCtrl: AlertController,
     private http: HTTP) {
 
-    const socket = io.connect('http://39.107.66.152:3000');
-
-    window.localStorage.setItem('socket',socket);
-    console.log('socket',socket);
-
-    socket.on('connect', function () {
-      console.log('socket on');
-      socket.emit('join', window.localStorage.getItem('userID'));
-   });
-
-
     this.swipers = document.getElementsByClassName('swiper');
     this.hotSports = document.getElementsByClassName('hotSport');
     this.request();
@@ -69,6 +58,8 @@ export class HomePage {
   }
 
   request() {
+    
+
     // 轮播图片的请求
     this.http.get('http://39.107.66.152:8080', {}, {})
       .then(res => {

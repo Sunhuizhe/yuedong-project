@@ -20,7 +20,10 @@ export class ChangepwdPage {
   password:string='';
   repassword:string='';
 
-  constructor(private alertCtrl: AlertController,private http: HTTP,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private alertCtrl: AlertController,
+    private http: HTTP,
+    public navCtrl: NavController, 
+    public navParams: NavParams) {
   }
 
   ionViewDidLoad() {

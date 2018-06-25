@@ -63,9 +63,12 @@
   </div>
   <div class="item">
     <ion-icon class="myicon" name="md-list-box"></ion-icon>
-    <p class="place">{{act.actPeople}}等人已报名</p>
+    <p class="place">
+      <span (click)="goOrderTwo(item.userID)" *ngFor="let item of namearr">{{item.userName+'、'}}</span>
+      等人已报名
+    </p>
   </div>
-  <div id="buttons" class="last-item">
+  <div [ngStyle]="{'display':flag}" id="buttons" class="last-item">
     <a ion-button icon-start href="tel:15703286327">
       <ion-icon name="logo-whatsapp"></ion-icon>
       联系发起人

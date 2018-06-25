@@ -7,7 +7,7 @@
 <ion-header class="header">
 
   <ion-navbar color="primary">
-    <ion-title class="title">{{userinfo.username}}</ion-title>
+    <ion-title class="title">{{userinfo.userName}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,11 +16,10 @@
 <ion-content>
 
   <!-- 个人信息 -->
-
   <div class="top">
-    <div id="image" class="image" style="background:url({{userinfo.imgURL}})" ></div>
-    <p class="name">{{userinfo.username}}</p>
-    <p class="intro">{{userinfo.intro}}</p>
+    <img id="myimage" class="image" src="{{userinfo.avatar}}"/>
+    <p class="name">{{userinfo.userName}}</p>
+    <p class="intro">{{userinfo.signature}}</p>
   </div>
 
   <!-- 下拉刷新 -->
@@ -32,7 +31,6 @@
 
 
     <button (click)="upData()" class="button" icon-start ion-button>
-      <!-- <ion-icon name="md-add-circle"></ion-icon> -->
       加为好友
     </button>
 

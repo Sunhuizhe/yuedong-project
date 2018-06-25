@@ -20,9 +20,12 @@ export class LoginPage {
 
   telNumber:string='';
   password:string='';
+  userName:'';
+  avatar:'';
 
   constructor(private alertCtrl: AlertController,private http: HTTP,public navCtrl: NavController, public navParams: NavParams) {
   
+
   }
 
   ionViewDidLoad() {
@@ -89,6 +92,19 @@ export class LoginPage {
             this.navCtrl.push(TabsPage);
             window.localStorage.setItem('userID',num);
             window.localStorage.setItem('login','true');
+            
+            this.http.post('http://39.107.66.152:8080/mine',{
+              userID:num
+            },{}).then(res=>{
+              // console.log(res['data']);
+              var obj = JSON.parse(res['data'])[0];
+              window.localStorage.setItem('userName',obj.userName);
+              window.localStorage.setItem('avatar',obj.avatar);
+              console.log(window.localStorage.getItem('userName'),window.localStorage.getItem('avatar'));
+            }).catch(err=>{
+              console.log('LoginPage-我的基本信息请求报错：',err);
+            });
+
           }
         }).catch(error => {
           console.log('error status:',error.status);

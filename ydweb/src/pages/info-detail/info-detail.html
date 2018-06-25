@@ -13,13 +13,13 @@
 </ion-header>
 
 
-<ion-content scrollDownOnLoad="{{flag}}" padding>
+<ion-content scrollDownOnLoad="true" padding>
   <div id="content" class="infodetail-content">
     <ion-list >
       <ion-item *ngFor="let item of info" class="infodetail-list-item item-text-wrap {{'infodetail-list-item-' + item.usertype}}">
-        <img class="infodetail-imgs" src="{{item.imgURL}}">
+        <img class="infodetail-imgs" src="{{item.avatar}}">
         <div class="trangel"></div>
-        <p class="infodetail-info">{{item.information}}</p>
+        <p class="infodetail-info">{{item.messageContent}}</p>
       </ion-item>
     </ion-list>
 

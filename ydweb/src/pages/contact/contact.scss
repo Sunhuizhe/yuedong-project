@@ -9,7 +9,8 @@ page-contact{
                 width:100%;
                 margin-bottom:3%;
                 .image{
-                    width:12%;
+                    width:40px;
+                    height:40px;
                     border-radius: 50%;
                     float: left;
                 }
@@ -35,11 +36,14 @@ page-contact{
                 clear: both;
                 .images{
                     .thums{
-                        float: left;
+                        // float: left;
                         margin:1%;
                         img{
                             width:100px;
                             height:100px;
+                        }
+                        .avatar{
+                            display: none;
                         }
                     }
                 }

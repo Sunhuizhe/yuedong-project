@@ -1,0 +1,23 @@
+page-info-add-friend {
+    .header{
+        text-align: center;
+    }
+    .content{
+        .searchbar-md{
+            padding:0 0 8px 0;
+            width:100%;
+        }
+        .searchbar-md .searchbar-input{
+            padding:6px 40px;
+            line-height: 2em;
+        }
+        .searchbar-md .searchbar-search-icon{
+            left:10px;
+        }
+        .mybutton{
+            position:fixed;
+            right:3px;
+            top:55px;
+        }
+    }
+}

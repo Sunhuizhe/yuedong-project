@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HTTP } from '@ionic-native/http';
 import { AlertController } from 'ionic-angular';
+import { AboutPage } from '../about/about';
 /**
  * Generated class for the MyActPage page.
  *
@@ -110,11 +111,60 @@ export class MyActPage {
       }
     }); 
 
+     // 我参加的活动--请求
+     this.http.post('http://39.107.66.152:8080/mine/myAddAct', {
+      userID: userId
+    }, {}).then(res => {
+      console.log('我参加的活动-请求：', res['data']);
+
+      var data = JSON.parse(res['data']);
+
+      // UTC时间处理
+      for (var i in data) {
+        var empty = document.getElementById('empty2');
+
+        console.log('MyActPage-UTC时间转换调试：', data[i]['actTime']);
+
+        var actTime = new Date(data[i]['actTime']);
+        data[i]['actTime'] = actTime.toLocaleString();
+
+        var actCutOffTime = new Date(data[i]['actCutOffTime']);
+        data[i]['actCutOffTime'] = actCutOffTime.toLocaleString();
+
+        console.log('MyActPage-UTC时间转换调试：', data[i]['actTime'], data[i]['actCutOffTime']);
+
+        this.actitems[i] = data[i];
+
+        if (this.actitems.length == 0) {
+          empty.style.display = 'block';
+        } else {
+          empty.style.display = 'none';
+        }
+
+      }
+
+    }).catch(err => {
+      console.log('MyActPage-参加活动请求错误码：', err.status);
+
+      for (var i in err) {
+        console.log('MyActPage-参加活动请求报错：', err[i]);
+        for (var k in err[i]) {
+          console.log(err[i].k, err[i][k]);
+        }
+      }
+    }); 
+
+
   }
 
   // 跳转活动详情页
   goAct(item){
     this.navCtrl.push('AboutActPage',item);
+  }
+
+  // 跳转活动列表页
+  goAbout(){
+    this.navCtrl.push(AboutPage);
   }
 
   // 跳转发起活动页

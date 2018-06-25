@@ -7,7 +7,10 @@
 <ion-header class="header">
 
   <ion-navbar color="primary">
-    <ion-title>消息</ion-title>
+    <ion-title>
+      消息
+      <ion-icon (click)="goaddFriend()" class="icon" name="md-add"></ion-icon>
+    </ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -26,7 +29,7 @@
         好友
       </ion-segment-button>
       <ion-segment-button value="群组">
-        群组
+        通知
       </ion-segment-button>
     </ion-segment>
   </div>
@@ -35,22 +38,21 @@
 
     <!-- 群组 -->
     <ion-list *ngSwitchCase="'群组'">
-      <ion-item (click)="goDetail()" *ngFor="let item of groupitems">
-        <ion-thumbnail  class="thumbnail"  item-start>
-          <img src="{{item.imgUrl}}" class="image">
-        </ion-thumbnail>
-        <p class="name">{{item.name}}</p>
-        <p>{{item.info}}</p>
+      <ion-item class="myitem" (click)="choose(item.messageFrom,item.messageID,item.status)" *ngFor="let item of arr">
+        <p class="name">{{item.userName}}</p>
+        <p>{{item.messageContent}}</p>
+        <p class="time">{{item.messageTime}}</p>
+        <p class="status" [ngStyle]="{'color':item.status == '已读'?'red':'#999'}" >{{item.status == '已处理'? item.status:'未处理'}}</p>
       </ion-item>
     </ion-list>
 
     <!-- 好友 -->
     <ion-list *ngSwitchCase="'好友'">
-      <ion-item (click)="goDetail()" *ngFor="let item of personitems">
+      <ion-item (click)="goDetail(item.userID,item.avatar,item.userName)" *ngFor="let item of personitems">
         <ion-thumbnail  class="thumbnail"  item-start>
-            <img src="{{item.imgUrl}}" class="image"> 
+            <img src="{{item.avatar}}" class="image"> 
         </ion-thumbnail>
-          <p class="name">{{item.name}}</p>
+          <p class="name">{{item.userName}}</p>
           <p>{{item.info}}</p>
       </ion-item>
     </ion-list>

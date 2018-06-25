@@ -29,7 +29,7 @@
 
     <!-- 场地预约 -->    
     <ion-grid class="grid" *ngSwitchCase="'order'">
-      <ion-searchbar class="search" color="primary" placeholder="场地搜索"></ion-searchbar>
+      <!-- <ion-searchbar class="search" color="primary" placeholder="场地搜索"></ion-searchbar> -->
       <ion-list>
         <ion-item no-lines *ngFor="let item of addressitems" (click)="goSite(item)" class="items">
           <img class="item-imgs" src="{{item.imgURL}}" alt="场地图片">
@@ -53,7 +53,7 @@
 
     <!-- 参加活动 -->
     <ion-grid class="grid" *ngSwitchCase="'join'">
-      <ion-searchbar class="search" color="primary" placeholder="活动搜索"></ion-searchbar>
+      <!-- <ion-searchbar class="search" color="primary" placeholder="活动搜索"></ion-searchbar> -->
       <ion-list>
         <ion-item no-lines *ngFor="let item of myactitems" (click)="goAct(item)" class="items">
           <img class="item-imgs" src="{{item.imgURL}}" alt="场地图片">

@@ -7,7 +7,7 @@ import { AlertController } from 'ionic-angular';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
+declare var io;
 @IonicPage()
 @Component({
   selector: 'page-about-order',
@@ -21,26 +21,27 @@ export class AboutOrderPage {
     others: ''
   }
 
-  userinfo={
-    imgURL:'../../assets/imgs/QQ.jpg',
-    username:'如魔似佛像我',
-    intro:'我曾在意的你，想说声对不起，年少时的任性，有些话伤人不轻'
-
-  }
-
+  userinfo;
+  mysocket;
   constructor(private alertCtrl: AlertController,
     public navCtrl: NavController,
     public navParams: NavParams) {
 
-      
+      var temp = JSON.parse(this.navParams.data.result) ;
+      this.userinfo = temp[0];
+      console.log(this.navParams.data);
+      for(var k in this.userinfo){
+        console.log(k,this.userinfo[k]);
+      }
+
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutOrderPage');
 
-    var node = document.getElementById('image');
-      node.style.background = 'url(' + this.userinfo.imgURL + ')';
+    var node = document.getElementById('myimage');
+      node.style.background = 'url(' + this.userinfo.avatar + ')';
 
   }
 
@@ -66,34 +67,17 @@ export class AboutOrderPage {
     alert.present();
   }
 
-  // 获取值
-  // getValue(e) {
-  //   // console.log(e.target.getAttribute('placeholder'));
-  //   var placeholder = e.target.getAttribute('placeholder');
-  //   var value = e.target.value;
-  //   console.log(placeholder, value);
-  //   if (placeholder == '*时间') {
-  //     this.obj.time = value;
-  //   } else if (placeholder == '*人数') {
-  //     this.obj.number = value;
-  //   } else {
-  //     this.obj.others = value;
-  //   }
-  // }
 
   // 请求数据
   upData() {
-  //   if (this.obj.time == '') {
-  //     this.presentAlert('时间为不能为空！');
-  //     console.log(typeof this.obj.number);
-  //   } else {
-  //     if (this.obj.number == 0) {
-  //       this.presentAlert('人数不能为空！')
-  //     } else {
-  //       console.log(this.obj);
-  //     }
-  //   }
-  //   console.log(this.obj);
+
+    // const socket = this.mysocket;
+    var str = '我是' + window.localStorage.getItem('userName') + ',请求添加您为好友！';
+    this.navParams.data.socket.emit('addFriend',window.localStorage.getItem('userID'),this.userinfo.userID,str);
+    
+    this.presentAlert('请求已发送！');
+
+    // this.navCtrl.pop();
   }
 
 }

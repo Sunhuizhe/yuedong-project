@@ -1,84 +1,36 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { HTTP} from '@ionic-native/http';
+import { AlertController } from 'ionic-angular';
 @Component({
   selector: 'page-contact',
   templateUrl: 'contact.html'
 })
 export class ContactPage {
 
-  items = [
-    {
-      name: '如魔似佛像我',
-      time: '今天 09：08',
-      content: '我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！',
-      image: 'assets/imgs/QQ1.jpg',
-      imgslength: 9,
-      imgs: [
-        { url: 'assets/imgs/login.jpg' },
-        { url: 'assets/imgs/login.png' },
-        { url: 'assets/imgs/login.jpg' },
-        { url: 'assets/imgs/login.png' },
-        { url: 'assets/imgs/login.jpg' },
-        { url: 'assets/imgs/login.png' },
-        { url: 'assets/imgs/login.jpg' },
-        { url: 'assets/imgs/login.png' },
-        { url: 'assets/imgs/login.jpg' },
-      ]
-    },
-    {
-      name: '如魔似佛像我',
-      time: '今天 09：08',
-      content: '我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！',
-      image: 'assets/imgs/QQ.jpg',
-      imgslength: 1,
-      imgs: [
-        { url: 'assets/imgs/login.jpg' },
-      ]
-    },
-    {
-      name: '如魔似佛像我',
-      time: '今天 09：08',
-      content: '我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！',
-      image: 'assets/imgs/QQ.jpg',
-      imgslength: 4,
-      imgs: [
-        { url: 'assets/imgs/login.jpg' },
-        { url: 'assets/imgs/login.png' },
-        { url: 'assets/imgs/login.jpg' },
-        { url: 'assets/imgs/login.png' },
-      ]
-    },
-    {
-      name: '如魔似佛像我',
-      time: '今天 09：08',
-      content: '我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！',
-      image: 'assets/imgs/QQ1.jpg',
-      imgslength: 6,
-      imgs: [
-        { url: 'assets/imgs/login.jpg' },
-        { url: 'assets/imgs/login.png' },
-        { url: 'assets/imgs/login.jpg' },
-        { url: 'assets/imgs/login.png' },
-        { url: 'assets/imgs/login.jpg' },
-        { url: 'assets/imgs/login.png' },
-      ] // imgs
-    }, // item
-    {
-      name: '如魔似佛像我',
-      time: '今天 09：08',
-      content: '我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！我想带你去游山玩水，看那落霞与孤鹜齐飞！',
-      image: 'assets/imgs/QQ1.jpg',
-      imgslength: 2,
-      imgs: [
-        { url: 'assets/imgs/login.jpg' },
-        { url: 'assets/imgs/login.png' },
-      ] // imgs
-    } // item
-  ] // items
+  items = [];
 
-  constructor(public navCtrl: NavController) {
+   // 错误信息提示框
+   presentAlert(mes){
+    let alert = this.alertCtrl.create({
+      // title: 'Low battery',
+      subTitle: mes,
+      buttons: ['知道了！']
+    });
+    alert.present();
+  }
 
+  constructor(public navCtrl: NavController,
+    private alertCtrl: AlertController,
+    private http: HTTP,
+  ) {
+    this.request();
+  }
+
+  ionViewWillEnter(){
+    console.log('ionViewWillEnter ContactPage');
+
+    this.request();
   }
 
   goContactUP() {
@@ -89,7 +41,7 @@ export class ContactPage {
   doRefresh(refresher) {
     console.log('下拉刷新-圈子-begin', refresher);
 
-    // this.request();
+    this.request();
 
     setTimeout(() => {
       console.log('下拉刷新-圈子-ended');
@@ -98,7 +50,30 @@ export class ContactPage {
   }
 
 
+  request(){
+    this.http.post('http://39.107.66.152:8080/mine/getCircleList',{
+      userID:window.localStorage.getItem('userID')
+    },{}).then(res=>{
+      console.log(res['data']);
 
+      this.items = JSON.parse(res['data']);
+
+      for(var i in this.items){
+        var time = new Date(this.items[i]['circleTime']).toLocaleString();
+        this.items[i]['circleTime'] = time;
+
+        if(this.items[i]['imgURL'] == 'undefined'){
+          this.items[i].flag = 'none';
+        }else{
+          this.items[i].flag = 'block';
+        }
+
+      }
+
+    }).catch(err=>{
+      console.log('Contact-数据请求报错：',err);
+    });
+  }
 
 
 }

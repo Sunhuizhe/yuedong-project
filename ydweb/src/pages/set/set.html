@@ -22,7 +22,7 @@
     </ion-refresher>
 
   <div class="mybody">
-    <div id="image" class="image" (click)='presentActionSheet($event)' alt="头像"></div>
+    <div id="image" class="image" [ngStyle]="{'background': 'url(userinfo.url)' }" (click)='presentActionSheet($event)' alt="头像"></div>
 
     <ion-list class="list-first">
       <ion-item>

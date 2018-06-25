@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HTTP } from '@ionic-native/http';
 import { AlertController } from 'ionic-angular';
+
 /**
- * Generated class for the MyPage page.
+ * Generated class for the AboutUserinfoPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,16 +12,27 @@ import { AlertController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-my',
-  templateUrl: 'my.html',
+  selector: 'page-about-userinfo',
+  templateUrl: 'about-userinfo.html',
 })
-export class MyPage {
+export class AboutUserinfoPage {
 
+  userid;
   userinfo = {
     name: '',
     intro: '',
-    url: ''
+    url: '',
+    telNumber:''
   };
+
+  constructor(private alertCtrl: AlertController,public navCtrl: NavController, private http: HTTP,public navParams: NavParams) {
+    this.userid = navParams.data;
+    this.request();
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad AboutUserinfoPage');
+  }
 
   // 下拉刷新
   doRefresh(refresher) {
@@ -44,52 +56,11 @@ export class MyPage {
     alert.present();
   }
 
-  constructor(private alertCtrl: AlertController, private http: HTTP, public navCtrl: NavController, public navParams: NavParams) {
-    // this.request();
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MyPage');
-    this.request();
-  }
-
-  ionViewWillEnter() {
-    console.log('ionViewWillEnter MyPage');
-    this.request();
-  }
-
-  items = [
-    { iconname: 'md-pulse', title: '我的运动', page: 'MyActPage' },
-    // { iconname: 'md-star', title: '我的收藏', page: 'MyStarPage' },
-    { iconname: 'ios-call', title: '我要合作' },
-    { iconname: 'md-information-circle', title: '关于悦动', page: 'MyAboutPage' }
-  ]
-
-  goSet() {
-    this.navCtrl.push('SetPage');
-  }
-
-  goPage(e) {
-    var page = e.target.getAttribute('id');
-    console.log(page);
-    if (page == 'MyActPage') {
-      console.log(page);
-      this.navCtrl.push('MyActPage');
-    } else if (page == 'MyAboutPage') {
-      console.log(page);
-      this.navCtrl.push('MyAboutPage');
-    } else if (page == 'MyStarPage') {
-      console.log(page);
-      this.navCtrl.push('MyStarPage');
-    }
-  }
-
-  request() {
-    var userId = localStorage.getItem('userID');
+  request(){
     var image = document.getElementById('image');
 
     this.http.post('http://39.107.66.152:8080/mine', {
-      userID: userId
+      userID: this.userid
     }, {}).then(data => {
       var info = JSON.parse(data['data']);
 
@@ -99,11 +70,11 @@ export class MyPage {
         this.userinfo.name = info[0].userName;
         this.userinfo.intro = info[0].signature;
         this.userinfo.url = info[0].avatar;
+        this.userinfo.telNumber = info[0].telNumber;
 
         console.log(this.userinfo.url);
+        console.log(this.userinfo.telNumber);
 
-        image.style.background = 'url(' + this.userinfo.url + ')';
-        console.log(image.style.background);
       }
     }).catch(error => {
       console.log('error status:', error.status);
