@@ -26,6 +26,7 @@ export class HomePage {
     this.swipers = document.getElementsByClassName('swiper');
     this.hotSports = document.getElementsByClassName('hotSport');
     this.request();
+
   }
 
   // 下拉刷新
@@ -58,7 +59,7 @@ export class HomePage {
   }
 
   request() {
-    
+
 
     // 轮播图片的请求
     // this.http.get('http://39.107.66.152:8080', {}, {})
@@ -93,7 +94,7 @@ export class HomePage {
       .then(res => {
         this.topicItems = JSON.parse(res['data']);
 
-        for(var i in this.topicItems){
+        for (var i in this.topicItems) {
           var temp = new Date(this.topicItems[i].topicTime);
           var time = temp.toLocaleString();
           this.topicItems[i].topicTime = time;

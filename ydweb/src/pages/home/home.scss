@@ -51,20 +51,18 @@ page-home{
                 display: inline-block;
                 padding-left:2%;
                 width:60%;
-                // height:70px;
+                vertical-align: top;
                 .title{
                    font-size: 16px; 
                    font-weight: bold;
                    color:#000;
-                   position: absolute;
-                   top:10px;
                 }
                 .content{
-                    height:38px;
                     overflow: hidden;
                     font-size: 12px;
                 }
                 .grade{
+                    vertical-align: bottom;
                     font-size: 12px;
                 }
             }

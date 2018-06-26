@@ -126,7 +126,8 @@ export class AboutUpPage {
       var node2 = document.getElementById('image');
       node.style.display = 'none';
       node2.style.display = 'block';
-      node2.style.background = 'url(' + this.base64Image + ')';
+      // node2.style.background = 'url(' + this.base64Image + ')';
+      node2.setAttribute('src',this.base64Image);
 
     }, (err) => {
       // Handle error
@@ -153,7 +154,8 @@ export class AboutUpPage {
       var node2 = document.getElementById('image');
       node.style.display = 'none';
       node2.style.display = 'block';
-      node2.style.background = 'url(' + this.base64Image + ')';
+      // node2.style.background = 'url(' + this.base64Image + ')';
+      node2.setAttribute('src',this.base64Image);
     }, (err) => {
       // Handle error
       console.log(err);

@@ -117,11 +117,14 @@ export class MyActPage {
     }, {}).then(res => {
       console.log('我参加的活动-请求：', res['data']);
 
+      this.actitems = [];
+
       var data = JSON.parse(res['data']);
+      var myempty = document.getElementById('myempty');
 
       // UTC时间处理
       for (var i in data) {
-        var empty = document.getElementById('empty2');
+        
 
         console.log('MyActPage-UTC时间转换调试：', data[i]['actTime']);
 
@@ -133,14 +136,15 @@ export class MyActPage {
 
         console.log('MyActPage-UTC时间转换调试：', data[i]['actTime'], data[i]['actCutOffTime']);
 
-        this.actitems[i] = data[i];
+        this.actitems.push(data[i]);
+        console.log(this.actitems[i]);
+        console.log(this.actitems.length);
+      }
 
-        if (this.actitems.length == 0) {
-          empty.style.display = 'block';
-        } else {
-          empty.style.display = 'none';
-        }
-
+      if (this.actitems.length == 0) {
+        myempty.style.display = 'block';
+      } else {
+        myempty.style.display = 'none';
       }
 
     }).catch(err => {

@@ -30,6 +30,12 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+    let elements = document.querySelectorAll(".tabbar");
+    if (elements != null) {
+        Object.keys(elements).map((key) => {
+            elements[key].style.display = 'none';
+        });
+    } 
   }
 
   // 错误信息提示框
@@ -89,7 +95,7 @@ export class LoginPage {
           }else{
             // console.log(TabsPage);
             num = parseInt(num.slice(10,-1));
-            this.navCtrl.push(TabsPage);
+            this.navCtrl.setRoot(TabsPage);
             window.localStorage.setItem('userID',num);
             window.localStorage.setItem('login','true');
             

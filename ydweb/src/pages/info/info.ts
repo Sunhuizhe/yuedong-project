@@ -86,7 +86,7 @@ export class InfoPage {
 
    console.log('info');
 
-   this.request();
+  //  this.request();
 
    console.log(window.localStorage.getItem('socket'));
 
@@ -94,13 +94,18 @@ export class InfoPage {
 
   request(){
 
+    var node = document.getElementById('buttom');
+
     // 好友请求
     this.http.post('http://39.107.66.152:8080/chat/getFriendList',{
       userID:window.localStorage.getItem('userID')
     },{}).then(res=>{
       // console.log(res['data']);
-
-      this.personitems = JSON.parse(res['data']);
+      if(res['data'] == '0'){
+        node.innerHTML = '还没有好友，去右上角添加吧！';
+      }else{
+        this.personitems = JSON.parse(res['data']);
+      }
 
     }).catch(err=>{
       console.log('Info-好友列表请求报错：',err);
@@ -112,7 +117,7 @@ export class InfoPage {
       userID:window.localStorage.getItem('userID')
     },{}).then(res=>{
       console.log('getaddFriendList', res['data']);
-      
+
       var temp = JSON.parse(res['data']);
       this.friendArr = temp;
       // this.friendArr.userID = temp[0].messageFrom;
@@ -149,7 +154,7 @@ export class InfoPage {
   doRefresh(refresher) {
     console.log('下拉刷新-消息-begin', refresher);
 
-    this.request();
+    // this.request();
 
     setTimeout(() => {
       console.log('下拉刷新-消息-ended');
@@ -158,11 +163,12 @@ export class InfoPage {
   }
 
   // 群组
-  groupitems = [
-    { imgUrl: '../assets/imgs/football.jpg', name: '师大足球群', info: '嗯，好的！' },
-    { imgUrl: '../assets/imgs/sport1.jpg', name: '石家庄运动群', info: '我不行，我明天有事，就不去了，下次吧！' }
-  ]
+  // groupitems = [
+  //   { imgUrl: '../assets/imgs/football.jpg', name: '师大足球群', info: '嗯，好的！' },
+  //   { imgUrl: '../assets/imgs/sport1.jpg', name: '石家庄运动群', info: '我不行，我明天有事，就不去了，下次吧！' }
+  // ]
 
+  // 消息请求
   goDetail(id,avatar,name) {
 
     var socket = this.mysocket;
@@ -207,9 +213,14 @@ export class InfoPage {
   }
 
   ionViewDidLoad() {
+    this.request();
     console.log('ionViewDidLoad InfoPage');
   }
 
+  ionViewWillEnter(){
+    this.request();
+    console.log('ionViewWillEnter InfoPage');
+  }
 
   goaddFriend(){
     var socket = this.mysocket;

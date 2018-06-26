@@ -70,8 +70,6 @@ export class InfoAddFriendPage {
           this.navCtrl.push('AboutOrderPage',{socket,result});
         }
 
-        
-
       }).catch(err=>{
         console.log('addFriend-请求报错：',err);
       });

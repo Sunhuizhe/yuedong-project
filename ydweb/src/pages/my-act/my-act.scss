@@ -12,8 +12,8 @@ page-my-act {
         .grid{
             padding:5px 0;
             text-align: center;
-            #empty{
-                display: none;
+            #empty,#myempty{
+                display: block;
                 .upto{
                     color:#488aff;
                     font-size: 18px;

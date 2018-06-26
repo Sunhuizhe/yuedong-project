@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { NavController } from 'ionic-angular';
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
@@ -15,7 +15,10 @@ export class TabsPage {
   tab4Root = ContactPage;
   tab5Root = 'MyPage';
 
-  constructor() {
-
+  constructor(public navCtrl: NavController,) {
+    if(window.localStorage.getItem('login') == 'false'){
+      this.navCtrl.setRoot('LoginPage');
+      
+    }
   }
 }

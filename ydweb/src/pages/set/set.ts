@@ -91,9 +91,10 @@ export class SetPage {
 
         console.log(this.userinfo.url);
 
-        image.style.background = "url(" + this.userinfo.url + ")";
-        window.localStorage.setItem('avatar',this.userinfo.url);
-        console.log('设置-头像背景：', image.style.backgroundImage);
+        // image.style.background = "url(" + this.userinfo.url + ")";
+        // image.setAttribute('src',info[0].avatar);
+        // window.localStorage.setItem('avatar',this.userinfo.url);
+        // console.log('设置-头像背景：', image.style.backgroundImage);
       }
     }).catch(error => {
       console.log('设置-error status:', error.status);
@@ -112,6 +113,7 @@ export class SetPage {
   // 退出登录
   backToLogin() {
     this.navCtrl.setRoot('LoginPage');
+    // this.navCtrl.push('LoginPage');
     window.localStorage.setItem('login','false');
   }
 
@@ -173,9 +175,11 @@ export class SetPage {
         userID: userId
       }, {}).then(res => {
         var data = JSON.parse(res['data']);
-        var url = data.avatar;
-        e.target.style.background = "url(" + url + ")";
-        window.localStorage.setItem('avatar',this.userinfo.url);
+        this.userinfo.url  = data.avatar;
+        
+        // e.target.style.background = "url(" + url + ")";
+        // e.target.setAttribute('src',);
+        // window.localStorage.setItem('avatar',this.userinfo.url);
       }).catch(err => {
         console.log('SetPage-头像上传-从相册-相册调用报错', err);
       });
@@ -209,9 +213,10 @@ export class SetPage {
         userID: userId
       }, {}).then(res => {
         var data = JSON.parse(res['data']);
-        var url = data.avatar;
-        e.target.style.background = "url(" + url + ")";
-        window.localStorage.setItem('avatar',this.userinfo.url);
+        this.userinfo.url  = data.avatar;
+        // e.target.style.background = "url(" + url + ")";
+        // e.target.setAttribute('src',url);
+        // window.localStorage.setItem('avat    ar',this.userinfo.url);
       }).catch(err => {
         console.log('SetPage-头像上传-从相机-相机调用报错:', err);
       });

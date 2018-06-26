@@ -72,12 +72,12 @@ export class AboutOrderPage {
   upData() {
 
     // const socket = this.mysocket;
-    var str = '我是' + window.localStorage.getItem('userName') + ',请求添加您为好友！';
+    var str = '请求添加您为好友！';
     this.navParams.data.socket.emit('addFriend',window.localStorage.getItem('userID'),this.userinfo.userID,str);
     
     this.presentAlert('请求已发送！');
 
-    // this.navCtrl.pop();
+    this.navCtrl.popTo(this.navCtrl.getByIndex(this.navCtrl.length()-3));
   }
 
 }

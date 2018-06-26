@@ -83,18 +83,17 @@ page-about {
         } // items
     }
     ion-footer{
-        width:10%;
-        font-size: 24px;
+        width:12%;
+        font-size: 22px;
         text-align: center;
         background:#488aff;
         color:#fff;
-        padding-top:1%;
-        border-radius:3px;
-        // padding:3px;
-        // position:fixed;
-        // bottom:20px;
-        // right:10px;
-        float: right!important;
+        padding-top:1.5%;
+        position:fixed;
+        left:85%;
+        top:83%;
+        margin-bottom:4%;
+        border-radius:5%;
     }
     .searchbar-md{
         padding:0 0 8px 0;
@@ -113,5 +112,8 @@ page-about {
     .segment-md-primary .segment-button{
         font-size:14px;
     }
-    
+    ion-content.has-refresher > .scroll-content{
+        margin-bottom:15%!important;
+        // background:#000;
+    }
 }
