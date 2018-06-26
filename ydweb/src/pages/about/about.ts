@@ -63,7 +63,7 @@ export class AboutPage {
           // console.log(this.addressitems[k]);
         }
       }).catch(error => {
-        this.presentAlert(error);
+        // this.presentAlert(error);
         for (var k in error) {
           console.log(error[k]);
         }

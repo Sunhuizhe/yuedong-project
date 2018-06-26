@@ -78,6 +78,7 @@ export class AboutActPage {
     this.http.post('http://39.107.66.152:8080/sport/getActListPeople',{
       str:this.act.actPeople
     },{}).then(res=>{
+      this.namearr = [];
       console.log('res.data:', res['data']);
       var t = JSON.parse(res['data']);
       var temp = t;
@@ -125,6 +126,7 @@ export class AboutActPage {
         var myButton = document.getElementById('mybutton');
         myButton.setAttribute('disabled', 'disabled');
         myButton.innerHTML = '已报名';
+        this.request();
       } else if (res['data'] == 2) {
         this.presentAlert('人数已满，再看看其他的活动吧！');
       } else {

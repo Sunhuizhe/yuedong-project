@@ -61,32 +61,32 @@ export class HomePage {
     
 
     // 轮播图片的请求
-    this.http.get('http://39.107.66.152:8080', {}, {})
-      .then(res => {
-        // console.log(res['data']);
-        var data = JSON.parse(res['data']);
+    // this.http.get('http://39.107.66.152:8080', {}, {})
+    //   .then(res => {
+    //     // console.log(res['data']);
+    //     var data = JSON.parse(res['data']);
 
-        // 数据处理
-        this.swiper = data[0]['swiper'].substring(1).slice(0, -1).split(',');
-        this.hotsport = data[0]['hotSport'].substring(1).slice(0, -1).split(',');
+    //     // 数据处理
+    //     this.swiper = data[0]['swiper'].substring(1).slice(0, -1).split(',');
+    //     this.hotsport = data[0]['hotSport'].substring(1).slice(0, -1).split(',');
 
 
-        for (var i in this.swiper) {
+    //     for (var i in this.swiper) {
 
-          var snode = this.swipers[i];
-          this.swiper[i] = this.swiper[i].substring(1).slice(0, -1);
-          // console.log(this.swiper[i]);
-        }
-        for (var i in this.hotsport) {
-          this.hotsport[i] = this.hotsport[i].substring(1).slice(0, -1);
-          var hnode = this.hotSports[i];
-          // console.log(this.hotSports[i]);
-          // console.log(this.hotsport[i]);
-        }
+    //       var snode = this.swipers[i];
+    //       this.swiper[i] = this.swiper[i].substring(1).slice(0, -1);
+    //       // console.log(this.swiper[i]);
+    //     }
+    //     for (var i in this.hotsport) {
+    //       this.hotsport[i] = this.hotsport[i].substring(1).slice(0, -1);
+    //       var hnode = this.hotSports[i];
+    //       // console.log(this.hotSports[i]);
+    //       // console.log(this.hotsport[i]);
+    //     }
 
-      }).catch(err => {
-        console.log('HomePage-轮播图请求报错:', err);
-      });
+    //   }).catch(err => {
+    //     console.log('HomePage-轮播图请求报错:', err);
+    //   });
 
     // 话题请求
     this.http.get('http://39.107.66.152:8080/goodTopic', {}, {})

@@ -112,7 +112,7 @@ export class ChangepwdPage {
             }
           }).catch(error => {
             console.log('error status:',error.status);
-            this.presentAlert(error.error);
+            // this.presentAlert(error.error);
           }); // post
         } // else-repassword
       } // else-password

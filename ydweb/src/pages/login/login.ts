@@ -108,7 +108,7 @@ export class LoginPage {
           }
         }).catch(error => {
           console.log('error status:',error.status);
-          this.presentAlert(error.error);
+          // this.presentAlert(error.error);
         }); // post
       } // else-password
     } // else-username

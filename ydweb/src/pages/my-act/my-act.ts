@@ -112,7 +112,7 @@ export class MyActPage {
     }); 
 
      // 我参加的活动--请求
-     this.http.post('http://39.107.66.152:8080/mine/myAddAct', {
+     this.http.post('http://39.107.66.152:8080/sport/getJoinAct', {
       userID: userId
     }, {}).then(res => {
       console.log('我参加的活动-请求：', res['data']);

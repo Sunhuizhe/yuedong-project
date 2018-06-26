@@ -78,7 +78,7 @@ export class AboutUserinfoPage {
       }
     }).catch(error => {
       console.log('error status:', error.status);
-      this.presentAlert(error);
+      // this.presentAlert(error);
     });
   }
 

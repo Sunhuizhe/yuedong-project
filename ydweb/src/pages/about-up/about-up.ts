@@ -197,7 +197,7 @@ export class AboutUpPage {
 
     }).catch(err=>{
       console.log(err);
-      this.presentAlert(err);
+      // this.presentAlert(err);
     })
   }
 

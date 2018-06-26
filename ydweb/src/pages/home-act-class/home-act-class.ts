@@ -102,7 +102,7 @@ export class HomeActClassPage {
       // console.log(this.myactitems);
     }).catch(err => {
       console.log('err:', err);
-      this.presentAlert(err);
+      // this.presentAlert(err);
     });
 
     for (var k in this.myactitems) {
