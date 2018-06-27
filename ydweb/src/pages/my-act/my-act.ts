@@ -26,29 +26,55 @@ export class MyActPage {
     public navParams: NavParams,
     private http: HTTP,
     private alertCtrl: AlertController) {
+    
   }
+  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyActPage');
-    var empty = document.getElementById('empty');
-    if (this.myactitems.length == 0) {
-      empty.style.display = 'block';
-    } else {
-      empty.style.display = 'none';
-    }
+
+    // var myempty = document.getElementById('myempty');
+    // if (this.actitems.length == 0) {
+    //   myempty.style.display = 'block';
+    // } else {
+    //   myempty.style.display = 'none';
+    // }
+
+    // var empty = document.getElementById('empty');
+    // if (this.myactitems.length == 0) {
+    //   empty.style.display = 'block';
+    // } else {
+    //   empty.style.display = 'none';
+    // }
   }
 
   ionViewWillEnter() {
-    console.log('ionViewWillEnter MyActPage');
     this.request();
+    // console.log('ionViewWillEnter MyActPage');
+    // var that = this;
+    // setTimeout(function(){
+    //   that.request();
+    // },100);
+    
+  }
 
-    var empty = document.getElementById('empty');
-    if (this.myactitems.length == 0) {
-      empty.style.display = 'block';
-    } else {
-      empty.style.display = 'none';
-    }
-
+  check(str){
+    this.request();
+    // if(str == 'myself'){
+    //   var empty = document.getElementById('empty');
+    // if (this.myactitems.length == 0) {
+    //   empty.style.display = 'block';
+    // } else {
+    //   empty.style.display = 'none';
+    // }
+    // }else{
+    //   var myempty = document.getElementById('myempty');
+    // if (this.actitems.length == 0) {
+    //   myempty.style.display = 'block';
+    // } else {
+    //   myempty.style.display = 'none';
+    // }
+    // }
   }
 
   // 下拉刷新

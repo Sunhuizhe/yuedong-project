@@ -23,6 +23,11 @@ export class HomePage {
     private alertCtrl: AlertController,
     private http: HTTP) {
 
+      if(window.localStorage.getItem('login') == 'false'){
+        this.navCtrl.setRoot('LoginPage');
+        
+      }
+
     this.swipers = document.getElementsByClassName('swiper');
     this.hotSports = document.getElementsByClassName('hotSport');
     this.request();

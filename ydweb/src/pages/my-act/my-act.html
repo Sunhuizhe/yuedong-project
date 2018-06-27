@@ -21,10 +21,10 @@
 
   <!-- segment 组件 -->
   <ion-segment [(ngModel)]="choose" color="primary">
-    <ion-segment-button value="myself">
+    <ion-segment-button (click)="check('myself')" value="myself">
       我发起的
     </ion-segment-button>
-    <ion-segment-button value="others">
+    <ion-segment-button (click)="check('others')" value="others">
       我参加的
     </ion-segment-button>
   </ion-segment>

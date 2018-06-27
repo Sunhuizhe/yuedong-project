@@ -65,7 +65,10 @@ export class InfoPage {
       that.friendArr = temp[0];
       that.friendArr.messageFrom = from;
       that.friendArr.messageContent = msg;
-      that.arr.push(that.friendArr);
+      that.friendArr.messageTime = new Date().toLocaleString();
+      // that.friendArr.status = '已读';
+      that.arr.unshift(that.friendArr);
+      this.request();
       for(var i in that.friendArr){
         console.log(i,that.friendArr[i]);
       }
@@ -154,7 +157,7 @@ export class InfoPage {
   doRefresh(refresher) {
     console.log('下拉刷新-消息-begin', refresher);
 
-    // this.request();
+    this.request();
 
     setTimeout(() => {
       console.log('下拉刷新-消息-ended');
@@ -237,6 +240,7 @@ export class InfoPage {
           role: 'destructive',
           handler: () => {
             console.log('同意添加好友');
+            this.mysocket.emit('addFriendOk',id,window.localStorage.getItem('userID'));
             this.agree(id,msgid);
           }
         },
@@ -245,6 +249,7 @@ export class InfoPage {
           role: 'cancel',
           handler: () => {
             console.log('忽略添加好友信息');
+            this.agree(id,msgid);
           }
         }
       ]
@@ -264,16 +269,15 @@ export class InfoPage {
 
   agree(id,msgid){
     console.log(id);
-    this.mysocket.emit('addFriendOk',id,window.localStorage.getItem('userID'));
     
     this.http.post('http://39.107.66.152:8080/chat/changeStatus',{
       messageID:msgid
     },{}).then(res=>{
       if(res['data'] == 1){
-        this.presentAlert('添加成功！');
+        this.presentAlert('已处理此条通知！');
         this.request();
       }else{
-        this.presentAlert('添加失败，请稍后再试！');
+        this.presentAlert('处理失败，请稍后再试！');
       }
     }).catch(err=>{
       console.log('改变消息status报错：',err);
