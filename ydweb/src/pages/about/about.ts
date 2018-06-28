@@ -60,7 +60,7 @@ export class AboutPage {
 
         for (var k in info) {
           this.addressitems[k] = info[k];
-          // console.log(this.addressitems[k]);
+          console.log('场地：',this.addressitems[k]);
         }
       }).catch(error => {
         // this.presentAlert(error);

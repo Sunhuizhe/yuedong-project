@@ -30,25 +30,25 @@ export class AboutActPage {
 
     console.log(this.act.actPeople);
 
-    var buttons = document.getElementById('buttons');
-    for (var i in this.act) {
-      if (this.act[i].userID == localStorage.getItem('userID')) {
-        this.flag = 'none';
-      } else {
-        this.flag = 'block';
-      }
-    }
+    // var buttons = document.getElementById('buttons');
+    // for (var i in this.act) {
+    //   if (this.act[i].userID == localStorage.getItem('userID')) {
+    //     this.flag = 'none';
+    //   } else {
+    //     this.flag = 'block';
+    //   }
+    // }
 
-      
+
     // this.act.actPeople = "'" + this.act.actPeople + "'";
     // console.log(typeof this.act.actPeople);
     this.arr = this.act.actPeople.split(',');
-    
+
     // console.log(this.arr,this.act.actPeople);
     // console.log('this.arr instanceof Array' ,this.arr instanceof Array);
-  
+
     this.request();
-  
+
   }
 
   // 下拉刷新
@@ -73,24 +73,24 @@ export class AboutActPage {
     alert.present();
   }
 
-  request(){
+  request() {
     // var str = '1,3,10';
-    this.http.post('http://39.107.66.152:8080/sport/getActListPeople',{
-      str:this.act.actPeople
-    },{}).then(res=>{
+    this.http.post('http://39.107.66.152:8080/sport/getActListPeople', {
+      str: this.act.actPeople
+    }, {}).then(res => {
       this.namearr = [];
       console.log('res.data:', res['data']);
       var t = JSON.parse(res['data']);
       var temp = t;
-      for(var i in temp){
-        console.log('i', i,temp[i]);
+      for (var i in temp) {
+        console.log('i', i, temp[i]);
         this.namearr.push(temp[i]);
         console.log('push');
-        for(var k in temp[i]){
-          console.log('i,k',k,temp[i][k]);
+        for (var k in temp[i]) {
+          console.log('i,k', k, temp[i][k]);
         }
       }
-    }).catch(err=>{
+    }).catch(err => {
       console.log('userName请求报错：', err);
     });
   }
@@ -98,19 +98,25 @@ export class AboutActPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutActPage');
 
+    var date = new Date().toLocaleString();
+    console.log(date, date > this.act.actCutOffTime);
+
     for (var i in this.arr) {
-      if (window.localStorage.getItem('userID') == this.arr[i]) {
-        // console.log(typeof this.arr[i]);
-        var myButton = document.getElementById('mybutton');
-        myButton.setAttribute('disabled', 'disabled');
-        myButton.innerHTML = '已报名';
+      var myButton = document.getElementById('mybutton');
+      if (date > this.act.actCutOffTime) {
+          myButton.setAttribute('disabled', 'disabled');
+          myButton.innerHTML = '已截止';
+        }else  if (window.localStorage.getItem('userID') == this.arr[i]) {
+          myButton.setAttribute('disabled', 'disabled');
+          myButton.innerHTML = '已报名';
+        }
       }
     }
-  }
+  
 
-  goOrderTwo(id){
+  goOrderTwo(id) {
 
-    this.navCtrl.push('AboutUserinfoPage',id);
+    this.navCtrl.push('AboutUserinfoPage', id);
 
   }
 
