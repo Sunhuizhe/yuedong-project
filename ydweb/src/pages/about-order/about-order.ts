@@ -29,10 +29,10 @@ export class AboutOrderPage {
 
       var temp = JSON.parse(this.navParams.data.result) ;
       this.userinfo = temp[0];
-      console.log(this.navParams.data);
-      for(var k in this.userinfo){
-        console.log(k,this.userinfo[k]);
-      }
+      // console.log(this.navParams.data);
+      // for(var k in this.userinfo){
+      //   console.log(k,this.userinfo[k]);
+      // }
 
 
   }

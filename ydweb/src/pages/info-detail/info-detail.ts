@@ -31,7 +31,7 @@ export class InfoDetailPage {
       var that = this;
 
       this.friendID = navParams.data.id;
-      console.log(navParams.data.id);
+      // console.log(navParams.data.id);
       this.avatar = navParams.data.avatar;
       this.username = navParams.data.name;
       this.info = navParams.data.myinfo;
@@ -39,7 +39,7 @@ export class InfoDetailPage {
       navParams.data.socket.on('pmsg', function (from,to,msg) {
         console.log('message socket on:',msg);
 
-        console.log(this,that.info);
+        // console.log(this,that.info);
         // 修改信息列表
         that.info.push({usertype:'others',
         avatar:that.avatar,
@@ -78,7 +78,7 @@ export class InfoDetailPage {
     avatar:window.localStorage.getItem('avatar'),
     messageContent:val};
 
-    console.log('avatar', window.localStorage.getItem('avatar'));
+    // console.log('avatar', window.localStorage.getItem('avatar'));
 
     // 输入框置空
     e.value='';

@@ -60,7 +60,7 @@ export class AboutPage {
 
         for (var k in info) {
           this.addressitems[k] = info[k];
-          console.log('场地：',this.addressitems[k]);
+          // console.log('场地：',this.addressitems[k]);
         }
       }).catch(error => {
         // this.presentAlert(error);
@@ -79,7 +79,7 @@ export class AboutPage {
         var images = document.getElementsByClassName('item-imgs');
         for(var i in data){
           this.myactitems[i] = data[i];
-          console.log(data[i]['actTime']);
+          // console.log(data[i]['actTime']);
           var actTime = new Date(data[i]['actTime']);
           this.myactitems[i]['actTime'] = actTime.toLocaleString();
           // console.log(date2);
@@ -101,7 +101,7 @@ export class AboutPage {
   }
 
   goAct(name) {
-    console.log(name);
+    // console.log(name);
     this.navCtrl.push('AboutActPage',name);
   }
 

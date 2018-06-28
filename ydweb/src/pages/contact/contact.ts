@@ -54,7 +54,7 @@ export class ContactPage {
     this.http.post('http://39.107.66.152:8080/mine/getCircleList',{
       userID:window.localStorage.getItem('userID')
     },{}).then(res=>{
-      console.log(res['data']);
+      // console.log(res['data']);
 
       this.items = JSON.parse(res['data']);
 

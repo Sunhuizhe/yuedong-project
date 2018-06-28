@@ -71,7 +71,7 @@ export class HomeActClassPage {
     this.http.post('http://39.107.66.152:8080/goodActInfo', {
       className: this.actClass
     }, {}).then(res => {
-      console.log(res['data']);
+      // console.log(res['data']);
       var data = JSON.parse(res['data']);
       // this.myactitems = data;
       for (var i in data) {
@@ -85,13 +85,13 @@ export class HomeActClassPage {
         data[i]['actCutOffTime'] = actCutOffTime.toLocaleString();
         // this.myactitems[i]['actCutOffTime'] = actCutOffTime.toLocaleString();
 
-        console.log('类别：', data[i].actClass);
+        // console.log('类别：', data[i].actClass);
 
         if (data[i].actClass == '其他') {
-          console.log(data[i].actClass == '其他', i);
+          // console.log(data[i].actClass == '其他', i);
           this.otherAct.push(data[i]);
         } else {
-          console.log(data[i].actClass == '其他', i);
+          // console.log(data[i].actClass == '其他', i);
           this.myactitems.push(data[i]);
         }
       }
@@ -105,9 +105,9 @@ export class HomeActClassPage {
       // this.presentAlert(err);
     });
 
-    for (var k in this.myactitems) {
-      console.log(this.myactitems[k]);
-    }
+    // for (var k in this.myactitems) {
+    //   // console.log(this.myactitems[k]);
+    // }
   }
 
   // 跳转添加活动页

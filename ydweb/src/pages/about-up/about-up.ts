@@ -56,11 +56,11 @@ export class AboutUpPage {
     var tag = e.target.getAttribute('tag') || e.target.innerHTML;
     if (tag == 'AA' || tag == '其他') {
       this.way = e.target.innerHTML;
-      console.log(tag);
-      console.log(this.way);
+      // console.log(tag);
+      // console.log(this.way);
     } else {
       this[tag] = e.target.value;
-      console.log(tag, this[tag]);
+      // console.log(tag, this[tag]);
     }
   }
 
@@ -68,7 +68,7 @@ export class AboutUpPage {
   setSelectValue(e){
     var val = e.target.value;
     this.actClass = val;
-    console.log(this.actClass);
+    // console.log(this.actClass);
   }
 
   // 图片上传
@@ -173,7 +173,7 @@ export class AboutUpPage {
 
     var number = parseInt(this.number);
     var id = parseInt(userId);
-    console.log(this.actClass);
+    // console.log(this.actClass);
 
     this.http.post('http://39.107.66.152:8080/sport/addAct',{
       userID:id,
@@ -188,7 +188,7 @@ export class AboutUpPage {
       billingMethods:this.way,
       imgData:this.base64Image
     },{}).then(res=>{
-      console.log(res['data']);
+      // console.log(res['data']);
       var num = res['data'];
       if(num == '0'){
         this.presentAlert('添加失败，请稍后重试！');

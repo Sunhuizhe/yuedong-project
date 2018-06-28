@@ -63,7 +63,7 @@ export class HomeTopicPage {
       topicID:this.item.topicID
     },{}).then(res=>{
       console.log('HomeTopicPage-话题请求测试打印',res['data']);
-      console.log(this.item.topicID);
+      // console.log(this.item.topicID);
       this.items = JSON.parse(res['data']);
 
       for(var i in this.items){
@@ -94,7 +94,7 @@ export class HomeTopicPage {
   upLoad(e){
     var val = e.value;
     // console.log(e);
-    console.log('upLoad:',val);
+    // console.log('upLoad:',val);
 
     // 修改信息列表
     // this.info[this.info.length] = {usertype:'self',

@@ -72,8 +72,8 @@ export class AboutUserinfoPage {
         this.userinfo.url = info[0].avatar;
         this.userinfo.telNumber = info[0].telNumber;
 
-        console.log(this.userinfo.url);
-        console.log(this.userinfo.telNumber);
+        // console.log(this.userinfo.url);
+        // console.log(this.userinfo.telNumber);
 
       }
     }).catch(error => {

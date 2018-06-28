@@ -98,7 +98,7 @@ export class MyActPage {
     this.http.post('http://39.107.66.152:8080/mine/myAddAct', {
       userID: userId
     }, {}).then(res => {
-      console.log('我发起的活动-请求：', res['data']);
+      // console.log('我发起的活动-请求：', res['data']);
 
       var data = JSON.parse(res['data']);
 
@@ -106,7 +106,7 @@ export class MyActPage {
       for (var i in data) {
         var empty = document.getElementById('empty');
 
-        console.log('MyActPage-UTC时间转换调试：', data[i]['actTime']);
+        // console.log('MyActPage-UTC时间转换调试：', data[i]['actTime']);
 
         var actTime = new Date(data[i]['actTime']);
         data[i]['actTime'] = actTime.toLocaleString();
@@ -114,7 +114,7 @@ export class MyActPage {
         var actCutOffTime = new Date(data[i]['actCutOffTime']);
         data[i]['actCutOffTime'] = actCutOffTime.toLocaleString();
 
-        console.log('MyActPage-UTC时间转换调试：', data[i]['actTime'], data[i]['actCutOffTime']);
+        // console.log('MyActPage-UTC时间转换调试：', data[i]['actTime'], data[i]['actCutOffTime']);
 
         this.myactitems[i] = data[i];
 
@@ -141,7 +141,7 @@ export class MyActPage {
      this.http.post('http://39.107.66.152:8080/sport/getJoinAct', {
       userID: userId
     }, {}).then(res => {
-      console.log('我参加的活动-请求：', res['data']);
+      // console.log('我参加的活动-请求：', res['data']);
 
       this.actitems = [];
 
@@ -152,7 +152,7 @@ export class MyActPage {
       for (var i in data) {
         
 
-        console.log('MyActPage-UTC时间转换调试：', data[i]['actTime']);
+        // console.log('MyActPage-UTC时间转换调试：', data[i]['actTime']);
 
         var actTime = new Date(data[i]['actTime']);
         data[i]['actTime'] = actTime.toLocaleString();
@@ -160,11 +160,11 @@ export class MyActPage {
         var actCutOffTime = new Date(data[i]['actCutOffTime']);
         data[i]['actCutOffTime'] = actCutOffTime.toLocaleString();
 
-        console.log('MyActPage-UTC时间转换调试：', data[i]['actTime'], data[i]['actCutOffTime']);
+        // console.log('MyActPage-UTC时间转换调试：', data[i]['actTime'], data[i]['actCutOffTime']);
 
         this.actitems.push(data[i]);
-        console.log(this.actitems[i]);
-        console.log(this.actitems.length);
+        // console.log(this.actitems[i]);
+        // console.log(this.actitems.length);
       }
 
       if (this.actitems.length == 0) {

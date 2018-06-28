@@ -96,7 +96,7 @@ export class RegisterPage {
 
               var num = data['data'];
 
-              console.log(typeof num, num);
+              // console.log(typeof num, num);
               if (num == '0') {
                 this.presentAlert('该手机号已经注册！');
               } else if (num == '5') {

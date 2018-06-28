@@ -89,7 +89,7 @@ export class ChangepwdPage {
           this.presentAlert('两次输入密码不符，请重新输入！');
         }else{
           var userId = localStorage.getItem('userID');
-          console.log(userId);
+          // console.log(userId);
           this.http.post('http://39.107.66.152:8080/mine/changePwd',{
             userID:userId,
             originPwd:this.oldpassword,
@@ -99,7 +99,7 @@ export class ChangepwdPage {
 
             var num = data['data'];
 
-            console.log(typeof num,num);
+            // console.log(typeof num,num);
             if(num == '0'){
               this.presentAlert('修改失败！');
             }else if(num == '5') {

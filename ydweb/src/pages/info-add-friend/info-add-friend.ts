@@ -43,7 +43,7 @@ export class InfoAddFriendPage {
   }
 
   getValue(e){
-    console.log(e.key);
+    // console.log(e.key);
     if(e.key == 'Enter'){
       this.request();
     }
@@ -58,7 +58,7 @@ export class InfoAddFriendPage {
     this.http.post('http://39.107.66.152:8080/chat/searchFriend',{
         friendTel:this.inputID
       },{}).then(res=>{
-        console.log('res',res['data']);
+        // console.log('res',res['data']);
 
         // var temp = JSON.parse(res['data']);
 

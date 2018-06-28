@@ -89,7 +89,7 @@ export class SetPage {
         this.userinfo.telnum = info[0].telNumber;
         this.userinfo.url = info[0].avatar;
 
-        console.log(this.userinfo.url);
+        // console.log(this.userinfo.url);
 
         // image.style.background = "url(" + this.userinfo.url + ")";
         // image.setAttribute('src',info[0].avatar);
@@ -261,7 +261,7 @@ export class SetPage {
   // 修改信息请求
   changeInfo() {
     var userId = localStorage.getItem('userID');
-    console.log(userId);
+    // console.log(userId);
     this.http.post('http://39.107.66.152:8080/mine/changeMsg', {
       userID: userId,
       telNumber: this.userinfo.telnum,

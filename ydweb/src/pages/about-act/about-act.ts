@@ -28,7 +28,7 @@ export class AboutActPage {
     public navParams: NavParams) {
     this.act = navParams.data;
 
-    console.log(this.act.actPeople);
+    // console.log(this.act.actPeople);
 
     // var buttons = document.getElementById('buttons');
     // for (var i in this.act) {
@@ -79,15 +79,15 @@ export class AboutActPage {
       str: this.act.actPeople
     }, {}).then(res => {
       this.namearr = [];
-      console.log('res.data:', res['data']);
+      // console.log('res.data:', res['data']);
       var t = JSON.parse(res['data']);
       var temp = t;
       for (var i in temp) {
-        console.log('i', i, temp[i]);
+        // console.log('i', i, temp[i]);
         this.namearr.push(temp[i]);
-        console.log('push');
+        // console.log('push');
         for (var k in temp[i]) {
-          console.log('i,k', k, temp[i][k]);
+          // console.log('i,k', k, temp[i][k]);
         }
       }
     }).catch(err => {
@@ -99,7 +99,7 @@ export class AboutActPage {
     console.log('ionViewDidLoad AboutActPage');
 
     var date = new Date().toLocaleString();
-    console.log(date, date > this.act.actCutOffTime);
+    // console.log(date, date > this.act.actCutOffTime);
 
     for (var i in this.arr) {
       var myButton = document.getElementById('mybutton');

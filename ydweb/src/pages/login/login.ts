@@ -83,9 +83,9 @@ export class LoginPage {
         .then(data=>{
 
           var num = data['data'];
-          console.log(num);
+          // console.log(num);
           
-          console.log(typeof num,num);
+          // console.log(typeof num,num);
           if(num == '0'){
             this.presentAlert('用户名不存在！');
           }else if(num == '2') {
@@ -106,7 +106,7 @@ export class LoginPage {
               var obj = JSON.parse(res['data'])[0];
               window.localStorage.setItem('userName',obj.userName);
               window.localStorage.setItem('avatar',obj.avatar);
-              console.log(window.localStorage.getItem('userName'),window.localStorage.getItem('avatar'));
+              // console.log(window.localStorage.getItem('userName'),window.localStorage.getItem('avatar'));
             }).catch(err=>{
               console.log('LoginPage-我的基本信息请求报错：',err);
             });

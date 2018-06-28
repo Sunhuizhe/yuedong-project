@@ -161,7 +161,7 @@ export class ContactUpPage {
   // 请求数据
   request() {
 
-console.log(this.content);  
+// console.log(this.content);  
     if (this.content == null || this.content == '') {
       this.presentAlert('请填写内容再发表！');
     } else {
@@ -173,7 +173,7 @@ console.log(this.content);
         avatar: this.avatarURL,
         content: this.content
       }, {}).then(res => {
-        console.log(res['data']);
+        // console.log(res['data']);
 
         if (res['data'] == 0) {
           this.presentAlert('发表失败，请稍后再试！');

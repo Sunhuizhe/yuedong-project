@@ -42,7 +42,7 @@ export class InfoPage {
 
     for(var i in this.arr){
       for(var k in this.arr[i]){
-        console.log(this.arr[i][k]);
+        // console.log(this.arr[i][k]);
       }
     }
 
@@ -59,7 +59,7 @@ export class InfoPage {
     that.http.post('http://39.107.66.152:8080/mine',{
       userID:from
     },{}).then(res=>{
-      console.log('from data',res['data']);
+      // console.log('from data',res['data']);
 
       var temp = JSON.parse(res['data']);
       that.friendArr = temp[0];
@@ -69,9 +69,9 @@ export class InfoPage {
       // that.friendArr.status = '已读';
       that.arr.unshift(that.friendArr);
       this.request();
-      for(var i in that.friendArr){
-        console.log(i,that.friendArr[i]);
-      }
+      // for(var i in that.friendArr){
+        // console.log(i,that.friendArr[i]);
+      // }
 
     }).catch(err=>{
       console.log('err from:',err);
@@ -87,11 +87,11 @@ export class InfoPage {
     // socket.emit('join', window.localStorage.getItem('userID'));
  });
 
-   console.log('info');
+  //  console.log('info');
 
   //  this.request();
 
-   console.log(window.localStorage.getItem('socket'));
+  //  console.log(window.localStorage.getItem('socket'));
 
   } // constructor
 
@@ -119,7 +119,8 @@ export class InfoPage {
     this.http.post('http://39.107.66.152:8080/chat/getaddFriendList',{
       userID:window.localStorage.getItem('userID')
     },{}).then(res=>{
-      console.log('getaddFriendList', res['data']);
+      this.arr = [];
+      // console.log('getaddFriendList', res['data']);
 
       var temp = JSON.parse(res['data']);
       this.friendArr = temp;
@@ -127,12 +128,12 @@ export class InfoPage {
       // this.friendArr.message = temp[0].messageContent;
 
       for(var i in this.friendArr){
-        console.log('i', this.friendArr[i]);
+        // console.log('i', this.friendArr[i]);
         var time = new Date(this.friendArr[i]['messageTime']).toLocaleString();
         this.friendArr[i]['messageTime'] = time;
         this.arr.push(this.friendArr[i]);
         for(var k in this.friendArr[i]){
-          console.log('i,k', this.friendArr[i][k]);
+          // console.log('i,k', this.friendArr[i][k]);
         }
       }
 
@@ -164,12 +165,6 @@ export class InfoPage {
       refresher.complete();
     }, 2000);
   }
-
-  // 群组
-  // groupitems = [
-  //   { imgUrl: '../assets/imgs/football.jpg', name: '师大足球群', info: '嗯，好的！' },
-  //   { imgUrl: '../assets/imgs/sport1.jpg', name: '石家庄运动群', info: '我不行，我明天有事，就不去了，下次吧！' }
-  // ]
 
   // 消息请求
   goDetail(id,avatar,name) {
@@ -231,7 +226,7 @@ export class InfoPage {
   }
 
   myclick(id,msgid){
-    console.log(id);
+    // console.log(id);
     let actionSheet = this.actionSheetCtrl.create({
       title: '添加好友',
       buttons: [
@@ -268,7 +263,7 @@ export class InfoPage {
   }
 
   agree(id,msgid){
-    console.log(id);
+    // console.log(id);
     
     this.http.post('http://39.107.66.152:8080/chat/changeStatus',{
       messageID:msgid

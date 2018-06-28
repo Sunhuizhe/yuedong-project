@@ -100,10 +100,10 @@ export class MyPage {
         this.userinfo.intro = info[0].signature;
         this.userinfo.url = info[0].avatar;
 
-        console.log(this.userinfo.url);
+        // console.log(this.userinfo.url);
 
         image.style.background = 'url(' + this.userinfo.url + ')';
-        console.log(image.style.background);
+        // console.log(image.style.background);
       }
     }).catch(error => {
       console.log('error status:', error.status);
