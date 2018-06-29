@@ -42,7 +42,7 @@
  
  ## 项目截图
  
- ![首页](https://github.com/Sunhuizhe/yuedong-project/blob/master/%E9%A1%B9%E7%9B%AE%E6%88%AA%E5%9B%BE/1.png)
+ ![首页](images/1.jpg)
  
  ![首页](https://github.com/Sunhuizhe/yuedong-project/blob/master/%E9%A1%B9%E7%9B%AE%E6%88%AA%E5%9B%BE/2.png)
  
