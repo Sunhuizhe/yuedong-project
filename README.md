@@ -20,7 +20,7 @@
 
    * Email:948891770@qq.com
  
-   * [Github](https://github.com/gengkangning)
+   * [Github:https://github.com/gengkangning](https://github.com/gengkangning)
 
 2. 郭丽斌（后台代码开发，测试，UI）
 
