@@ -26,19 +26,19 @@
 
    * Email:782518577@qq.com
  
-   * [Github](https://github.com/GuoLiBin6)
+   * [Github:https://github.com/GuoLiBin6](https://github.com/GuoLiBin6)
  
 3. 孙慧喆（前端代码开发，测试，UI）
 
    * Email:674277449@qq.com
  
-   * [Github](https://github.com/Sunhuizhe)
+   * [Github:https://github.com/Sunhuizhe](https://github.com/Sunhuizhe)
 
 4. 黄纯浩（前端代码开发）
 
    * Email:1575994297@qq.com
  
-   * [Github](https://github.com/hh970304)
+   * [Github:https://github.com/hh970304](https://github.com/hh970304)
  
  ## 项目截图
  
